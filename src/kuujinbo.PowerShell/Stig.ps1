@@ -1,17 +1,17 @@
 ﻿function Get-AuditPol {
     $result = @{};
 
-    $auditString = AuditPol /get /category:*;
-    $partsines = $auditString.split(
+    $audit = AuditPol /get /category:*;
+    $lines = $audit.Split(
         [string[]] "`n",
         [System.StringSplitOptions]::RemoveEmptyEntries
     );
     # remove headers
-    $partsines =  $partsines[2..($partsines.length-1)];
+    $lines =  $lines[2..($lines.length-1)];
     $group = '';
 
-    foreach ($partsine in $partsines) {
-        $parts = [regex]::split($partsine.trim(), '\s{2,}');
+    foreach ($line in $lines) {
+        $parts = [regex]::Split($line.Trim(), '\s{2,}');
 
         if ($parts.length -eq 1) {
             $group = $parts[0];
