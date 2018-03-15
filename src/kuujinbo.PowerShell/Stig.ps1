@@ -1,9 +1,8 @@
 ﻿function Get-AuditPol {
     # suppress STDERR if run with insufficient privileges
     $audit = AuditPol /get /category:* 2>$null;
-    if (!$audit) { 
-        return $null;
-    }
+    if (!$audit) { return $null; }
+
     $lines = $audit.Split(
         [string[]] "`n",
         [System.StringSplitOptions]::RemoveEmptyEntries
