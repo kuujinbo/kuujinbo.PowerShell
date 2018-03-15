@@ -1,6 +1,4 @@
 ﻿function Get-AuditPol {
-    $result = @{};
-
     # suppress STDERR if run with insufficient privileges
     $audit = AuditPol /get /category:* 2>$null;
     if (!$audit) { 
@@ -12,10 +10,11 @@
     );
     # remove headers
     $lines =  $lines[2..($lines.length-1)];
-    $group = '';
 
+    $result = @{};
+    $group = '';
     foreach ($line in $lines) {
-        $parts = [regex]::Split($line.Trim(), '\s{2,}');
+        $parts = [Regex]::Split($line.Trim(), '\s{2,}', 2);
 
         if ($parts.length -eq 1) {
             $group = $parts[0];
