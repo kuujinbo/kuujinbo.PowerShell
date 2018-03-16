@@ -26,9 +26,14 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Compile Include="Stig.ps1" />
+    <Folder Include="Stig\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Stig\File.ps1" />
+    <Compile Include="Stig\Stig.ps1" />
+    <Compile Include="Stig\Win10.ps1" />
+    <Compile Include="testing.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />
