@@ -1,20 +1,16 @@
-﻿function Parse-CheckContent {
+﻿
+function Parse-CheckContent {
     param(
         [Parameter(Mandatory=$true)] [string]$text
         , [Parameter(Mandatory=$true)] [string]$rule
     )
-
-    $lines = $text.Split(
-        [string[]] "`n", 
-        [StringSplitOptions]::RemoveEmptyEntries
-    );
-    $wanted = "^(?:registry|value|type)[^:]*:(?'value'.*)";
-    
     <#
         STIG authors **RIDICULOUSLY** inconsistent, but should be in groups of 5:
         Registry Hive, Registry Path, Value Name, [Value] Type, Value
     #>
     $result = @();
+    $wanted = "^(?:registry|value|type)[^:]*:(?'value'.*)";
+    $lines = Get-Lines $text;
     foreach ($line in $lines) {
         if ($line -match $wanted) {
             $result += $matches['value'].Trim();
@@ -22,7 +18,6 @@
     }
     return $result;
 }
-
 
 function Get-Rules {
     param(
@@ -54,28 +49,36 @@ function Get-Rules {
 
 function Get-AuditPol {
     # suppress STDERR if run with insufficient privileges
-    $audit = AuditPol /get /category:* 2>$null;
+    $audit = ((AuditPol /get /category:* 2>$null) | Out-String) -join '';
     if (!$audit) { return $null; }
 
-    $lines = $audit.Split(
-        [string[]] "`n",
-        [System.StringSplitOptions]::RemoveEmptyEntries
-    );
+    $lines = Get-Lines $audit;
     # remove headers
     $lines =  $lines[2..($lines.length-1)];
 
     $result = @{};
     $group = '';
     foreach ($line in $lines) {
-        $parts = [Regex]::Split($line.Trim(), '\s{2,}', 2);
+        $subCategory, $setting = [Regex]::Split($line.Trim(), '\s{2,}', 2);
 
-        if ($parts.length -eq 1) {
-            $group = $parts[0];
+        if ($setting -eq $null) {
+            $group = $subCategory;
             $result.$group = @{};
         } else {
-            $result.$group[$parts[0]] = $parts[1];
+            $result.$group.$subCategory = $setting;
         }
     }
-
     return $result;
+}
+
+
+function Get-Lines {
+    param(
+        [Parameter(Mandatory=$true)] [string]$text
+    )
+
+    return $text.Split(
+        [string[]] (, "`r`n", "`n", "`r"), 
+        [StringSplitOptions]::RemoveEmptyEntries
+    );
 }
