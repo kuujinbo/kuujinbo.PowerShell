@@ -123,8 +123,8 @@ function Get-Rules {
     )
 
     [xml]$xmlRules = Get-Content -Path $filePath -ErrorAction Stop;
-    $result = @{};
     if($xmlRules) {
+        $result = @{};
         foreach ($group in $xmlRules.Benchmark.Group) {
             foreach ($rule in $group.Rule) {
                 $result[$group.id] = New-Object -TypeName PSObject -Property (@{
