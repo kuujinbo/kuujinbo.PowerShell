@@ -2,29 +2,43 @@
 $thisScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Definition;
 . (Join-Path $thisScriptDir 'Stig/File.ps1');
 . (Join-Path $thisScriptDir 'Stig/Stig.ps1');
+. (Join-Path $thisScriptDir 'Stig/Win10.ps1');
 
-$r = Get-Rules (Join-Path (Get-DesktopPath) '.ps-STIG/U_Windows_10_STIG_V1R12_Manual-xccdf.xml');
-$parsed = @{};
-foreach ($key in $r.Keys) {
-    if ($r.$key.registry.length -gt 0) {
-        $array =  $r.$key.registry;
-        $expected = $array[4].Trim(); 
-        if ($expected.length -eq 1) { $expected = "-eq $expected"; }
-        $parsed[$key] = New-Object -TypeName PSObject -Property (@{
-            hive = $REGISTRY_HIV[$array[0]] + ':' + $array[1]; 
-            value = $array[2];
-            expected = $expected;
-        });
+#region functions
+# ----------------------------------------------------------------------------
+function Dump-AuditPolResults {
+    $r = Get-AuditPol;
+    $auditPolRules = Get-AuditPolRules;
+    foreach ($key in $auditPolRules.keys) {
+        $group = $auditPolRules.$key[0];
+        $category = $auditPolRules.$key[1];
+        $expected = $auditPolRules.$key[2];
+        $result = $r.$group.$category;
+        $pass = if ($result -match "\b$($expected)\b" ) { 'PASS'; } else { 'FAIL' }
+
+        Write-Host "$key [$pass] = $group => $category => REQUIRED: [$expected] => ACTUAL: [$result]";
     }
 }
-$parsed | ConvertTo-Json | Out-File (Join-Path $thisScriptDir reg-raw.json);
 
+function Parse-Win10Rules {
+    $regWorking = Join-Path $thisScriptDir 'reg-working.txt';
+    $r = Get-Rules 'c:/dev/U_Windows_10_STIG_V1R12_Manual-xccdf.xml' $regWorking;
+}
+# ----------------------------------------------------------------------------
+#endregion
 
-foreach ($rr in $r.keys) {
-    if ($r.$rr.registry.length -gt 0) {
-        $array =  $r.$rr.registry;
-        $hive = $REGISTRY_HIV[$array[0]] + ':' + $array[1];
+$auditPolRules = Get-AuditPolRules;
+$regRules = Get-RegistryRules;
 
-        "(Get-RegistryValue $rr $hive $($array[2]))";
+$allRules = Get-Rules 'c:/dev/U_Windows_10_STIG_V1R12_Manual-xccdf.xml';
+
+$missingRules = @{};
+foreach ($rule in $allRules.keys) {
+    if (!$auditPolRules.containskey($rule) -and !$regRules.containskey($rule)) {
+        $missingRules.$rule = $null;
     }
 }
+
+
+$missingRules.Keys.Count;
+$missingRules | Out-GridView;

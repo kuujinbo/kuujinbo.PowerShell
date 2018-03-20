@@ -8,7 +8,7 @@ Set-Variable CATs -option Constant -value (@{
     medium = 'CAT II';
     high = 'CAT III';
 });
-Set-Variable REGISTRY_HIV -option Constant -value (@{
+Set-Variable REGISTRY_HIVE -option Constant -value (@{
     HKEY_LOCAL_MACHINE = 'HKLM';
     HKEY_CURRENT_USER = 'HKCU';
 });
@@ -92,6 +92,49 @@ function Get-CimRegistryValue($path, $valueName) {
 
 #region rule file parser
 # ----------------------------------------------------------------------------
+<#
+.SYNOPSIS
+    Get STIG rules XML file in a PowerShell data structure.
+.DESCRIPTION
+    The Get-Rules cmdlet parses A STIG rule XML file and converts into a
+    PowerShell data structure.
+#>
+function Get-Rules {
+    param(
+        [Parameter(Mandatory=$true)] [string]$xmlRulesPath
+        , [string]$regWorkingOutPath
+    )
+
+    [xml]$xmlRules = Get-Content -Path $xmlRulesPath -ErrorAction Stop;
+    if ($xmlRules) {
+        $result = @{};
+        $working = New-Object System.Text.StringBuilder;
+        foreach ($group in $xmlRules.Benchmark.Group) {
+            foreach ($rule in $group.Rule) {
+                $result[$group.id] = New-Object -TypeName PSObject -Property (@{
+                    title = $rule.title;
+                    severity = $CATs[$rule.severity];
+                });
+                if ($regWorkingOutPath) { 
+                    $a = Parse-CheckContent $rule.check.'check-content' $group.id;
+                    if ($a.length -gt 0) { 
+                        $hive = $REGISTRY_HIVE[$a[0]] + ':' + $a[1];
+                        $working.AppendLine(
+                            "'$($group.id)' = @('$hive', '$($a[2])', '$($a[4])');"
+                        ) | Out-Null;
+                    }
+                }
+            }
+        }
+
+        if ($regWorkingOutPath) { $working.ToString() | Out-File -FilePath $regWorkingOutPath; }
+
+        return $result;
+    }
+}
+
+
+
 function Parse-CheckContent {
     param(
         [Parameter(Mandatory=$true)] [string]$text
@@ -116,31 +159,19 @@ function Parse-CheckContent {
         return @(); 
     }
 }
-
-function Get-Rules {
-    param(
-        [Parameter(Mandatory=$true)] [string]$filePath
-    )
-
-    [xml]$xmlRules = Get-Content -Path $filePath -ErrorAction Stop;
-    if($xmlRules) {
-        $result = @{};
-        foreach ($group in $xmlRules.Benchmark.Group) {
-            foreach ($rule in $group.Rule) {
-                $result[$group.id] = New-Object -TypeName PSObject -Property (@{
-                    title = $rule.title;
-                    severity = $CATs[$rule.severity];
-                    registry = Parse-CheckContent $rule.check.'check-content' $group.id;
-                });
-            }
-        }
-        return $result;
-    }
-}
 # ----------------------------------------------------------------------------
 #endregion
 
 
+#region AuditPol
+# ----------------------------------------------------------------------------
+<#
+.SYNOPSIS
+    Get AuditPol STDOUT in a PowerShell data structure.
+.DESCRIPTION
+    The Get-AuditPol cmdlet parses AuditPol.exe STDOUT and converts result
+    into a PowerShell data structure.
+#>
 function Get-AuditPol {
     # suppress STDERR if run with insufficient privileges
     $audit = ((AuditPol /get /category:* 2>$null) | Out-String) -join '';
@@ -164,3 +195,5 @@ function Get-AuditPol {
     }
     return $result;
 }
+# ----------------------------------------------------------------------------
+#endregion
