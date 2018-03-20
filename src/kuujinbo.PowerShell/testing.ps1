@@ -40,5 +40,5 @@ foreach ($rule in $allRules.keys) {
 }
 
 
+$allRules.Keys.Count;
 $missingRules.Keys.Count;
-$missingRules | Out-GridView;
