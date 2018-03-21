@@ -1,8 +1,8 @@
 # load dot source script file
 $thisScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Definition;
-. (Join-Path $thisScriptDir 'Stig/File.ps1');
-. (Join-Path $thisScriptDir 'Stig/Stig.ps1');
-. (Join-Path $thisScriptDir 'Stig/Win10.ps1');
+Import-Module (Join-Path $PSScriptRoot 'Stig/File.psm1') -DisableNameChecking;
+Import-Module (Join-Path $PSScriptRoot 'Stig/Stig.psm1') -DisableNameChecking;
+Import-Module (Join-Path $PSScriptRoot 'Stig/Win10.psm1') -DisableNameChecking;
 
 #region functions
 # ----------------------------------------------------------------------------
@@ -26,6 +26,14 @@ function Parse-Win10Rules {
 }
 # ----------------------------------------------------------------------------
 #endregion
+
+
+$v = get-win10version;
+($v -eq $null);
+Dump-AuditPolResults;
+
+exit;
+
 
 $auditPolRules = Get-AuditPolRules;
 $regRules = Get-RegistryRules;

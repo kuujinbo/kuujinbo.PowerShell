@@ -86,7 +86,7 @@ function Get-RegistryRules {
         # v1703 also needs this
         # 'V-63685' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\System\', 'ShellSmartScreenLevel', 'Block');
         # v1703
-        'V-74415' = @('HKLM:\SOFTWARE\Policies\Microsoft\MicrosoftEdge\ Privacy\', 'ClearBrowsingHistoryOnExit', '0x00000000 (0)');
+        'V-74415' = @('HKLM:\SOFTWARE\Policies\Microsoft\MicrosoftEdge\ Privacy\', 'ClearBrowsingHistoryOnExit', '0');
         # v1703 NA for prior versions
         'V-74417' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR\', 'AllowGameDVR', '0');
         # v1703 NA for prior versions
@@ -117,7 +117,7 @@ function Get-RegistryRules {
 
         'V-63661' = @('HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters\', 'MaximumPasswordAge', '30 (or less, excluding 0)');
 
-        # good
+        # GOOD
         'V-63321' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer\', 'EnableUserControl', '0');
         'V-63325' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer\', 'AlwaysInstallElevated', '0');
         'V-63333' = @('HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\', 'DisableAutomaticRestartSignOn', '1');
@@ -177,7 +177,7 @@ By using this IS (which includes any device attached to this IS), you consent to
 -Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details.
 '@
         );
-        'V-63677' = @('HKLM:\SOFTWARE\Policies\Microsoft\Biometrics\FacialFeatures\', 'EnhancedAntiSpoofing', '0x00000001 (1)');
+        'V-63677' = @('HKLM:\SOFTWARE\Policies\Microsoft\Biometrics\FacialFeatures\', 'EnhancedAntiSpoofing', '1');
         'V-63679' = @('HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\CredUI\', 'EnumerateAdministrators', '0');
         'V-63683' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection\', 'AllowTelemetry', '0');
         'V-63687' = @('HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\', 'CachedLogonsCount', '-le 10');
@@ -238,20 +238,5 @@ By using this IS (which includes any device attached to this IS), you consent to
         'V-74413' = @('HKLM:\SOFTWARE\Policies\Microsoft\ Cryptography\Configuration\SSL\00010002\', 'EccCurves', 'NistP384 NistP256');
     };
 }
-
-
 # ----------------------------------------------------------------------------
 #endregion
-
-
-
-function Get-Version {
-    param([Parameter(Mandatory=$true)] $cimSession)
-    $cmdArgs = @{
-        hDefKey=$HKLM;
-        sSubKeyName='software\microsoft\windows nt\currentversion';
-        sValueName='releaseid';
-    };
-
-    (Invoke-CimMethod -CimSession $cimSession -Namespace root/cimv2 -ClassName StdRegProv -MethodName GetStringValue -Arguments $cmdArgs).sValue;
-}

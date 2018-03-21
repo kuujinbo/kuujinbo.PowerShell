@@ -31,9 +31,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="json-test.ps1" />
-    <Compile Include="Stig\File.ps1" />
-    <Compile Include="Stig\Stig.ps1" />
-    <Compile Include="Stig\Win10.ps1" />
+    <Compile Include="Stig\File.psm1" />
+    <Compile Include="Stig\Stig.psm1" />
+    <Compile Include="Stig\Win10.psm1" />
     <Compile Include="testing.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,5 @@
 ﻿#region constants
+# ----------------------------------------------------------------------------
 Set-Variable CIM_CLASS_OS -option Constant -value ([string] 'Win32_OperatingSystem');
 Set-Variable CIM_REGISTRY_NAMESPACE -option Constant -value ([string] 'root/cimv2');
 Set-Variable CIM_REGISTRY_PROVIDER_CLASSNAME -option Constant -value ([string] 'StdRegProv');
@@ -21,29 +22,59 @@ Set-Variable HKCU -option Constant -value ([uint32] 2147483649);
 Set-Variable HKCR -option Constant -value ([uint32] 2147483648);
 # HKEY_CURRENT_CONFIG 
 Set-Variable HKCC -option Constant -value ([uint32] 2147483653);
-
-Set-Variable _dotSourceCallerScript -option Constant -value ([string] $MyInvocation.ScriptName);
-# ONLY allow dot source access to this script
-if ($_dotSourceCallerScript -eq '') {
-    Write-Host 'DO NOT call this script directly; ONLY use via dot source.';
-    exit;
-}
-Set-Variable _dotSourceCallerDirectory -option Constant -value ([string] (Split-Path -Parent $_dotSourceCallerScript));
+# ----------------------------------------------------------------------------
 #endregion
 
-#region utility-functions
+
+#region remoting utilities
 # ----------------------------------------------------------------------------
 <#
 .SYNOPSIS
-    Get full path to calling script directory
+    Dynamically get a local module for remote sessions; i.e. `Invoke-Command`.
 .DESCRIPTION
-    The Get-CallingScriptDirectory cmdlet gets the full path to calling 
-    script directory.
+    The Get-LocalModuleForRemoteSession cmdlet dynamically generates a script 
+    block from a local module for use when calling `Invoke-Command`.
+.NOTES
+    `Invoke-Command -FilePath ...` is the usual answer to import common code 
+    into a remote session, but dumping various functions from modules and 
+    script files is more complicated, (can't pass parameters as-is) error 
+    prone, and unmaintainable.
+.EXAMPLE
+    $dynamicScript = Get-LocalModuleForRemoteSession 'C:\PSmodules\MYModule.psm1';
+    $session = New-PSSession -ComputerName $computer;
+    # suppress constant import errors
+    Invoke-Command -Session $session -ScriptBlock $dynamicScript -ErrorAction SilentlyContinue;
 #>
-function Get-CallingScriptDirectory {
-    $_dotSourceCallerDirectory;
-}
+function Get-LocalModuleForRemoteSession {
+    param( [string] $modulePath );
 
+    $baseName = [System.IO.Path]::GetFileNameWithoutExtension($modulePath);
+    $moduleObject = Get-Module $baseName;
+    if (!$moduleObject) 
+    { 
+        Import-Module $modulePath -DisableNameChecking;
+        $moduleObject = Get-Module $baseName;
+    }
+
+    $moduleDefinition = @"
+if (Get-Module $baseName) { Remove-Module $baseName; }
+New-Module -name $baseName {
+    $($moduleObject.Definition);
+    Export-ModuleMember -Function "*";
+    Export-ModuleMember -Variable "*";
+    Export-ModuleMember -Alias "*";
+    Export-ModuleMember -Cmdlet "*";
+} | Import-Module -DisableNameChecking;
+"@;
+
+    return [ScriptBlock]::Create($moduleDefinition);
+}
+# ----------------------------------------------------------------------------
+#endregion
+
+
+#region utility-functions
+# ----------------------------------------------------------------------------
 function Get-Lines {
     param(
         [Parameter(Mandatory=$true)] [string]$text
@@ -53,6 +84,10 @@ function Get-Lines {
         [string[]] (, "`r`n", "`n", "`r"), 
         [StringSplitOptions]::RemoveEmptyEntries
     );
+}
+
+function Get-Win10Version {
+    Get-RegistryValue 'HKLM:\software\microsoft\windows nt\currentversion' releaseid;
 }
 # ----------------------------------------------------------------------------
 #endregion
