@@ -1,8 +1,5 @@
-# load dot source script file
-$thisScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Definition;
-Import-Module (Join-Path $PSScriptRoot 'Stig/File.psm1') -DisableNameChecking;
-Import-Module (Join-Path $PSScriptRoot 'Stig/Stig.psm1') -DisableNameChecking;
-Import-Module (Join-Path $PSScriptRoot 'Stig/Win10.psm1') -DisableNameChecking;
+Import-Module (Join-Path $PSScriptRoot 'Modules/Stig/Stig.psm1') -DisableNameChecking -Force -Verbose;
+Import-Module (Join-Path $PSScriptRoot 'Modules/Stig/Win10.psm1') -DisableNameChecking -Force;
 
 #region functions
 # ----------------------------------------------------------------------------
@@ -26,19 +23,18 @@ function Parse-Win10Rules {
 }
 # ----------------------------------------------------------------------------
 #endregion
-
+$rulesFile = 'c:/dev/U_Windows_10_STIG_V1R12_Manual-xccdf.xml';
 
 $v = get-win10version;
 ($v -eq $null);
-Dump-AuditPolResults;
+# Dump-AuditPolResults;
 
-exit;
 
 
 $auditPolRules = Get-AuditPolRules;
 $regRules = Get-RegistryRules;
 
-$allRules = Get-Rules 'c:/dev/U_Windows_10_STIG_V1R12_Manual-xccdf.xml';
+$allRules = Get-Rules $rulesFile;
 
 $missingRules = @{};
 foreach ($rule in $allRules.keys) {
@@ -50,3 +46,5 @@ foreach ($rule in $allRules.keys) {
 
 $allRules.Keys.Count;
 $missingRules.Keys.Count;
+
+Get-WantedRules $rulesFile 'c:/dev/koko.xml' $missingRules;

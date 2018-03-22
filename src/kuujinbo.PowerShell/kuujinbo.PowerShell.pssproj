@@ -27,14 +27,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Stig\" />
+    <Folder Include="Modules\" />
+    <Folder Include="Examples\" />
+    <Folder Include="__scratch\" />
+    <Folder Include="Modules\Stig\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="json-test.ps1" />
-    <Compile Include="Stig\File.psm1" />
-    <Compile Include="Stig\Stig.psm1" />
-    <Compile Include="Stig\Win10.psm1" />
+    <Compile Include="Examples\export-ckl.ps1" />
+    <Compile Include="Examples\registry-values.ps1" />
+    <Compile Include="__scratch\json-test.ps1" />
+    <Compile Include="Modules\File.psm1" />
+    <Compile Include="Modules\Stig\Stig.psm1" />
+    <Compile Include="Modules\Stig\Win10.psm1" />
     <Compile Include="testing.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Examples\CKL-TEMPLATE.ckl" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />
