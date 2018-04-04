@@ -1,11 +1,4 @@
-Import-Module (Join-Path $PSScriptRoot '../Modules/Stig/Stig.psm1') -DisableNameChecking -Force -Verbose;
-write-host $CKL_STATUS;
-$CKL_DETAILS;
-$CKL_COMMENTS;
-$CIM_CLASS_OS;
-'wtf';
-exit
-
+Import-Module (Join-Path $PSScriptRoot '../Modules/Stig/Stig.psm1') -DisableNameChecking -Force; # -Verbose;
 
 $testData = @{
     'V-63319' = @{ "$CKL_STATUS" = 'Not_Reviewed'; "$CKL_COMMENTS" = 'Not_Reviewed'; };
@@ -15,7 +8,8 @@ $testData = @{
 };
 
 $in = Join-Path $PSScriptRoot 'CKL-TEMPLATE.ckl';
-$out = Join-Path ([Environment]::GetFolderPath([Environment+SpecialFolder]::Desktop)) 'test-host.ckl';
+$out = Join-Path (Get-DesktopPath) 'test-host.ckl';
+
 Export-Ckl $in $out $testData;
 
 <#
@@ -35,7 +29,7 @@ STIG Viewer 2.6.1
     </STIG_DATA>
 
     <!-- single nodes -->
-    <STATUS>Open</STATUS>
+    <STATUS></STATUS>
     <FINDING_DETAILS>FAIL</FINDING_DETAILS>
     <COMMENTS></COMMENTS>
     <SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>

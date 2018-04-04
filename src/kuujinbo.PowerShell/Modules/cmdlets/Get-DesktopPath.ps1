@@ -2,7 +2,7 @@
 .SYNOPSIS
     Get path to user's desktop
 .DESCRIPTION
-    The Get-PathDesktop cmdlet is a simple wrapper to get path to user's desktop.
+    The Get-DesktopPath cmdlet is a simple wrapper to get path to user's desktop.
 #>
 function Get-DesktopPath {
     [CmdletBinding()]

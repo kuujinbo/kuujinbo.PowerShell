@@ -29,14 +29,30 @@
   <ItemGroup>
     <Folder Include="Modules\" />
     <Folder Include="Examples\" />
+    <Folder Include="Modules\cmdlets\" />
+    <Folder Include="Modules\Stig\cmdlets\" />
+    <Folder Include="Modules\Stig\cmdlets\Win10\" />
     <Folder Include="__scratch\" />
     <Folder Include="Modules\Stig\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Examples\export-ckl.ps1" />
     <Compile Include="Examples\registry-values.ps1" />
+    <Compile Include="Modules\cmdlets\Get-DesktopPath.ps1" />
+    <Compile Include="Modules\Stig\cmdlets\Export-Ckl.ps1" />
+    <Compile Include="Modules\Stig\cmdlets\Get-AuditPol.ps1" />
+    <Compile Include="Modules\Stig\cmdlets\Get-Lines.ps1" />
+    <Compile Include="Modules\Stig\cmdlets\Get-LocalModuleForRemoteSession.ps1.bak" />
+    <Compile Include="Modules\Stig\cmdlets\Get-RegistryValue.ps1" />
+    <Compile Include="Modules\Stig\cmdlets\Get-Rules.ps1" />
+    <Compile Include="Modules\Stig\cmdlets\Get-ScriptBlockForRemote.ps1" />
+    <Compile Include="Modules\Stig\cmdlets\Get-WantedRules.ps1" />
+    <Compile Include="Modules\Stig\cmdlets\ReadOnlyVariables.ps1" />
+    <Compile Include="Modules\Stig\cmdlets\Win10\Get-AuditPolRules.ps1" />
+    <Compile Include="Modules\Stig\cmdlets\Win10\Get-RegistryRules.ps1" />
+    <Compile Include="Modules\Stig\cmdlets\Win10\Get-Win10Version.ps1" />
+    <Compile Include="Modules\Stig\cmdlets\Set-RegistryValue.ps1" />
     <Compile Include="__scratch\json-test.ps1" />
-    <Compile Include="Modules\File.psm1" />
     <Compile Include="Modules\Stig\Stig.psm1" />
     <Compile Include="Modules\Stig\Win10.psm1" />
     <Compile Include="testing.ps1" />
