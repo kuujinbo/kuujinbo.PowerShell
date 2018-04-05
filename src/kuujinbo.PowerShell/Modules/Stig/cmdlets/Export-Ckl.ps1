@@ -31,11 +31,10 @@ function Export-Ckl {
                 }
             }
         }
-
+        # else XmlDocument.Save(string filename) is utf-8 BOM encoded
         $utf = New-Object System.Text.UTF8Encoding($false);
         $writer = New-Object System.Xml.XmlTextWriter($cklOutPath, $utf);
         $cklTemplate.Save($writer);
         $writer.Dispose();
-        # $cklTemplate.Save($cklOutPath);
     }
 }
