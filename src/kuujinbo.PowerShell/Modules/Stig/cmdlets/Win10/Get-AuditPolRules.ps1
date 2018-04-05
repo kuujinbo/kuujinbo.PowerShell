@@ -13,7 +13,7 @@ function Get-AuditPolRules {
     @{
         'V-63459' = @('Logon/Logoff', 'Logoff', 'Success');
         'V-63463' = @('Logon/Logoff', 'Logon', 'Failure');
-        'V-63467' = @('Logon/Logoff', 'Logon', 'Success;');
+        'V-63467' = @('Logon/Logoff', 'Logon', 'Success');
         'V-63469' = @('Logon/Logoff', 'Special Logon', 'Success');
         'V-75027' = @('Object Access', 'File Share', 'Failure');
         'V-74721' = @('Object Access', 'File Share', 'Success');

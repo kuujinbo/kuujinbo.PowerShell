@@ -1,4 +1,4 @@
-Import-Module (Join-Path $PSScriptRoot 'Modules/Stig/Stig.psm1') -DisableNameChecking -Force -Verbose;
+# Import-Module (Join-Path $PSScriptRoot 'Modules/Stig/Stig.psm1') -DisableNameChecking -Force -Verbose;
 Import-Module (Join-Path $PSScriptRoot 'Modules/Stig/Win10.psm1') -DisableNameChecking -Force;
 
 #region functions
@@ -27,9 +27,10 @@ $rulesFile = 'c:/dev/U_Windows_10_STIG_V1R12_Manual-xccdf.xml';
 
 $v = get-win10version;
 ($v -eq $null);
-# Dump-AuditPolResults;
+Dump-AuditPolResults;
 
 
+exit;
 
 $auditPolRules = Get-AuditPolRules;
 $regRules = Get-RegistryRules;

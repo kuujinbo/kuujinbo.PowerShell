@@ -1,7 +1,3 @@
-Set-Variable CIM_CLASS_OS -option ReadOnly -value ([string] 'Win32_OperatingSystem');
-Set-Variable CIM_REGISTRY_NAMESPACE -option ReadOnly -value ([string] 'root/cimv2');
-Set-Variable CIM_REGISTRY_PROVIDER_CLASSNAME -option ReadOnly -value ([string] 'StdRegProv');
-
 Set-Variable CATs -option ReadOnly -value (@{
     low = 'CAT I';
     medium = 'CAT II';
@@ -16,14 +12,13 @@ Set-Variable REGISTRY_HIVE -option ReadOnly -value (@{
     HKEY_USERS = 'HKUS';
 });
 
-Set-Variable HKCR -option ReadOnly -value ([uint32] 2147483648);
-Set-Variable HKCU -option ReadOnly -value ([uint32] 2147483649);
-Set-Variable HKLM -option ReadOnly -value ([uint32] 2147483650);
-Set-Variable HKUS -option ReadOnly -value ([uint32] 2147483651);
-Set-Variable HKCC -option ReadOnly -value ([uint32] 2147483653);
-
-# XML node names
+# .ckl XML node names
 Set-Variable CKL_STATUS -option ReadOnly -value ([string] 'STATUS');
 Set-Variable CKL_DETAILS -option ReadOnly -value ([string] 'FINDING_DETAILS');
 Set-Variable CKL_COMMENTS -option ReadOnly -value ([string] 'COMMENTS');
 
+# .ckl XML status values
+Set-Variable CKL_STATUS_OPEN -option ReadOnly -value ([string] 'Open');
+Set-Variable CKL_STATUS_PASS -option ReadOnly -value ([string] 'NotAFinding');
+Set-Variable CKL_STATUS_NA -option ReadOnly -value ([string] 'Not_Applicable');
+Set-Variable CKL_STATUS_NOT_REVIEWED -option ReadOnly -value ([string] 'Not_Reviewed');

@@ -13,7 +13,7 @@ function Export-Ckl {
     param(
         [Parameter(Mandatory)] [string]$cklInPath
         ,[Parameter(Mandatory)] [string]$cklOutPath
-        ,[Parameter(Mandatory)] [hashtable]$data
+        ,[Parameter(Mandatory)] [hashtable]$data # key value => @(status, details, comments)
     )
 
     [xml]$cklTemplate = Get-Content -Path $cklInPath -ErrorAction Stop;
@@ -22,16 +22,20 @@ function Export-Ckl {
             foreach ($vuln in $iStig.VULN) {
                 $id = $vuln.STIG_DATA.ATTRIBUTE_DATA[0];
                 if ($data.ContainsKey($id)) {
-                    $vuln.$CKL_STATUS = $data.$id.$CKL_STATUS;
-                    if ($data.$id.ContainsKey($CKL_DETAILS)) { 
-                        $vuln.$CKL_DETAILS = $data.$id.$CKL_DETAILS; 
-                    }
-                    if ($data.$id.ContainsKey($CKL_COMMENTS)) { 
-                        $vuln.$CKL_COMMENTS = $data.$id.$CKL_COMMENTS; 
+                    [string[]]$values = $data.$id;
+                    $vuln.$CKL_STATUS = $values[0];
+                    $vuln.$CKL_DETAILS = $values[1]; 
+                    if ($values[2] -ne $null) { 
+                        $vuln.$CKL_COMMENTS = $values[2]; 
                     }
                 }
             }
         }
-        $cklTemplate.Save($cklOutPath);
+
+        $utf = New-Object System.Text.UTF8Encoding($false);
+        $writer = New-Object System.Xml.XmlTextWriter($cklOutPath, $utf);
+        $cklTemplate.Save($writer);
+        $writer.Dispose();
+        # $cklTemplate.Save($cklOutPath);
     }
 }

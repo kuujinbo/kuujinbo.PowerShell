@@ -8,7 +8,10 @@
 function Get-AuditPol {
     # suppress STDERR if run with insufficient privileges
     $audit = ((AuditPol /get /category:* 2>$null) | Out-String) -join '';
-    if (!$audit) { return $null; }
+    if (!$audit) { 
+        Write-Output 'insufficient permissions to call auditpol.exe';
+        return $null;
+    }
 
     $lines = Get-Lines $audit;
     # remove headers

@@ -8,6 +8,58 @@
 #>
 function Get-RegistryRules {
     @{
+        # WTF - check content/fix too complicated for automated check
+        'V-63599' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard\', 'LsaCfgFlags', '0x00000001 (1) (Enabled with UEFI lock)');
+        'V-63603' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard\', 'HypervisorEnforcedCodeIntegrity', '0x00000001 (1) (Enabled with UEFI lock), or 0x00000002 (2) (Enabled without lock)');
+        'V-63681' = @('HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\', 'LegalNoticeCaption', '"DoD Notice and Consent Banner", "US Department of Defense Warning Statement"');
+        'V-63697' = @('HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\', 'SCRemoveOption', '1 (Lock Workstation) or 2 (Force Logoff)');
+        # If SEHOP is configured through the Enhanced Mitigation Experience Toolkit (EMET), this registry setting is NA
+        'V-68849' = @('HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\kernel\', 'DisableExceptionChainValidation', '0x00000000 (0)');
+        'V-71769' = @('HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\', 'RestrictRemoteSAM', 'O:BAG:BAD:(A;;RC;;;BA)');
+        'V-72329' = @('HKLM:\SOFTWARE\Classes\batfile\shell\runasuser\', 'SuppressionPolicy', '4096');
+        <#
+\SOFTWARE\Classes\batfile\shell\runasuser\
+\SOFTWARE\Classes\cmdfile\shell\runasuser\
+\SOFTWARE\Classes\exefile\shell\runasuser\
+\SOFTWARE\Classes\mscfile\shell\runasuser\
+        #>
+
+        # v1607
+        'V-63685' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\System\', 'EnableSmartScreen', '1');
+        # v1703 also needs this
+        # 'V-63685' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\System\', 'ShellSmartScreenLevel', 'Block');
+        # v1703
+        'V-74415' = @('HKLM:\SOFTWARE\Policies\Microsoft\MicrosoftEdge\ Privacy\', 'ClearBrowsingHistoryOnExit', '0');
+        # v1703 NA for prior versions
+        'V-74417' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR\', 'AllowGameDVR', '0');
+        # v1703 NA for prior versions
+        'V-74699' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\CredentialsDelegation\', 'AllowProtectedCreds', '1');
+        # if V-70639 is configured NA.
+        'V-74723' = @('HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters\', 'SMB1', '0');
+        # if V-70639 is configured NA.
+        'V-74725' = @('HKLM:\SYSTEM\CurrentControlSet\Services\mrxsmb10\', 'Start', '4');
+        # NA prior to v1709 
+        'V-77025' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\App and Browser protection\', 'DisallowExploitProtectionOverride', '1');
+
+
+        # or if the Value Name does not exist
+        'V-63329' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer\', 'SafeForScripting', '0');
+        'V-63581' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\WcmSvc\GroupPolicy\', 'fMinimizeConnections', '1');
+        'V-63607' = @('HKLM:\SYSTEM\CurrentControlSet\Policies\EarlyLaunch\', 'DriverLoadPolicy', '1, 3, 8');
+        'V-63627' = @('HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters\', 'DevicePKInitEnabled', '1');
+        'V-63689' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer\', 'NoDataExecutionPrevention', '0');
+        'V-63691' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer\', 'NoHeapTerminationOnCorruption', '0');
+        'V-63695' = @('HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\', 'PreXPSP2ShellProtocolBehavior', '0');
+        'V-63747' = @('HKLM:\SOFTWARE\Policies\Microsoft\Internet Explorer\Feeds\', 'AllowBasicAuthInClear', '0');
+        'V-63841' = @('HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments\', 'SaveZoneInformation', '2');
+
+        # If the system is configured to send audit records directly to an audit server, this is NA. This must be documented with the ISSO.
+        'V-63519' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\Application\', 'MaxSize', '0x00008000 (32768) (or greater)');
+        'V-63523' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\Security\', 'MaxSize', '0x00030000 (196608) (or greater)');
+        'V-63527' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\System\', 'MaxSize', '0x00008000 (32768) (or greater)');
+
+        'V-63661' = @('HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters\', 'MaximumPasswordAge', '30 (or less, excluding 0)');
+
         # GOOD
         'V-63321' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer\', 'EnableUserControl', '0');
         'V-63325' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer\', 'AlwaysInstallElevated', '0');
@@ -71,7 +123,7 @@ By using this IS (which includes any device attached to this IS), you consent to
         'V-63677' = @('HKLM:\SOFTWARE\Policies\Microsoft\Biometrics\FacialFeatures\', 'EnhancedAntiSpoofing', '1');
         'V-63679' = @('HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\CredUI\', 'EnumerateAdministrators', '0');
         'V-63683' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection\', 'AllowTelemetry', '0');
-        # 'V-63687' = @('HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\', 'CachedLogonsCount', '-le 10');
+        'V-63687' = @('HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\', 'CachedLogonsCount', '-le 10');
         'V-63699' = @('HKLM:\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter\', 'PreventOverride', '1');
         'V-63701' = @('HKLM:\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter\', 'PreventOverrideAppRepUnknown', '1');
         'V-63703' = @('HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\', 'RequireSecuritySignature', '1');
@@ -79,11 +131,11 @@ By using this IS (which includes any device attached to this IS), you consent to
         'V-63707' = @('HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\', 'EnableSecuritySignature', '1');
         'V-63709' = @('HKLM:\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main\', 'FormSuggest Passwords', 'no');
         'V-63711' = @('HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\', 'EnablePlainTextPassword', '0');
-        'V-63713' = @('HKLM:\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter\', 'EnabledV9', '1');
-        # 'V-63715' = @('HKLM:\SYSTEM\CurrentControlSet\Services\LanManServer\Parameters\', 'autodisconnect', '-le 15');
+        'V-63713' = @('HKLM:\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter\', 'EnabledV9', '0x00000001 (1)');
+        'V-63715' = @('HKLM:\SYSTEM\CurrentControlSet\Services\LanManServer\Parameters\', 'autodisconnect', '-le 15');
         'V-63717' = @('HKLM:\SOFTWARE\Policies\Microsoft\PassportForWork\', 'RequireSecurityDevice', '1');
         'V-63719' = @('HKLM:\SYSTEM\CurrentControlSet\Services\LanManServer\Parameters\', 'RequireSecuritySignature', '1');
-        # 'V-63721' = @('HKLM:\SOFTWARE\Policies\Microsoft\PassportForWork\PINComplexity\', 'MinimumPINLength', '-ge 6');
+        'V-63721' = @('HKLM:\SOFTWARE\Policies\Microsoft\PassportForWork\PINComplexity\', 'MinimumPINLength', '-ge 6');
         'V-63723' = @('HKLM:\SYSTEM\CurrentControlSet\Services\LanManServer\Parameters\', 'EnableSecuritySignature', '1');
         'V-63725' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\OneDrive\', 'DisableFileSyncNGSC', '1');
         'V-63729' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\', 'DisablePasswordSaving', '1');
