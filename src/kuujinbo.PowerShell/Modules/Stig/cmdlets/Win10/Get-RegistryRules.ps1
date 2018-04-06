@@ -1,10 +1,6 @@
 <#
 .SYNOPSIS
-    Get W10 STIG registry rules 
-.DESCRIPTION
-    The Get-RegistryRules cmdlet gets all W10 W10 STIG AuditPol rules.
-.NOTES
-    Current return value is mostly automated.
+    Get registry rules where **ONLY** equality test is done.
 #>
 function Get-RegistryRules {
     @{
@@ -71,7 +67,6 @@ By using this IS (which includes any device attached to this IS), you consent to
         'V-63677' = @('HKLM:\SOFTWARE\Policies\Microsoft\Biometrics\FacialFeatures\', 'EnhancedAntiSpoofing', '1');
         'V-63679' = @('HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\CredUI\', 'EnumerateAdministrators', '0');
         'V-63683' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection\', 'AllowTelemetry', '0');
-        # 'V-63687' = @('HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\', 'CachedLogonsCount', '-le 10');
         'V-63699' = @('HKLM:\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter\', 'PreventOverride', '1');
         'V-63701' = @('HKLM:\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter\', 'PreventOverrideAppRepUnknown', '1');
         'V-63703' = @('HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\', 'RequireSecuritySignature', '1');
@@ -80,10 +75,8 @@ By using this IS (which includes any device attached to this IS), you consent to
         'V-63709' = @('HKLM:\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main\', 'FormSuggest Passwords', 'no');
         'V-63711' = @('HKLM:\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\', 'EnablePlainTextPassword', '0');
         'V-63713' = @('HKLM:\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter\', 'EnabledV9', '1');
-        # 'V-63715' = @('HKLM:\SYSTEM\CurrentControlSet\Services\LanManServer\Parameters\', 'autodisconnect', '-le 15');
         'V-63717' = @('HKLM:\SOFTWARE\Policies\Microsoft\PassportForWork\', 'RequireSecurityDevice', '1');
         'V-63719' = @('HKLM:\SYSTEM\CurrentControlSet\Services\LanManServer\Parameters\', 'RequireSecuritySignature', '1');
-        # 'V-63721' = @('HKLM:\SOFTWARE\Policies\Microsoft\PassportForWork\PINComplexity\', 'MinimumPINLength', '-ge 6');
         'V-63723' = @('HKLM:\SYSTEM\CurrentControlSet\Services\LanManServer\Parameters\', 'EnableSecuritySignature', '1');
         'V-63725' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\OneDrive\', 'DisableFileSyncNGSC', '1');
         'V-63729' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\', 'DisablePasswordSaving', '1');

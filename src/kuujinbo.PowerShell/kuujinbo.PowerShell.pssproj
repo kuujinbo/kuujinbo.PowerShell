@@ -44,7 +44,9 @@
     <Compile Include="Modules\Stig\cmdlets\Get-AuditPolResults.ps1" />
     <Compile Include="Modules\Stig\cmdlets\Get-Lines.ps1" />
     <Compile Include="Modules\Stig\cmdlets\Get-RegistryResults.ps1" />
-    <Compile Include="Modules\Stig\cmdlets\Win10\Get-RegistryRules.ps1.txt" />
+    <Compile Include="Modules\Stig\cmdlets\Win10\Get-OtherResults.ps1" />
+    <Compile Include="Modules\Stig\cmdlets\Win10\Get-RegistryRulesEqualOrNoName.ps1" />
+    <Compile Include="Modules\Stig\cmdlets\Win10\Get-RegistryRulesRange.ps1" />
     <Compile Include="__scratch\Get-LocalModuleForRemoteSession.ps1.bak" />
     <Compile Include="Modules\Stig\cmdlets\Get-RegistryValue.ps1" />
     <Compile Include="Modules\Stig\cmdlets\Get-Rules.ps1" />

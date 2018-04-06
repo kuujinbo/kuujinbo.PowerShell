@@ -1,36 +1,26 @@
-# Import-Module (Join-Path $PSScriptRoot 'Modules/Stig/Stig.psm1') -DisableNameChecking -Force -Verbose;
 Import-Module (Join-Path $PSScriptRoot 'Modules/Stig/Win10.psm1') -DisableNameChecking -Force;
 
 #region functions
 # ----------------------------------------------------------------------------
-function Dump-AuditPolResults {
-    $r = Get-AuditPol;
-    $auditPolRules = Get-AuditPolRules;
-    foreach ($key in $auditPolRules.keys) {
-        $group = $auditPolRules.$key[0];
-        $category = $auditPolRules.$key[1];
-        $expected = $auditPolRules.$key[2];
-        $result = $r.$group.$category;
-        $pass = if ($result -match "\b$($expected)\b" ) { 'PASS'; } else { 'FAIL' }
-
-        Write-Host "$key [$pass] = $group => $category => REQUIRED: [$expected] => ACTUAL: [$result]";
-    }
-}
-
 function Parse-Win10Rules {
     $regWorking = Join-Path $thisScriptDir 'reg-working.txt';
     $r = Get-Rules 'c:/dev/U_Windows_10_STIG_V1R12_Manual-xccdf.xml' $regWorking;
 }
 # ----------------------------------------------------------------------------
 #endregion
+
+# $results = @{};
+$results = Get-RegistryResults  (Get-RegistryRulesRange) -invoke;
+write-output $results;
+exit;
+
+
+
 $rulesFile = 'c:/dev/U_Windows_10_STIG_V1R12_Manual-xccdf.xml';
 
 $v = get-win10version;
 ($v -eq $null);
 Dump-AuditPolResults;
-
-
-exit;
 
 $auditPolRules = Get-AuditPolRules;
 $regRules = Get-RegistryRules;
