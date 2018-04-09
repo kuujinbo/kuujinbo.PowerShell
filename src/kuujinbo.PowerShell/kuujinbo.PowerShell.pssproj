@@ -40,6 +40,7 @@
     <Compile Include="Examples\registry-values.ps1" />
     <Compile Include="Modules\cmdlets\Get-DesktopPath.ps1" />
     <Compile Include="Modules\Stig\cmdlets\Export-Ckl.ps1" />
+    <Compile Include="Modules\Stig\cmdlets\Get-AccountsWithUserRight.ps1" />
     <Compile Include="Modules\Stig\cmdlets\Get-AuditPol.ps1" />
     <Compile Include="Modules\Stig\cmdlets\Get-AuditPolResults.ps1" />
     <Compile Include="Modules\Stig\cmdlets\Get-Lines.ps1" />
