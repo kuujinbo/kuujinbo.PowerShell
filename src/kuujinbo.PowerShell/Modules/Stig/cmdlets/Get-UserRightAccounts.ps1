@@ -316,7 +316,7 @@ function Convert-SIDtoName([String[]] $SIDs) {
     }
 }
 
-function Get-AccountsWithUserRight {
+function Get-UserRightAccounts {
  <#
   .SYNOPSIS
     Gets all accounts that are assigned a specified privilege

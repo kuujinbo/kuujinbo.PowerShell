@@ -166,7 +166,7 @@ function Get-V-63323 {
     $namespace = 'root\cimv2\security\microsofttpm';
     try {
         $tpm = Get-WmiObject -Namespace $namespace -Query 'Select * from Win32_tpm';
-            if ($tpm) {
+        if ($tpm) {
             $versions = [Regex]::Split($tpm.SpecVersion, '\s*,\s*');
 
             $pass = $tpm.IsActivated().IsActivated -and `
