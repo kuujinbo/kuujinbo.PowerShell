@@ -40,6 +40,7 @@
     <Compile Include="Examples\export-ckl.ps1" />
     <Compile Include="Examples\registry-values.ps1" />
     <Compile Include="Modules\cmdlets\Get-DesktopPath.ps1" />
+    <Compile Include="Modules\Stig\DotNet.psm1" />
     <Compile Include="Modules\Stig\cmdlets\.NET\Get-ConfigFileResults.ps1" />
     <Compile Include="Modules\Stig\cmdlets\CombinedNet.ps1" />
     <Compile Include="Modules\Stig\cmdlets\Export-Ckl.ps1" />

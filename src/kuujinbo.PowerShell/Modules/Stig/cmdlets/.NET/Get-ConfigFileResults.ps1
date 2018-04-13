@@ -1,10 +1,11 @@
 <#
+#---------------------------------------------------------------------------
+    Microsoft .Net Framework 4 STIG - Ver 1, Rel 4
+#---------------------------------------------------------------------------
+#>
+<#
 .SYNOPSIS
     Get .NET STIG configuration file rule results.
-.NOTES
-    Microsoft .Net Framework 4 STIG - Ver 1, Rel 4
-.TODO
-    Combine error results with scan results, or write errors to log file.
 #>
 function Get-ConfigFileResults {
     param(
@@ -18,11 +19,12 @@ function Get-ConfigFileResults {
     $attrRef = 'ref';
     $attrEnabled = 'enabled';
     $fail = @{
-        'V-7070' = @();
+        'V-7070'  = @();
         'V-32025' = @();
         'V-30937' = @();
         'V-30968' = @();
         'V-30972' = @();
+        'errors'  = @();
     };
     $errors = @();
 
@@ -67,9 +69,38 @@ function Get-ConfigFileResults {
             $proxy = $xml.SelectNodes('//defaultProxy');
             if ($proxy.Count -gt 0) { $fail.'V-30972' += $file; }
         } catch  {
-            $errors += "[$file] => $($_.exception.message)";
+            $fail.'errors' += "[$file] => $($_.exception.message)";
         }
     }
 
-    return [hashtable]$fail;
+    # return [hashtable] $fail;
+    return [hashtable] (Get-CklResults $fail);
+}
+
+
+
+<#
+.SYNOPSIS
+    Get parsed scan results.
+#>
+function Get-CklResults {
+    param(
+        [Parameter(Mandatory)][hashtable]$results
+    );
+
+    $cklResults = @{
+        'errors' = ($results.'errors' -join "`r`n");
+    };
+    foreach ($key in $results.Keys) {
+        if ($key -match '^V-\d+') {
+            $fails = [string[]] $results.$key; 
+            if ($fails.Length -eq 0) {
+                $cklResults.$key = @($CKL_STATUS_PASS, "All scanned files correctly configured");
+            } else {
+                $cklResults.$key = @($CKL_STATUS_OPEN, "Incorrectly configured files: $($results.$key)");
+            }
+        }
+    }
+
+    return [hashtable] $cklResults;
 }

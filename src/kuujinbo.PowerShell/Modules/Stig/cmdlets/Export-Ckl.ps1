@@ -5,7 +5,7 @@
     The Export-Ckl cmdlet exports STIG scan results from a host to a .ckl
     file. 
 .NOTES
-    Tested on STIG Viewer 2.6.1. To save template file:
+    Tested on STIG Viewer 2.7. To save template file:
     [1] Checklist => Create Checklist - Check Marked STIG(s)
     [2] File => Save Checklist As...
 #>
