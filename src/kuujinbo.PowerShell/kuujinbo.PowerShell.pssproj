@@ -40,6 +40,7 @@
     <Compile Include="Examples\export-ckl.ps1" />
     <Compile Include="Examples\registry-values.ps1" />
     <Compile Include="Modules\cmdlets\Get-DesktopPath.ps1" />
+    <Compile Include="Modules\Stig\cmdlets\Get-ScriptBlockFilesForRemote.ps1" />
     <Compile Include="Modules\Stig\DotNet.psm1" />
     <Compile Include="Modules\Stig\cmdlets\.NET\Get-ConfigFileResults.ps1" />
     <Compile Include="Modules\Stig\cmdlets\CombinedNet.ps1" />
@@ -54,7 +55,6 @@
     <Compile Include="Modules\Stig\cmdlets\Win10\Get-RegistryRulesEqualOrNoName.ps1" />
     <Compile Include="Modules\Stig\cmdlets\Win10\Get-RegistryRulesRange.ps1" />
     <Compile Include="__scratch\FindFiles.ps1" />
-    <Compile Include="__scratch\Get-LocalModuleForRemoteSession.ps1.bak" />
     <Compile Include="Modules\Stig\cmdlets\Get-RegistryValue.ps1" />
     <Compile Include="Modules\Stig\cmdlets\Get-Rules.ps1" />
     <Compile Include="Modules\Stig\cmdlets\Get-ScriptBlockForRemote.ps1" />
@@ -65,6 +65,7 @@
     <Compile Include="Modules\Stig\cmdlets\Win10\Get-Win10Version.ps1" />
     <Compile Include="Modules\Stig\cmdlets\Set-RegistryValue.ps1" />
     <Compile Include="__scratch\Get-CimRegistryValue.ps1" />
+    <Compile Include="__scratch\Get-LocalModuleForRemoteSession.ps1" />
     <Compile Include="__scratch\json-test.ps1" />
     <Compile Include="Modules\Stig\Stig.psm1" />
     <Compile Include="Modules\Stig\Win10.psm1" />

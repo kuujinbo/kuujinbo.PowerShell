@@ -37,8 +37,5 @@ New-Module -name $baseName {
 } | Import-Module -DisableNameChecking;
 "@;
 
-
-    Write-Host $moduleDefinition;
-
     return [ScriptBlock]::Create($moduleDefinition);
 }

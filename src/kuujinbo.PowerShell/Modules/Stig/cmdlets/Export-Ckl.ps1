@@ -16,25 +16,35 @@ function Export-Ckl {
         ,[Parameter(Mandatory)] [hashtable]$data # key value => @(status, details, comments)
     )
 
-    [xml]$cklTemplate = Get-Content -Path $cklInPath -ErrorAction Stop;
-    if ($cklTemplate) {
-        foreach ($iStig in $cklTemplate.CHECKLIST.STIGS.iSTIG) {
-            foreach ($vuln in $iStig.VULN) {
-                $id = $vuln.STIG_DATA.ATTRIBUTE_DATA[0];
-                if ($data.ContainsKey($id)) {
-                    [string[]]$values = $data.$id;
-                    $vuln.$CKL_STATUS = $values[0];
-                    $vuln.$CKL_DETAILS = $values[1]; 
-                    if ($values[2] -ne $null) { 
-                        $vuln.$CKL_COMMENTS = $values[2]; 
+    $errorText = "Scan results not saved => error processing [$cklInPath]";
+    try {
+        [xml]$cklTemplate = Get-Content -Path $cklInPath -ErrorAction Stop;
+        if ($cklTemplate) {
+            foreach ($iStig in $cklTemplate.CHECKLIST.STIGS.iSTIG) {
+                foreach ($vuln in $iStig.VULN) {
+                    $id = $vuln.STIG_DATA.ATTRIBUTE_DATA[0];
+                    if ($data.ContainsKey($id)) {
+                        [string[]]$values = $data.$id;
+                        $vuln.$CKL_STATUS = $values[0];
+                        # `Escape()` => sanity-check invalid XML characters
+                        $vuln.$CKL_DETAILS = [System.Security.SecurityElement]::Escape(($values[1])); 
+                        if ($values[2] -ne $null) { 
+                            $vuln.$CKL_COMMENTS = [System.Security.SecurityElement]::Escape($values[2]); 
+                        }
                     }
                 }
             }
+            # else XmlDocument.Save(string filename) is utf-8 BOM encoded
+            $utf = New-Object System.Text.UTF8Encoding($false);
+            $writer = New-Object System.Xml.XmlTextWriter($cklOutPath, $utf);
+            $cklTemplate.PreserveWhitespace = $true;
+            $cklTemplate.Save($writer);
+            $writer.Dispose();
+        } else {
+            return $errorText;
         }
-        # else XmlDocument.Save(string filename) is utf-8 BOM encoded
-        $utf = New-Object System.Text.UTF8Encoding($false);
-        $writer = New-Object System.Xml.XmlTextWriter($cklOutPath, $utf);
-        $cklTemplate.Save($writer);
-        $writer.Dispose();
+    } catch {
+        return "$($errorText):`r`n $($_.Exception.Message)";
     }
+    return $null;
 }

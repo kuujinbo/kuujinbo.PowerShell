@@ -43,7 +43,7 @@ function Get-ConfigFileResults {
                 # <formatter> => https://msdn.microsoft.com/en-us/library/ka23a3hs(v=vs.100).aspx
                 foreach ($formatter in $formatters) {
                     if ($formatter.GetAttribute('typeFilterLevel') -eq 'full') {
-                        # V-7070  <channel ref='http' port='443' /> 
+                        # V-7070  <channel ref='http' port='443' Â/> 
                         if ($channel.GetAttribute($attrRef) -eq 'http' `
                             -and $channel.GetAttribute('port') -ne '443') 
                         { $fail.'V-7070' += $file; }
@@ -72,16 +72,12 @@ function Get-ConfigFileResults {
             $fail.'errors' += "[$file] => $($_.exception.message)";
         }
     }
-
-    # return [hashtable] $fail;
     return [hashtable] (Get-CklResults $fail);
 }
 
-
-
 <#
 .SYNOPSIS
-    Get parsed scan results.
+    Get parsed scan results.  
 #>
 function Get-CklResults {
     param(
@@ -95,12 +91,14 @@ function Get-CklResults {
         if ($key -match '^V-\d+') {
             $fails = [string[]] $results.$key; 
             if ($fails.Length -eq 0) {
-                $cklResults.$key = @($CKL_STATUS_PASS, "All scanned files correctly configured");
+                $cklResults.$key = @($CKL_STATUS_PASS, "All scanned files correctly configured.");
             } else {
-                $cklResults.$key = @($CKL_STATUS_OPEN, "Incorrectly configured files: $($results.$key)");
+                $cklResults.$key = @(
+                    $CKL_STATUS_OPEN, 
+                    "Incorrectly configured files: $($($results.$key) -join "`n")"
+                );
             }
         }
     }
-
     return [hashtable] $cklResults;
 }

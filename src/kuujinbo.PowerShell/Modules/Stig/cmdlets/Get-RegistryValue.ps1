@@ -11,14 +11,13 @@
 function Get-RegistryValue {
     param(
         [Parameter(Mandatory)] [string]$path
-        , [Parameter(Mandatory)] [string]$valueName
+        ,[Parameter(Mandatory)] [string]$valueName
     );
     if (Test-Path -LiteralPath $path) {
         $returnValue = (Get-Item -LiteralPath $path).GetValue($valueName, $null);
         if (($returnValue -ne $null) -and ($returnValue -is [string])) {
-            # [1] REG_SZ / REG_EXPAND_SZ / REG_MULTI_SZ `null` terminated => **NOT** valid XML
-            # [2] `Escape()` => sanity-check 
-            $returnValue = [System.Security.SecurityElement]::Escape(($returnValue -replace "`0", '')); 
+            # REG_SZ / REG_EXPAND_SZ / REG_MULTI_SZ `null` terminated => **NOT** valid XML
+            $returnValue = $returnValue -replace "`0", ''; 
         }
 
         # return needed, or wrong type returned

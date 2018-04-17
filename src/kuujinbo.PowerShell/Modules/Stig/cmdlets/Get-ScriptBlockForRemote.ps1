@@ -22,12 +22,11 @@ function Get-ScriptBlockForRemote {
     );
 
     $scripts = New-Object System.Text.StringBuilder;
-
-    $baseCmdlet = 'Get-ChildItem ';
-    if ($recurse.IsPresent) { $baseCmdlet += '-Recurse '}
+    $baseCmdlet = 'Get-ChildItem -File -Filter *.ps1';
+    if ($recurse.IsPresent) { $baseCmdlet = "$baseCmdlet -Recurse"; }
 
     foreach ($dir in $scriptDirectories) {
-        $cmdlet = $baseCmdlet + " -Path $dir -Filter *.ps1";
+        $cmdlet = "$baseCmdlet -Path $dir";
         Invoke-Expression $cmdlet | `
             foreach { 
                 $scripts.AppendLine([System.IO.File]::ReadAllText($_.FullName)) | Out-Null; 
