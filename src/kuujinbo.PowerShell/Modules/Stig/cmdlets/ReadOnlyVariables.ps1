@@ -1,16 +1,16 @@
-Set-Variable CATs -option ReadOnly -value (@{
+Set-Variable CATs -option ReadOnly -value (([ordered]@{
     low = 'CAT I';
     medium = 'CAT II';
     high = 'CAT III';
-});
+}).AsReadOnly());
 
-Set-Variable REGISTRY_HIVE -option ReadOnly -value (@{
+Set-Variable REGISTRY_HIVE -option ReadOnly -value (([ordered]@{
     HKEY_LOCAL_MACHINE = 'HKLM';
     HKEY_CURRENT_USER = 'HKCU';
     HKEY_CLASSES_ROOT = 'HKCR';
     HKEY_CURRENT_CONFIG = 'HKCC';
     HKEY_USERS = 'HKUS';
-});
+}).AsReadOnly());
 
 # .ckl XML node names
 Set-Variable CKL_STATUS -option ReadOnly -value ([string] 'STATUS');
