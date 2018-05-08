@@ -1,4 +1,7 @@
 function Get-OtherResults {
+    [CmdletBinding()]
+    param()
+
     $results = @{};
 
     $winVersion = Get-Win10Version;
@@ -26,6 +29,9 @@ function Get-OtherResults {
    Verify local volumes must be formatted using NTFS 
 #>
 function Get-V-63353 {
+    [CmdletBinding()]
+    param()
+
     $drives = Get-Volume | where { $_.DriveType -eq 'Fixed' -and $_.DriveLetter; };
     #         ^^^^^^^^^^ **ONLY** Win10 and above
     $pass = $true;
@@ -52,6 +58,7 @@ function Get-V-63353 {
     Verify valid text match for installed anti-visrus program. (McAfee VirusScan Enterprise)
 #>
 function Get-V-63351 {
+    [CmdletBinding()]
     param($installedPrograms);
     
     $hasNA = $installedPrograms | where {$_.displayname -match 'McAfee Agent'};
@@ -68,7 +75,10 @@ function Get-V-63351 {
    Verify BitLocker is enabled.
 #>
 function Get-V-63337 {
-    $bl = Get-BitlockerVolume -MountPoint "C:";
+    [CmdletBinding()]
+    param()
+
+    $bl = (Get-BitlockerVolume -MountPoint "C:");
     #     ^^^^^^^^^^^^^^^^^^^  **ONLY** Win10 and above
     if ($bl -ne $null -and $bl.ProtectionStatus -eq 'On') {
         return @{'V-63337' = @($CKL_STATUS_PASS, "BitLocker is enabled."); }
@@ -85,6 +95,7 @@ function Get-V-63337 {
     server, this is NA. This must be documented with the ISSO.    
 #>
 function V-63519-63523-63527 {
+    [CmdletBinding()]
     param($installedPrograms);
     
     $hasNA = $installedPrograms | where {$_.displayname -eq 'UniversalForwarder'};
@@ -111,6 +122,7 @@ function V-63519-63523-63527 {
    Verify Win10 version is at a supported servicing level 
 #>
 function V-63349 {
+    [CmdletBinding()]
     param([int]$actual = 0);
 
     if ($actual -ge 1511) {
@@ -138,6 +150,9 @@ function V-63349 {
        this cmdlet displays the following:
 #>
 function Get-V-77083-77085 {
+    [CmdletBinding()]
+    param()
+
     try {
         if (Confirm-SecureBootUEFI -ErrorAction Stop) {
             return @{
@@ -162,6 +177,9 @@ function Get-V-77083-77085 {
    Verify TPM enabled and ready for use.
 #>
 function Get-V-63323 {
+    [CmdletBinding()]
+    param()
+
     # not sure if native powershell cmdlet Get-Tpm has a way to get versions...
     $namespace = 'root\cimv2\security\microsofttpm';
     try {
@@ -188,6 +206,9 @@ function Get-V-63323 {
    Verify Windows 10 Enterprise Edition 64-bit version.
 #>
 function Get-V-63319 {
+    [CmdletBinding()]
+    param()
+
     $os = Get-WmiObject Win32_OperatingSystem;
     $arch = $os.OSArchitecture;
     $version = $os.Caption;
@@ -206,6 +227,9 @@ function Get-V-63319 {
     does not exist'.
 #>
 function Get-EqualOrNoName {
+    [CmdletBinding()]
+    param()
+
     $results = @{};
     $rules = Get-RegistryRulesEqualOrNoName;
 
@@ -226,6 +250,8 @@ function Get-EqualOrNoName {
 
 
 function Get-RegistryRulesTEST {
+    [CmdletBinding()]
+    param()
     @{
         # WTF - check content/fix too complicated for automated check
         'V-63599' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard\', 'LsaCfgFlags', '0x00000001 (1) (Enabled with UEFI lock)');

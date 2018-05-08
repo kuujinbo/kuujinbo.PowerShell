@@ -9,6 +9,7 @@
     value name; if does not exist will be $null.
 #>
 function Get-RegistryValue {
+    [CmdletBinding()]
     param(
         [Parameter(Mandatory)] [string]$path
         ,[Parameter(Mandatory)] [string]$valueName

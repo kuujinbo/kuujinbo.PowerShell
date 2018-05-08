@@ -1,4 +1,5 @@
 function Get-ContentMatchRules {
+    [CmdletBinding()]
     param(
         [Parameter(Mandatory)] [string]$xmlRulesInPath
         ,[Parameter(Mandatory)] [string]$xmlRulesOutPath

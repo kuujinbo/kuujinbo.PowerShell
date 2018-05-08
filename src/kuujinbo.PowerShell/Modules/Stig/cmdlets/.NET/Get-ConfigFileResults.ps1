@@ -8,6 +8,7 @@
     Get .NET STIG configuration file rule results.
 #>
 function Get-ConfigFileResults {
+    [CmdletBinding()]
     param(
         [Parameter(Mandatory)] [string]$path
     )
@@ -80,6 +81,7 @@ function Get-ConfigFileResults {
     Get parsed scan results.  
 #>
 function Get-CklResults {
+    [CmdletBinding()]
     param(
         [Parameter(Mandatory)][hashtable]$results
     );

@@ -7,6 +7,7 @@
     PowerShell data structure.
 #>
 function Get-Rules {
+    [CmdletBinding()]
     param(
         [Parameter(Mandatory)] [string]$xmlRulesPath
         , [string]$regWorkingOutPath
@@ -41,6 +42,7 @@ function Get-Rules {
 }
 
 function Get-RegistryInfoFromCheckContent {
+    [CmdletBinding()]
     param(
         [Parameter(Mandatory)] [string]$text
         , [Parameter(Mandatory)] [string]$rule

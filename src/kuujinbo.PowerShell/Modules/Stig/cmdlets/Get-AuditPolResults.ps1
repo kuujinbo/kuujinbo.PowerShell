@@ -1,4 +1,5 @@
 function Get-AuditPolResults {
+    [CmdletBinding()]
     param(
         [Parameter(Mandatory)] [hashtable]$auditPolRules
     );

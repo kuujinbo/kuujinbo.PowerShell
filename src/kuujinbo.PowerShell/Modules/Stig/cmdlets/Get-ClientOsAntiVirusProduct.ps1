@@ -3,12 +3,14 @@
     Get anti-virus status from a Windows **client** OS. (Windows 7 and above)
 #>
 function Get-ClientOsAntiVirusProduct {
+    [CmdletBinding()]
     param(
         [string]$hostname = $env:computername
     );
 
     function ConvertTo-Hex {
-        [Parameter(Mandatory)]param([uint32]$number);
+        [CmdletBinding()]
+        param([Parameter(Mandatory)][uint32]$number);
         
         '0x{0:x}' -f $number;
     }

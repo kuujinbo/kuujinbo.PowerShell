@@ -3,6 +3,8 @@
     Get registry rules where value is within a range.
 #>
 function Get-RegistryRulesRange {
+    [CmdletBinding()]
+    param()
     @{
         'V-63687' = @('HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\', 'CachedLogonsCount', '-le 10');
         'V-63715' = @('HKLM:\SYSTEM\CurrentControlSet\Services\LanManServer\Parameters\', 'autodisconnect', '-le 15');

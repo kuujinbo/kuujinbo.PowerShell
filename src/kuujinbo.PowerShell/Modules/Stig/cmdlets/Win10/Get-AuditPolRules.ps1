@@ -9,6 +9,8 @@
     Automate or partially automate generating data structure.
 #>
 function Get-AuditPolRules {
+    [CmdletBinding()]
+    param()
     # ID, Group, Category/Subcategory, Expected (pass)
     @{
         'V-63459' = @('Logon/Logoff', 'Logoff', 'Success');

@@ -1,4 +1,5 @@
 function Get-FQDN {
+    [CmdletBinding()]
     param(
         [Parameter(Mandatory)] [string]$hostname
     );
@@ -7,6 +8,7 @@ function Get-FQDN {
 }
 
 function Get-IpAddress {
+    [CmdletBinding()]
     param(
         [Parameter(Mandatory)] [string]$hostname
     );
@@ -15,6 +17,7 @@ function Get-IpAddress {
 }
 
 function Get-MacAddress {
+    [CmdletBinding()]
     param(
         [Parameter(Mandatory)] [string]$hostname
     );

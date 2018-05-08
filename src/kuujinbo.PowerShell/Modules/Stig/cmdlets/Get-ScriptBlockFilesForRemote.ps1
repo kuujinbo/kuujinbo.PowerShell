@@ -16,6 +16,7 @@
     Invoke-Command -Session $session -ScriptBlock $dynamicScript;
 #>
 function Get-ScriptBlockFilesForRemote {
+    [CmdletBinding()]
     param(
         # **FULL** path to file
         [string[]] $psFiles

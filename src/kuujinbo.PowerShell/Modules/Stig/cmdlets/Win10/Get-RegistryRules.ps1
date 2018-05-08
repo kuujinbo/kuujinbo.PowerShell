@@ -3,6 +3,9 @@
     Get registry rules where **ONLY** equality test is done.
 #>
 function Get-RegistryRules {
+    [CmdletBinding()]
+    param()
+
     @{
         # GOOD
         'V-63321' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer\', 'EnableUserControl', '0');

@@ -3,6 +3,7 @@
     Get W10 STIG registry results where **ONLY** equality test is done.
 #>
 function Get-RegistryResults {
+    [CmdletBinding()]
     param(
         [Parameter(Mandatory)] [hashtable]$rules
         ,[switch] $invoke

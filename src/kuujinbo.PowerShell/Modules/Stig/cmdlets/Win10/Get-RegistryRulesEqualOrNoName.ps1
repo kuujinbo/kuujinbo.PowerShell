@@ -3,6 +3,8 @@
     Get registry rules for equality test **OR** 'Value Name does not exist'.
 #>
 function Get-RegistryRulesEqualOrNoName{
+    [CmdletBinding()]
+    param()
     @{
         'V-63329' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer\', 'SafeForScripting', '0');
         'V-63581' = @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\WcmSvc\GroupPolicy\', 'fMinimizeConnections', '1');

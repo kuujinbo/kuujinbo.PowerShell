@@ -10,6 +10,7 @@
     [2] File => Save Checklist As...
 #>
 function Export-Ckl {
+    [CmdletBinding()]
     param(
         [Parameter(Mandatory)] [string]$cklInPath
         ,[Parameter(Mandatory)] [string]$cklOutPath

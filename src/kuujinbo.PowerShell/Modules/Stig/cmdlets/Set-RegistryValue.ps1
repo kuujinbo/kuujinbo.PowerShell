@@ -12,6 +12,7 @@
     Set-RegistryValue $registryPath $Name $registryType $registryValue;
 #>
 function Set-RegistryValue {
+    [CmdletBinding()]
     param(
         [Parameter(Mandatory)] [string]$path
         , [Parameter(Mandatory)] [string]$valueName

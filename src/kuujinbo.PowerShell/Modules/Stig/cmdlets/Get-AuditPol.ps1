@@ -6,6 +6,9 @@
     into a PowerShell data structure.
 #>
 function Get-AuditPol {
+    [CmdletBinding()]
+    param()
+
     # suppress STDERR if run with insufficient privileges
     $audit = ((AuditPol /get /category:* 2>$null) | Out-String) -join '';
     if (!$audit) { 

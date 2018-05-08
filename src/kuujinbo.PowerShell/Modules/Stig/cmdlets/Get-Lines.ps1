@@ -1,4 +1,5 @@
 function Get-Lines {
+    [CmdletBinding()]
     param(
         [Parameter(Mandatory)] [string]$text
     )

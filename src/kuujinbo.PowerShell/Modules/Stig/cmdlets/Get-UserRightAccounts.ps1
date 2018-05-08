@@ -306,8 +306,8 @@ namespace PS_LSA
 }
 '@
 
-function Convert-SIDtoName([String[]] $SIDs) {
-    foreach ($sid in $SIDs) {
+function Convert-SIDtoName([String[]] $sids) {
+    foreach ($sid in $sids) {
         try {
             $objSID = New-Object System.Security.Principal.SecurityIdentifier($sid) 
             $objUser = $objSID.Translate([System.Security.Principal.NTAccount]) 
@@ -356,7 +356,7 @@ function Get-UserRightAccounts {
         $lsa = New-Object PS_LSA.LsaWrapper($Computer)
         foreach ($Priv in $Right) {
             $sid = $lsa.EnumerateAccountsWithUserRight($Priv, $false)
-            $output = @{'Account'=Convert-SIDtoName $sid; 'SID'=$sid; 'Right'=$Priv; }
+            $output = @{'Account'= Convert-SIDtoName $sid; 'SID'= $sid; 'Right'=$Priv; }
             Write-Output (New-Object -Typename PSObject -Prop $output)
         }
     }

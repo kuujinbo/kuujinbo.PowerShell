@@ -16,6 +16,7 @@
     Invoke-Command -Session $session -ScriptBlock $dynamicScript;
 #>
 function Get-ScriptBlockForRemote {
+    [CmdletBinding()]
     param(
         [string[]] $scriptDirectories
         ,[switch] $recurse
