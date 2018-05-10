@@ -18,7 +18,7 @@ function Get-RegistryValue {
         $returnValue = (Get-Item -LiteralPath $path).GetValue($valueName, $null);
         if (($returnValue -ne $null) -and ($returnValue -is [string])) {
             # REG_SZ / REG_EXPAND_SZ / REG_MULTI_SZ `null` terminated => **NOT** valid XML
-            $returnValue = $returnValue -replace "`0", ''; 
+            $returnValue = ($returnValue -replace "`0", '').Trim(); 
         }
 
         # return needed, or wrong type returned

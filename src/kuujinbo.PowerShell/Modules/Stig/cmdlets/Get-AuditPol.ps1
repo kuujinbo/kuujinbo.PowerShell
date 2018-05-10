@@ -16,7 +16,7 @@ function Get-AuditPol {
         return $null;
     }
 
-    $lines = Get-Lines $audit;
+    $lines = Get-TrimmedLines $audit;
     # remove headers
     $lines =  $lines[2..($lines.length-1)];
 

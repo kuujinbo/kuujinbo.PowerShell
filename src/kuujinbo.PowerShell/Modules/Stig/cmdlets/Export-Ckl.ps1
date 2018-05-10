@@ -15,15 +15,22 @@ function Export-Ckl {
         [Parameter(Mandatory)] [string]$cklInPath
         ,[Parameter(Mandatory)] [string]$cklOutPath
         ,[Parameter(Mandatory)] [hashtable]$data # key value => @(status, details, comments)
+        ,[switch]$dataRuleIdKey
     )
 
     $errorText = "Scan results not saved => error processing [$cklInPath]";
     try {
         [xml]$cklTemplate = Get-Content -Path $cklInPath -ErrorAction Stop;
         if ($cklTemplate) {
+            $keyNodeIndex = 0; 
+            if ($dataRuleIdKey.IsPresent) { $keyNodeIndex = 3; }
+
             foreach ($iStig in $cklTemplate.CHECKLIST.STIGS.iSTIG) {
                 foreach ($vuln in $iStig.VULN) {
-                    $id = $vuln.STIG_DATA.ATTRIBUTE_DATA[0];
+                    # vulnerability Id format => 'V-\d{4,5}'
+                    # OR
+                    # vulnerability rule Id format => '^SV-\d{4,5}r2_rule'
+                    $id = $vuln.STIG_DATA.ATTRIBUTE_DATA[$keyNodeIndex];
                     if ($data.ContainsKey($id)) {
                         [string[]]$values = $data.$id;
                         $vuln.$CKL_STATUS = $values[0];
