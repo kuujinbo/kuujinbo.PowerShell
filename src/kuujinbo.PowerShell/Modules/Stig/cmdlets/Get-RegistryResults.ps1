@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Get W10 STIG registry results where **ONLY** equality test is done.
+    Get STIG registry results.
 #>
 function Get-RegistryResults {
     [CmdletBinding()]

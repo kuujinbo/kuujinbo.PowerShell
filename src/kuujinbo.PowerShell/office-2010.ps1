@@ -43,7 +43,7 @@ foreach ($ckl in $ckls) {
         $cklData = Invoke-Command -Session $session -ErrorAction Stop -ScriptBlock  {
             $global:cklData = @{};
             $global:cklData = Get-RegistryResults (Get-Excel2010Registry);
-            $global:cklData += Get-RegistryResults (Get-Pp2010Registry);;
+            $global:cklData += Get-RegistryResults (Get-Pp2010Registry);
             $global:cklData += Get-RegistryResults (Get-Word2010Registry);
 
             return $global:cklData; 
