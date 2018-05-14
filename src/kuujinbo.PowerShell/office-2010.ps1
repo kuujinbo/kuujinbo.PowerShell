@@ -42,12 +42,27 @@ foreach ($ckl in $ckls) {
         # scan remote host
         $cklData = Invoke-Command -Session $session -ErrorAction Stop -ScriptBlock  {
             $global:cklData = @{};
-            $global:cklData = Get-RegistryResults (Get-Excel2010Registry);
+            Write-Host 'Scanning Access Registry....';
+            $global:cklData += Get-RegistryResults (Get-Access2010Registry);
+            Write-Host 'Scanning Excel Registry....';
+            $global:cklData += Get-RegistryResults (Get-Excel2010Registry);
+            Write-Host 'Scanning OneNote Registry....';
+            $global:cklData += Get-RegistryResults (Get-OneNote2010Registry);
+            Write-Host 'Scanning Outlook Registry....';
+            $global:cklData += Get-RegistryResults (Get-Outlook2010Registry);
+            Write-Host 'Scanning PowerPoint Registry....';
             $global:cklData += Get-RegistryResults (Get-Pp2010Registry);
+            Write-Host 'Scanning Word Registry....';
             $global:cklData += Get-RegistryResults (Get-Word2010Registry);
+            Write-Host 'Scanning Registry requiring multiple key/value pair checks....';
+            $global:cklData += Get-RegistryResultsMultiple (Get-Office2010OneOffRegistry);
 
             return $global:cklData; 
         } -ArgumentList $hostname;
+
+
+        $cklData.keys.count;
+
 
         $out = Join-Path $cklDirectory "00-$($hostname).ckl";
         # write .ckl file
@@ -55,10 +70,10 @@ foreach ($ckl in $ckls) {
         Export-Ckl $ckl $out $cklData -dataRuleIdKey;
         $sw.Stop();
 
-        if (!$error) {
-            Write-Output "Scan for [$hostname] completed in $($sw.elapsed.totalseconds) seconds.";
-        }
-        else { $error | Out-File -Append $errorFile; }
+        #if (!$error) {
+        #    Write-Output "Scan for [$hostname] completed in $($sw.elapsed.totalseconds) seconds.";
+        #}
+        #else { $error | Out-File -Append $errorFile; }
 
         # write errors from scan results
         if ($cklData.'errors'.length -gt 0) {

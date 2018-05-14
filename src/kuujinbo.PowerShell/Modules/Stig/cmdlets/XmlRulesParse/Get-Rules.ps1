@@ -25,7 +25,7 @@ function Get-Rules {
 
             if ($functionToCall) {
                 $result[$group.id].'registry' = $functionToCall.Invoke(
-                    $rule.check.'check-content'
+                    $rule.check.'check-content', $rule.id
                 );
             }
 
@@ -58,20 +58,34 @@ function Get-OfficeRegistryInfo {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory)] [string]$text
+        ,[Parameter(Mandatory)] [string]$ruleId
     )
+
+    # 'Check Content' is a joke with random crap, so need to verify number of matches
+    $matchCount = (Select-String '(?:hklm|hkcu)(?:\\[\w\d\.]+)+' -input $text -AllMatches).Matches.Count;
+    if ($matchCount -ne 1) { Write-Warning "Another crap rule [$ruleId]: registry key matches => [$matchCount]";}
+
 
     $registryMatch = '^(?:hklm|hkcu)(?:\\[A-Za-z]+)+';
     # another example of how inconsistent STIG writers are....
-    $criteriaMatch = '^(Criteria:)*\s*If the value';
+    $criteriaMatch = '^(?:Criteria:)*\s*If the value ([\w\d]+) is.*=\s*(\d*)';
     $lines = Get-TrimmedLines $text;
 
     for ($i = 0; $i -lt $lines.Length; ++$i) {
-        if ($lines[$i] -match $registryMatch `
-                       -and $lines[$i + 1] -match $criteriaMatch)
-        { 
+        if ($lines[$i] -match $registryMatch) {
+            [regex]$regPathMatch ='^([A-Za-z]+)(\\)';
             # replace 'HKLM\Software' with HKLM:\Software to get registry value
-            [regex]$regPath ='^([A-Za-z]+)(\\)';
-            return @($regPath.Replace($lines[$i], '$1:$2', 1), $lines[$i + 1]);
+            $regPath = $regPathMatch.Replace($lines[$i], '$1:$2', 1);
+
+            $regKeyName = '';
+            $regKeyValue = '';
+            if ($lines[$i + 1] -match $criteriaMatch) {
+                $regKeyName = $matches[1];
+                $regKeyValue = $matches[2];
+
+                return @($regPath, $regKeyName, $regKeyValue);
+            } else 
+              { return @($regPath, '',  ''); }
         }
     }
 

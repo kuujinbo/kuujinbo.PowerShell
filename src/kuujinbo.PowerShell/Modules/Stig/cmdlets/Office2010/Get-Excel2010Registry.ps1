@@ -24,7 +24,7 @@ function Get-Excel2010Registry {
         'SV-33874r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\excel\security\filevalidation', 'EnableOnLoad', '1')
         'SV-33870r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\excel\security\protectedview', 'DisableAttachmentsInPV', '0')
         'SV-34275r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\excel\security\fileblock', 'XL4Worksheets', '2')
-        'SV-33867r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\excel\security\filevalidation', 'OpenInProtectedView', '1')
+
         'SV-33446r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\excel\security\trusted locations', 'AllowNetworkLocations', '0')
         'SV-33440r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\excel\security', 'ExtensionHardening', '1')
         'SV-34269r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\excel\security\fileblock', 'XL4Macros', '2')

@@ -46,6 +46,11 @@
     <Compile Include="Examples\registry-values.ps1" />
     <Compile Include="Modules\ActiveDirectory\cmdlets\Get-RootOid.ps1" />
     <Compile Include="Modules\cmdlets\Get-DesktopPath.ps1" />
+    <Compile Include="Modules\Stig\cmdlets\Get-RegistryResultsMultiple.ps1" />
+    <Compile Include="Modules\Stig\cmdlets\Office2010\Get-Access2010Registry.ps1" />
+    <Compile Include="Modules\Stig\cmdlets\Office2010\Get-Office2010OneOffRegistry.ps1" />
+    <Compile Include="Modules\Stig\cmdlets\Office2010\Get-OneNote2010Registry.ps1" />
+    <Compile Include="Modules\Stig\cmdlets\Office2010\Get-Outlook2010Registry.ps1" />
     <Compile Include="Modules\Stig\cmdlets\Utils\Get-ClientOsAntiVirusProduct.ps1" />
     <Compile Include="Modules\Stig\cmdlets\Get-ScriptBlockFilesForRemote.ps1" />
     <Compile Include="Modules\Stig\cmdlets\Office2010\Get-Excel2010Registry.ps1" />

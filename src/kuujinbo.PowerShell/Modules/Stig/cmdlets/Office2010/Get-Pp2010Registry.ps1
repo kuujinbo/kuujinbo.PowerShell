@@ -12,7 +12,7 @@ function Get-Pp2010Registry {
         'SV-33607r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\powerpoint\security\trusted locations', 'AllowNetworkLocations', '0')
         'SV-33866r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\powerpoint\security\protectedview', 'DisableUnsafeLocationsInPV', '0')
         'SV-33858r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\powerpoint\security', 'EnableDEP', '1')
-        'SV-33869r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\powerpoint\security\filevalidation', 'OpenInProtectedView', '1')
+
         'SV-33608r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\powerpoint\security\trusted locations', 'AllLocationsDisabled', '1')
         'SV-33599r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\powerpoint\options', 'DefaultFormat', '1')
         'SV-33600r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\powerpoint\options', 'MarkupOpenSave', '1')

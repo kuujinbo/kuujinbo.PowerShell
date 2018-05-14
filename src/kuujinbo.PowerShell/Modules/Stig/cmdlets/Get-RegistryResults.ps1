@@ -1,6 +1,12 @@
 <#
 .SYNOPSIS
     Get STIG registry results.
+.PARAMETER $rules
+    Must be in this format:
+        
+    @{
+        'VULNERABILITY-OR-RULE_ID' = @(HKLM:\PATH', 'NAME', 'EXPECTED_VALUE');
+    };
 #>
 function Get-RegistryResults {
     [CmdletBinding()]
