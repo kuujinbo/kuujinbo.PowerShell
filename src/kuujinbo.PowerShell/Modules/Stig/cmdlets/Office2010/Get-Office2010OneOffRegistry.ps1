@@ -22,10 +22,3 @@ function Get-Office2010OneOffRegistry {
         );
     };
 }
-<#
-            'SV-33502r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\outlook\options\rss', 'Disable', '0')
-    # For all environments where the Outlook e-mail client has access to public Internet web sites, RSS integration into Outlook is not permitted, and should be validated as follows. 
-            'SV-33502r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\outlook\options\rss', 'Disable', '1')
-
-
-#>

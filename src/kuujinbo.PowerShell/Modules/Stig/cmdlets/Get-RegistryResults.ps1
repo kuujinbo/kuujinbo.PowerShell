@@ -7,6 +7,9 @@
     @{
         'VULNERABILITY-OR-RULE_ID' = @(HKLM:\PATH', 'NAME', 'EXPECTED_VALUE');
     };
+
+    'EXPECTED_VALUE' => [string] or [regex]. (PowerShell does the right thing
+    when making string/numeric equality tests)
 #>
 function Get-RegistryResults {
     [CmdletBinding()]
@@ -22,13 +25,16 @@ function Get-RegistryResults {
         $expected = $params[2];
 
         if ($actual -ne $null) {
-            $pass = if (-not $invoke.IsPresent) { $actual -eq $expected; } 
-                    else { [bool](Invoke-Expression "$actual $expected"); };
+            if ($expected -is [regex]) { $pass = $expected.IsMatch($actual); } 
+            else {
+                $pass = if (-not $invoke.IsPresent) { $actual -eq $expected; } 
+                        else { [bool](Invoke-Expression "$actual $expected"); };
+            }
 
             $results.$key = if ($pass) {
                 @($CKL_STATUS_PASS, "Correct registry setting: [$actual]");
             } else {
-                @($CKL_STATUS_OPEN, "Incorrect registry setting value: [$actual], expected: [$expected]");
+                @($CKL_STATUS_OPEN, "Incorrect registry setting. ACTUAL: [$actual] :: REQUIRED: [$expected]");
             }
 
         } else {

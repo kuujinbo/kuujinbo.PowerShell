@@ -1,6 +1,7 @@
 <#
 .SYNOPSIS
-    Get STIG registry results where **MULTIPLE** registry key/value pairs must be checked.
+    Get STIG registry results where **MULTIPLE** registry key/value pairs
+    must be checked for a **single** rule.
 .PARAMETER $rules
     Must be in this format:
 

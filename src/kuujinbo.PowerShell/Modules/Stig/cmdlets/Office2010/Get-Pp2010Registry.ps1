@@ -14,7 +14,7 @@ function Get-Pp2010Registry {
         'SV-33858r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\powerpoint\security', 'EnableDEP', '1')
 
         'SV-33608r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\powerpoint\security\trusted locations', 'AllLocationsDisabled', '1')
-        'SV-33599r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\powerpoint\options', 'DefaultFormat', '1')
+        'SV-33599r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\powerpoint\options', 'DefaultFormat', '27')
         'SV-33600r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\powerpoint\options', 'MarkupOpenSave', '1')
         'SV-33601r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\powerpoint\security', 'RunPrograms', '0')
         'SV-33933r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\powerpoint\security\fileblock', 'OpenInProtectedView', '0')

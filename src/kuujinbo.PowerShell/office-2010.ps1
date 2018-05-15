@@ -1,5 +1,6 @@
 param(
     [Parameter(Mandatory)][string]$cklDirectory
+    ,[switch]$testMode
 );
 
 #region load modules
@@ -26,12 +27,12 @@ $error.clear();
 $separator = '=' * 40;
 $errorFile = (Join-Path $cklDirectory `
              "_errors-$((Get-Date).ToString('yyyy-MM-dd-HH.mm.ss'))-$($env:username).txt");
-$ckls = Get-ChildItem -Path $cklDirectory -Filter *.ckl -File | foreach { $_.fullname; }
+$cklFiles = Get-ChildItem -Path $cklDirectory -Filter *.ckl -File | foreach { $_.fullname; }
 
-foreach ($ckl in $ckls) {
+foreach ($cklFile in $cklFiles) {
     try {
-        $hostname = ([xml](Get-Content $ckl)).CHECKLIST.ASSET.HOST_NAME;
-        if (!$hostname) {$hostname = [System.IO.Path]::GetFileNameWithoutExtension($ckl); }
+        $hostname = ([xml](Get-Content $cklFile)).CHECKLIST.ASSET.HOST_NAME;
+        if (!$hostname) {$hostname = [System.IO.Path]::GetFileNameWithoutExtension($cklFile); }
 
         Write-Output $separator;
         Write-Output "Connecting to [$hostname] ....";
@@ -60,20 +61,18 @@ foreach ($ckl in $ckls) {
             return $global:cklData; 
         } -ArgumentList $hostname;
 
+        Write-Host "Writing .ckl file. [$($cklData.keys.count)] rules processed.";
 
-        $cklData.keys.count;
-
-
-        $out = Join-Path $cklDirectory "00-$($hostname).ckl";
         # write .ckl file
-        # Export-Ckl $ckl $ckl $cklData;
-        Export-Ckl $ckl $out $cklData -dataRuleIdKey;
+        $cklOutPath = if ($testMode.IsPresent) { Join-Path $cklDirectory "00-$($hostname).ckl"; } 
+                      else { $cklFile; }
+        Export-Ckl $cklFile $cklOutPath $cklData -dataRuleIdKey;
         $sw.Stop();
 
-        #if (!$error) {
-        #    Write-Output "Scan for [$hostname] completed in $($sw.elapsed.totalseconds) seconds.";
-        #}
-        #else { $error | Out-File -Append $errorFile; }
+        if (!$error) {
+            Write-Output "Scan for [$hostname] completed in $($sw.elapsed.totalseconds) seconds.";
+        }
+        else { $error | Out-File -Append $errorFile; }
 
         # write errors from scan results
         if ($cklData.'errors'.length -gt 0) {

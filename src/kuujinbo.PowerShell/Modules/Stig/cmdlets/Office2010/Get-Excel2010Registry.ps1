@@ -30,7 +30,7 @@ function Get-Excel2010Registry {
         'SV-34269r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\excel\security\fileblock', 'XL4Macros', '2')
         'SV-33434r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\excel\options\binaryoptions', 'fUpdateExt_78_1', '0')
         'SV-33443r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\excel\options\binaryoptions', 'fGlobalSheet_37_1', '1')
-        'SV-33437r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\excel\options', 'DefaultFormat', '0')
+        'SV-33437r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\excel\options', 'DefaultFormat', '51')
         'SV-33872r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\excel\security\fileblock', 'OpenInProtectedView', '0')
         'SV-33855r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\excel\security', 'EnableDEP', '1')
         'SV-33861r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\excel\security\protectedview', 'DisableInternetFilesInPV', '0')

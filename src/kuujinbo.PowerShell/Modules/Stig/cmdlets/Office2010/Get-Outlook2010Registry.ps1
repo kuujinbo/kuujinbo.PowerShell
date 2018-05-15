@@ -44,7 +44,7 @@ function Get-Outlook2010Registry {
         'SV-33570r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\outlook\security', 'ClearSign', '1')
         'SV-33487r2_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\outlook\autodiscover', 'ZeroConfigExchange', '1')
         'SV-34107r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\outlook\security', 'MinEncKey', '168')
-        'SV-33516r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\outlook\options\pubcal', 'PublishCalendarDetailsPolicy', '4000')
+        'SV-33516r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\outlook\options\pubcal', 'PublishCalendarDetailsPolicy', [regex]'^(?:4000|16384)$')
         'SV-33493r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\outlook\rpc', 'EnableRPCEncryption', '1')
         'SV-33574r2_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\outlook\security', 'SigStatusNoTrustDecision', '2')
         'SV-33499r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\outlook\options\webcal', 'Disable', '1')
@@ -52,9 +52,7 @@ function Get-Outlook2010Registry {
         'SV-34110r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\outlook\security', 'SupressNameChecks', '1')
         'SV-33589r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\outlook\security', 'PromptOOMFormulaAccess', '0')
         'SV-33509r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\outlook\security', 'NonDefaultStoreScript', '0')
-
         'SV-33500r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\outlook\options\rss', 'EnableFullTextHTML', '0')
-
         'SV-33540r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\outlook\options\mail', 'TrustedZone', '0')
         'SV-33598r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\outlook\security', 'Level', '2')
         'SV-33503r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\meetings\profile', 'ServerUI', '2')
@@ -75,7 +73,10 @@ function Get-Outlook2010Registry {
         'SV-33581r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\outlook\security', 'DontPromptLevel1AttachClose', '0')
         'SV-34105r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\outlook\options\mail', 'EditorPreference', '65536')
         'SV-33582r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\outlook\security', 'DontPromptLevel1AttachSend', '0')
-        'SV-55984r2_rule' = @('HKCU:\software\policies\Microsoft\office\14.0\outlook\options\autoformat', 'pgrfafo_25_1', '1')
+        # rule is written back-a$$ward
+        'SV-55984r2_rule' = @('HKCU:\software\policies\Microsoft\office\14.0\outlook\options\autoformat', 'pgrfafo_25_1', '0')
         'SV-33518r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\outlook\options\mail', 'ReadAsPlain', '1')
+        # verified w/IA
+        'SV-33502r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\outlook\options\rss', 'Disable', '0')
     };
 }

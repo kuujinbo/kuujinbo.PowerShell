@@ -37,11 +37,12 @@
     <Folder Include="Modules\Stig\cmdlets\Utils\" />
     <Folder Include="Modules\Stig\cmdlets\XmlRulesParse\" />
     <Folder Include="Modules\Stig\cmdlets\Office2010\" />
-    <Folder Include="Modules\Stig\cmdlets\Win10\" />
+    <Folder Include="__scratch\Win10\" />
     <Folder Include="__scratch\" />
     <Folder Include="Modules\Stig\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dotnet-stig.ps1" />
     <Compile Include="Examples\export-ckl.ps1" />
     <Compile Include="Examples\registry-values.ps1" />
     <Compile Include="Modules\ActiveDirectory\cmdlets\Get-RootOid.ps1" />
@@ -66,9 +67,9 @@
     <Compile Include="Modules\Stig\cmdlets\XmlRulesParse\Get-ContentMatchRules.ps1" />
     <Compile Include="Modules\Stig\cmdlets\Get-TrimmedLines.ps1" />
     <Compile Include="Modules\Stig\cmdlets\Get-RegistryResults.ps1" />
-    <Compile Include="Modules\Stig\cmdlets\Win10\Get-OtherResults.ps1" />
-    <Compile Include="Modules\Stig\cmdlets\Win10\Get-RegistryRulesEqualOrNoName.ps1" />
-    <Compile Include="Modules\Stig\cmdlets\Win10\Get-RegistryRulesRange.ps1" />
+    <Compile Include="__scratch\Win10\Get-OtherResults.ps1" />
+    <Compile Include="__scratch\Win10\Get-RegistryRulesEqualOrNoName.ps1" />
+    <Compile Include="__scratch\Win10\Get-RegistryRulesRange.ps1" />
     <Compile Include="Modules\Stig\Office2010.psm1" />
     <Compile Include="office-2010.ps1" />
     <Compile Include="__scratch\FindFiles.ps1" />
@@ -77,19 +78,20 @@
     <Compile Include="Modules\Stig\cmdlets\Get-ScriptBlockForRemote.ps1" />
     <Compile Include="Modules\Stig\cmdlets\XmlRulesParse\Get-WantedRules.ps1" />
     <Compile Include="Modules\Stig\cmdlets\ReadOnlyVariables.ps1" />
-    <Compile Include="Modules\Stig\cmdlets\Win10\Get-AuditPolRules.ps1" />
-    <Compile Include="Modules\Stig\cmdlets\Win10\Get-RegistryRules.ps1" />
-    <Compile Include="Modules\Stig\cmdlets\Win10\Get-Win10Version.ps1" />
+    <Compile Include="__scratch\Win10\Get-AuditPolRules.ps1" />
+    <Compile Include="__scratch\Win10\Get-RegistryRules.ps1" />
+    <Compile Include="__scratch\Win10\Get-Win10Version.ps1" />
     <Compile Include="Modules\Stig\cmdlets\Utils\Set-RegistryValue.ps1" />
     <Compile Include="__scratch\Get-CimRegistryValue.ps1" />
     <Compile Include="__scratch\Get-LocalModuleForRemoteSession.ps1" />
     <Compile Include="__scratch\json-test.ps1" />
     <Compile Include="Modules\Stig\Stig.psm1" />
-    <Compile Include="Modules\Stig\Win10.psm1" />
+    <Compile Include="__scratch\Win10.psm1" />
     <Compile Include="__scratch\testing.ps1" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Examples\WIN10-TEMPLATE.ckl" />
+    <Content Include="office-2010-README.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />
