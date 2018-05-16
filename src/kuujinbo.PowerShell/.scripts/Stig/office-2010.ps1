@@ -6,13 +6,13 @@ param(
 #region load modules
 # ----------------------------------------------------------------------------
 # for THIS script
-$stigModPath = Join-Path $PSScriptRoot 'Modules/Stig/Office2010.psm1';
+$stigModPath = Join-Path $PSScriptRoot '../../Modules/Stig/Office2010.psm1';
 Import-Module $stigModPath -DisableNameChecking -Force;
 
 # in-memory modules for `Invoke-Command`
 $dynamicScript = Get-ScriptBlockForRemote @(
-    "$PSScriptRoot/Modules/Stig/cmdlets"
-    ,"$PSScriptRoot/Modules/Stig/cmdlets/Office2010"
+    "$PSScriptRoot/../../Cmdlets/Registry"
+    ,"$PSScriptRoot/../../Cmdlets/Stig/Office2010"
 );
 # ----------------------------------------------------------------------------
 #endregion

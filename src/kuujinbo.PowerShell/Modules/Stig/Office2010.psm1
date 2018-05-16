@@ -1,5 +1,8 @@
-# dot source all STIG functions
-Get-ChildItem -Path "$PSScriptRoot/cmdlets/*.ps1" | foreach { . $_.FullName; }
+# dot source all functions from the following directories
+Get-ChildItem -Path "$PSScriptRoot/../../Cmdlets/Registry/*.ps1" | foreach { . $_.FullName; }
+Get-ChildItem -Path "$PSScriptRoot/../../Cmdlets/Remote/*.ps1" | foreach { . $_.FullName; }
+Get-ChildItem -Path "$PSScriptRoot/../../Cmdlets/Text/*.ps1" | foreach { . $_.FullName; }
+Get-ChildItem -Path "$PSScriptRoot/../*.ps1" | foreach { . $_.FullName; }
 
-# dot source all Win10-specific STIG functions
-Get-ChildItem -Path "$PSScriptRoot/cmdlets/Office2010/*.ps1" | foreach { . $_.FullName; }
+# dot source all Office 2010 specific STIG functions
+Get-ChildItem -Path "$PSScriptRoot/../../Cmdlets/Stig/Office2010/*.ps1" | foreach { . $_.FullName; }

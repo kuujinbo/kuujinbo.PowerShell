@@ -18,6 +18,13 @@ For example, from the powershell command line:
 PS >> \\PATH-TO-SCRIPT\office-2010.ps1 \\PATH-TO-CONTAINING-DIRECTORY-WITH-.ckl-FILES
 ----------------------------------------------------------------------------
 
+By default, the current .ckl file is overwritten. To get a new file with a filename formatted like "00-$($hostname).ckl", add the 'testMode' switch parameter:
+
+----------------------------------------------------------------------------
+PS >> \\PATH-TO-SCRIPT\office-2010.ps1 \\PATH-TO-CONTAINING-DIRECTORY-WITH-.ckl-FILES -testMode
+----------------------------------------------------------------------------
+
+
 [3] Very simple error logging is being done - error file has the following format:
 
 "_errors-$((Get-Date).ToString('yyyy-MM-dd-HH.mm.ss'))-$($env:username).txt"
