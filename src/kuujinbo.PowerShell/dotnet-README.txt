@@ -1,12 +1,12 @@
 ============================================================================
-Office 2010 STIG
+.NET 4 STIG
 ============================================================================
 
 [1] Please don't mess with ANY of the scripts. It will GREATLY help the developer troubleshoot when anyone using this script needs help if the developer has the **ORIGINAL** code. If you want to experiment (there's a lot of code in 'Modules') make a copy of everything and work on that instead.
 
 If you keep a shortcut to this directory and run the script from the UNC path, any updates and additions made by the developer will be transparent to you. See [4] below to run the script from a UNC path or mapped drive.
 
-[2] The script is named 'office-2010.ps1'. It expects a FULL path to a directory that contains previously run SCAP scans with .ckl files. The .ckl files **MUST* either:
+[2] The script is named 'dotnet-stig.ps1'.  It expects a FULL path to a directory that contains previously run SCAP scans with .ckl files. It's scanning hundreds of files (maybe more), and will take a while.  The .ckl files **MUST* either:
 
     [a] Have hostname in first field under 'Computing'.
     OR
@@ -15,7 +15,7 @@ If you keep a shortcut to this directory and run the script from the UNC path, a
 For example, from the powershell command line:
 
 ----------------------------------------------------------------------------
-PS >> \\PATH-TO-SCRIPT\office-2010.ps1 \\PATH-TO-CONTAINING-DIRECTORY-WITH-.ckl-FILES
+PS >> \\PATH-TO-SCRIPT\dotnet-stig.ps1 \\PATH-TO-CONTAINING-DIRECTORY-WITH-.ckl-FILES
 ----------------------------------------------------------------------------
 
 [3] Very simple error logging is being done - error file has the following format:

@@ -12,7 +12,6 @@ function Get-Pp2010Registry {
         'SV-33607r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\powerpoint\security\trusted locations', 'AllowNetworkLocations', '0')
         'SV-33866r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\powerpoint\security\protectedview', 'DisableUnsafeLocationsInPV', '0')
         'SV-33858r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\powerpoint\security', 'EnableDEP', '1')
-
         'SV-33608r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\powerpoint\security\trusted locations', 'AllLocationsDisabled', '1')
         'SV-33599r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\powerpoint\options', 'DefaultFormat', '27')
         'SV-33600r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\powerpoint\options', 'MarkupOpenSave', '1')
@@ -26,5 +25,6 @@ function Get-Pp2010Registry {
         'SV-33606r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\powerpoint\security', 'VBAWarnings', '2')
         'SV-33935r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\powerpoint\security\filevalidation', 'EnableOnLoad', '1')
         'SV-33862r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\powerpoint\security\protectedview', 'DisableInternetFilesInPV', '0')
+        'SV-33852r1_rule' = @('HKCU:\Software\Policies\Microsoft\Office\14.0\powerpoint\security', 'RequireAddinSig', '1')
     };
 }
