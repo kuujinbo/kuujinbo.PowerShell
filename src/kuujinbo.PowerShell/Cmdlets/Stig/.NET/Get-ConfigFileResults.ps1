@@ -19,7 +19,7 @@ function Get-ConfigFileResults {
 
     $attrRef = 'ref';
     $attrEnabled = 'enabled';
-    $fail = @{
+    $rules = @{
         'V-7070'  = @();
         'V-32025' = @();
         'V-30937' = @();
@@ -47,12 +47,12 @@ function Get-ConfigFileResults {
                         # V-7070  <channel ref='http' port='443' /> 
                         if ($channel.GetAttribute($attrRef) -eq 'http' `
                             -and $channel.GetAttribute('port') -ne '443') 
-                        { $fail.'V-7070' += $file; }
+                        { $rules.'V-7070' += $file; }
 
                         # V-32025 <channel ref='tcp' secure='true' />
                         if ($channel.GetAttribute($attrRef) -eq 'tcp' `
                             -and $channel.GetAttribute('secure') -ne 'true')
-                        { $fail.'V-32025' += $file; }
+                        { $rules.'V-32025' += $file; }
                     }
                 }
             }
@@ -60,20 +60,24 @@ function Get-ConfigFileResults {
             $legacy = $xml.SelectSingleNode('//NetFx40_LegacySecurityPolicy');
             if ($legacy -ne $null `
                 -and $legacy.GetAttribute($attrEnabled) -eq 'true') 
-            { $fail.'V-30937' += $file; }
+            { $rules.'V-30937' += $file; }
 
             $loadFrom = $xml.SelectSingleNode('//loadFromRemoteSources');
             if ($loadFrom -ne $null `
                 -and $loadFrom.GetAttribute($attrEnabled) -eq 'true') 
-            { $fail.'V-30968' += $file; }
+            { $rules.'V-30968' += $file; }
 
             $proxy = $xml.SelectNodes('//defaultProxy');
-            if ($proxy.Count -gt 0) { $fail.'V-30972' += $file; }
+            if ($proxy.Count -gt 0) { $rules.'V-30972' += $file; }
+
+            Write-Host "Verifying configuration => [$file]";
+
         } catch  {
-            $fail.'errors' += "[$file] => $($_.exception.message)";
+            $rules.'errors' += "[$file] => $($_.exception.message)";
         }
     }
-    return [hashtable] (Get-CklResults $fail);
+
+    return [hashtable] (Get-CklResults $rules);
 }
 
 <#

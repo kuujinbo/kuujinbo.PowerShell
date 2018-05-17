@@ -28,9 +28,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include=".scripts\Stig\" />
+    <Folder Include="Cmdlets\WindowsForms\" />
     <Folder Include="Modules\" />
     <Folder Include="Cmdlets\Remote\" />
-    <Folder Include="Cmdlets\Stig\.modules\" />
     <Folder Include=".scripts\" />
     <Folder Include="Cmdlets\" />
     <Folder Include="Modules\Stig\" />
@@ -47,7 +47,7 @@
     <Folder Include="Cmdlets\Stig\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include=".scripts\Stig\dotnet-stig.ps1" />
+    <Compile Include=".scripts\Stig\dotnet4.ps1" />
     <Compile Include="Cmdlets\ActiveDirectory\cmdlets\Get-RootOid.ps1" />
     <Compile Include="Cmdlets\Path\Get-DesktopPath.ps1" />
     <Compile Include="Cmdlets\IO\Get-PhysicalDrives.ps1" />
@@ -61,7 +61,8 @@
     <Compile Include="Cmdlets\Stig\Office2010\Get-Excel2010Registry.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Pp2010Registry.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Word2010Registry.ps1" />
-    <Compile Include="Modules\Stig\DotNet.psm1" />
+    <Compile Include="Cmdlets\WindowsForms\Get-OpenFileDialogFiles.ps1" />
+    <Compile Include="Modules\Stig\DotNet4.psm1" />
     <Compile Include="Cmdlets\Stig\.NET\Get-ConfigFileResults.ps1" />
     <Compile Include="Cmdlets\Stig\Export-Ckl.ps1" />
     <Compile Include="Cmdlets\Stig\Utils\Get-UserRightAccounts.ps1" />
@@ -79,9 +80,10 @@
     <Compile Include="Cmdlets\Stig\ReadOnlyVariables.ps1" />
     <Compile Include="Cmdlets\Stig\Utils\Set-RegistryValue.ps1" />
     <Compile Include="Modules\Stig\Stig.psm1" />
+    <Compile Include="Modules\WindowsForms.psm1" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include=".scripts\Stig\dotnet-README.txt" />
+    <Content Include=".scripts\Stig\dotnet4-README.txt" />
     <Content Include=".scripts\Stig\office-2010-README.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -1,9 +1,6 @@
 <#
 .SYNOPSIS
     Export STIG scan results to a .ckl file
-.DESCRIPTION
-    The Export-Ckl cmdlet exports STIG scan results from a host to a .ckl
-    file. 
 .NOTES
     Tested on STIG Viewer 2.7. To save template file:
     [1] Checklist => Create Checklist - Check Marked STIG(s)
@@ -20,7 +17,12 @@ function Export-Ckl {
 
     $errorText = "Scan results not saved => error processing [$cklInPath]";
     try {
-        [xml]$cklTemplate = Get-Content -Path $cklInPath -ErrorAction Stop;
+        # [xml]$cklTemplate = Get-Content -Path $cklInPath -ErrorAction Stop;
+
+        $cklTemplate = New-Object System.Xml.XmlDocument;
+        $cklTemplate.PreserveWhitespace = $true;
+        $cklTemplate.Load($cklInPath); 
+
         if ($cklTemplate) {
             $keyNodeIndex = 0; 
             if ($dataRuleIdKey.IsPresent) { $keyNodeIndex = 3; }
@@ -34,9 +36,15 @@ function Export-Ckl {
                     if ($data.ContainsKey($id)) {
                         [string[]]$values = $data.$id;
                         $vuln.$CKL_STATUS = $values[0];
+
                         # `Escape()` => sanity-check invalid XML characters
-                        $vuln.$CKL_DETAILS = [System.Security.SecurityElement]::Escape(($values[1])); 
-                        if ($values[2] -ne $null) { 
+                        $details = $values[1];
+                        if ($details -ne $null) {
+                            $vuln.$CKL_DETAILS = [System.Security.SecurityElement]::Escape(($details)); 
+                        }
+
+                        $comments = $values[2];
+                        if ($comments -ne $null) {
                             $vuln.$CKL_COMMENTS = [System.Security.SecurityElement]::Escape($values[2]); 
                         }
                     }
@@ -45,8 +53,8 @@ function Export-Ckl {
             # else XmlDocument.Save(string filename) is utf-8 BOM encoded
             $utf = New-Object System.Text.UTF8Encoding($false);
             $writer = New-Object System.Xml.XmlTextWriter($cklOutPath, $utf);
-            $cklTemplate.PreserveWhitespace = $true;
             $cklTemplate.Save($writer);
+            # $cklTemplate.Save($cklOutPath);
             $writer.Dispose();
         } else {
             return $errorText;

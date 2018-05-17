@@ -1,17 +1,18 @@
 param(
     [Parameter(Mandatory)][string]$startDirectory
+    ,[switch]$testMode
 );
 
 #region load modules
 # ----------------------------------------------------------------------------
 # for THIS script
-$stigModPath = Join-Path $PSScriptRoot 'Modules/Stig/DotNet.psm1';
+$stigModPath = Join-Path $PSScriptRoot '../../Modules/Stig/DotNet4.psm1';
 Import-Module $stigModPath -DisableNameChecking -Force;
 
 # in-memory modules for `Invoke-Command`
 $dynamicScript = Get-ScriptBlockFilesForRemote @(
-    "$PSScriptRoot/Modules/Stig/cmdlets/ReadOnlyVariables.ps1"
-    ,"$PSScriptRoot/Modules/Stig/cmdlets/.NET/Get-ConfigFileResults.ps1"
+    "$PSScriptRoot/../../Cmdlets/Stig/ReadOnlyVariables.ps1"
+    ,"$PSScriptRoot/../../Cmdlets/Stig/.NET/Get-ConfigFileResults.ps1"
 );
 # ----------------------------------------------------------------------------
 #endregion
@@ -28,10 +29,10 @@ $errorFile = (Join-Path $startDirectory `
              "_errors-$((Get-Date).ToString('yyyy-MM-dd-HH.mm.ss'))-$($env:username).txt");
 $ckls = Get-ChildItem -Path $startDirectory -Filter *.ckl -File | foreach { $_.fullname; }
 
-foreach ($ckl in $ckls) {
+foreach ($cklFile in $ckls) {
     try {
-        $hostname = ([xml](Get-Content $ckl)).CHECKLIST.ASSET.HOST_NAME;
-        if (!$hostname) {$hostname = [System.IO.Path]::GetFileNameWithoutExtension($ckl); }
+        $hostname = ([xml](Get-Content $cklFile)).CHECKLIST.ASSET.HOST_NAME;
+        if (!$hostname) {$hostname = [System.IO.Path]::GetFileNameWithoutExtension($cklFile); }
 
         Write-Output $separator;
         Write-Output "Connecting to [$hostname] => scan will take 40-120 seconds to complete.";
@@ -44,11 +45,15 @@ foreach ($ckl in $ckls) {
             return Get-ConfigFileResults c:/;
         } -ArgumentList $hostname;
 
-        $out = Join-Path $startDirectory "00-$($hostname).ckl";
+
+        $cklData;
+
         # write .ckl file
-        # Export-Ckl $ckl $ckl $cklData;
-        Export-Ckl $ckl $out $cklData;
+        $cklOutPath = if ($testMode.IsPresent) { Join-Path $startDirectory "00-$($hostname).ckl"; } 
+                      else { $cklFile; }
+        Export-Ckl $cklFile $cklOutPath $cklData;
         $sw.Stop();
+
         if (!$error) {
             Write-Output "Scan for [$hostname] completed in $($sw.elapsed.totalseconds) seconds.";
         }

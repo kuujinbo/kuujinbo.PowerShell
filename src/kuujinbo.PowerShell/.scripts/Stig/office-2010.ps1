@@ -3,6 +3,8 @@ param(
     ,[switch]$testMode
 );
 
+# Get-OpenFileDialogFiles -filter  'STIG .ckl files (*.ckl) | *.ckl' -title 'Select one or more STIG .ckl file(s)'
+
 #region load modules
 # ----------------------------------------------------------------------------
 # for THIS script
@@ -11,6 +13,7 @@ Import-Module $stigModPath -DisableNameChecking -Force;
 
 # in-memory modules for `Invoke-Command`
 $dynamicScript = Get-ScriptBlockForRemote @(
+    ,"$PSScriptRoot/../../Cmdlets/Stig"
     "$PSScriptRoot/../../Cmdlets/Registry"
     ,"$PSScriptRoot/../../Cmdlets/Stig/Office2010"
 );
