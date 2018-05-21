@@ -1,5 +1,5 @@
 param(
-    [Parameter(Mandatory)][string]$startDirectory
+    [Parameter(Mandatory)][string]$cklDirectory
     ,[switch]$testMode
 );
 
@@ -25,9 +25,9 @@ $dynamicScript = Get-ScriptBlockFilesForRemote @(
 $error.clear();
 
 $separator = '=' * 40;
-$errorFile = (Join-Path $startDirectory `
+$errorFile = (Join-Path $cklDirectory `
              "_errors-$((Get-Date).ToString('yyyy-MM-dd-HH.mm.ss'))-$($env:username).txt");
-$ckls = Get-ChildItem -Path $startDirectory -Filter *.ckl -File | foreach { $_.fullname; }
+$ckls = Get-ChildItem -Path $cklDirectory -Filter *.ckl -File | foreach { $_.fullname; }
 
 foreach ($cklFile in $ckls) {
     try {
@@ -49,7 +49,7 @@ foreach ($cklFile in $ckls) {
         $cklData;
 
         # write .ckl file
-        $cklOutPath = if ($testMode.IsPresent) { Join-Path $startDirectory "00-$($hostname).ckl"; } 
+        $cklOutPath = if ($testMode.IsPresent) { Join-Path $cklDirectory "00-$($hostname).ckl"; } 
                       else { $cklFile; }
         Export-Ckl $cklFile $cklOutPath $cklData;
         $sw.Stop();

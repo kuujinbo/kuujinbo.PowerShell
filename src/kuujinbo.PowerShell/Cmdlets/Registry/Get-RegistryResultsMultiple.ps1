@@ -1,7 +1,7 @@
 <#
 .SYNOPSIS
     Get STIG registry results where **MULTIPLE** registry key/value pairs
-    must be checked for a **single** rule.
+    must be checked for a **single** rule, where **ALL** checks must pass.
 .PARAMETER $rules
     Must be in this format:
 
@@ -41,6 +41,7 @@ function Get-RegistryResultsMultiple {
 
                 $comments.AppendLine("ACTUAL: $actual :: REQUIRED: $expected") | Out-Null; 
             } else {
+                $pass = $false;
                 $comments.AppendLine('Registry value not set.') | Out-Null; 
             }
             $comments.AppendLine() | Out-Null;

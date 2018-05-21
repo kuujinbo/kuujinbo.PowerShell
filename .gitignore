@@ -240,3 +240,5 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/src/kuujinbo.PowerShell/.scripts/Stig/office2010.NET4.ps1
+/src/kuujinbo.PowerShell/Cmdlets/Stig/Update-CklDocument.ps1
