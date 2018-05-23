@@ -9,7 +9,7 @@ Set-Variable REGISTRY_HIVE -option ReadOnly -value (([ordered]@{
     HKEY_CURRENT_USER = 'HKCU';
     HKEY_CLASSES_ROOT = 'HKCR';
     HKEY_CURRENT_CONFIG = 'HKCC';
-    HKEY_USERS = 'HKUS';
+    HKEY_USERS = 'HKU';
 }).AsReadOnly());
 
 # .ckl XML node names

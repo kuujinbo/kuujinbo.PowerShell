@@ -69,15 +69,14 @@ function Get-ConfigFileResults {
 
             $proxy = $xml.SelectNodes('//defaultProxy');
             if ($proxy.Count -gt 0) { $rules.'V-30972' += $file; }
-
-            Write-Host "Verifying configuration => [$file]";
-
         } catch  {
             $rules.'errors' += "[$file] => $($_.exception.message)";
         }
     }
 
-    return [hashtable] (Get-CklResults $rules);
+    $result = [hashtable] (Get-CklResults $rules);
+    $result.'files' = $files.Length;
+    return $result
 }
 
 <#

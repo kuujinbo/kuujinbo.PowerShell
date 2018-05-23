@@ -47,6 +47,7 @@
     <Folder Include="Cmdlets\Stig\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include=".scripts\Stig\dotnet4.0.ps1" />
     <Compile Include=".scripts\Stig\dotnet4.ps1" />
     <Compile Include="Cmdlets\ActiveDirectory\cmdlets\Get-RootOid.ps1" />
     <Compile Include="Cmdlets\Path\Get-DesktopPath.ps1" />
@@ -56,7 +57,6 @@
     <Compile Include="Cmdlets\Stig\Office2010\Get-Office2010OneOffRegistry.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-OneNote2010Registry.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Outlook2010Registry.ps1" />
-    <Compile Include="Cmdlets\Stig\Update-CklDocument.ps1" />
     <Compile Include="Cmdlets\Stig\Utils\Get-ClientOsAntiVirusProduct.ps1" />
     <Compile Include="Cmdlets\Remote\Get-ScriptBlockFilesForRemote.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Excel2010Registry.ps1" />

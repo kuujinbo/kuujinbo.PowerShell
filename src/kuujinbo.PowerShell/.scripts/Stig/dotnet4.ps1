@@ -1,6 +1,7 @@
 param(
     [Parameter(Mandatory)][string]$cklDirectory
     ,[switch]$testMode
+    ,[switch]$allDrives
 );
 
 #region load modules
