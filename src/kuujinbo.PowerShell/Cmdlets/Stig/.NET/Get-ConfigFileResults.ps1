@@ -3,19 +3,25 @@
     Microsoft .Net Framework 4 STIG - Ver 1, Rel 4
 #---------------------------------------------------------------------------
 #>
+
 <#
 .SYNOPSIS
     Get .NET STIG configuration file rule results.
+.NOTES
+    DISA STIG viewer 2.7
 #>
 function Get-ConfigFileResults {
     [CmdletBinding()]
     param(
-        [Parameter(Mandatory)] [string]$path
-    )
+        [Parameter(ParameterSetName='paths', Mandatory=$true)]
+        [string[]]$paths
 
-    # two calls with `-filter` faster than one call with `-include` and multiple extensions
-    $files = Get-ChildItem -Path $path -Filter *.exe.config -Recurse -File | foreach { $_.fullname; }
-    $files += Get-ChildItem -Path $path -Filter machine.config -Recurse -File | foreach { $_.fullname; }
+        # see /Cmdlets/IO/Get-PhysicalDrives.ps1
+        ,[Parameter(ParameterSetName='allDrives', Mandatory=$true)]
+        [switch]$allDrives
+
+        ,[switch]$getHostInfo
+    );
 
     $attrRef = 'ref';
     $attrEnabled = 'enabled';
@@ -29,7 +35,15 @@ function Get-ConfigFileResults {
     };
     $errors = @();
 
-    foreach ($file in $files) {
+    if ($allDrives.IsPresent) {
+        $paths = @();
+        foreach ($drive in Get-PhysicalDrives) { 
+            $paths += "$($drive.DriveLetter)/"; 
+        }
+    }
+    $files = getDotnetFiles $paths;
+
+    foreach ($file in $files.files) {
         try {
             # M$ WTF => C:\Windows\WinSXS config files contain hexadecimal values
             [xml]$xml = Get-Content -Path $file -ErrorAction Stop;
@@ -75,7 +89,10 @@ function Get-ConfigFileResults {
     }
 
     $result = [hashtable] (Get-CklResults $rules);
-    $result.'files' = $files.Length;
+    $result.files = $files.files.Length;
+    $result.errors = $files.errors;
+    if ($getHostInfo.IsPresent) { $result.'hostinfo' = Get-HostInfo; }
+
     return $result
 }
 
@@ -107,3 +124,33 @@ function Get-CklResults {
     }
     return [hashtable] $cklResults;
 }
+
+#region helpers
+function getDotnetFiles {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory)][string[]]$paths
+    );
+
+    $files = @();
+    $errors = @();
+    foreach ($path in $paths) {
+        # two calls with `-filter` faster than one call with `-include` and multiple extensions
+        $files += Get-ChildItem -Path $path -Filter *.exe.config -Recurse -File `
+                -ErrorVariable WTF -ErrorAction SilentlyContinue `
+                | foreach { $_.fullname; }
+        $errors += $WTF | foreach { $_.Exception.Message; }
+
+        $WTF = $null;
+        $files += Get-ChildItem -Path $path -Filter machine.config -Recurse -File `
+                -ErrorVariable WTF -ErrorAction SilentlyContinue `
+                | foreach { $_.fullname; }
+        $errors += $WTF | foreach { $_.Exception.Message; }
+    }
+
+    return @{
+        'files' = $files;
+        'errors' = $errors;
+    };
+}
+#endregion

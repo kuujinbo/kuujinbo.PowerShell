@@ -1,103 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--DISA STIG Viewer :: 2.7-->
 <CHECKLIST>
-	<ASSET>
-		<ROLE>None</ROLE>
-		<ASSET_TYPE>Computing</ASSET_TYPE>
-		<HOST_NAME></HOST_NAME>
-		<HOST_IP></HOST_IP>
-		<HOST_MAC></HOST_MAC>
-		<HOST_FQDN></HOST_FQDN>
-		<TECH_AREA></TECH_AREA>
-		<TARGET_KEY>2030</TARGET_KEY>
-		<WEB_OR_DATABASE>false</WEB_OR_DATABASE>
-		<WEB_DB_SITE></WEB_DB_SITE>
-		<WEB_DB_INSTANCE></WEB_DB_INSTANCE>
-	</ASSET>
-	<STIGS>
-		<iSTIG>
-			<STIG_INFO>
-				<SI_DATA>
-					<SID_NAME>version</SID_NAME>
-					<SID_DATA>1</SID_DATA>
-				</SI_DATA>
-				<SI_DATA>
-					<SID_NAME>classification</SID_NAME>
-					<SID_DATA>UNCLASSIFIED</SID_DATA>
-				</SI_DATA>
-				<SI_DATA>
-					<SID_NAME>customname</SID_NAME>
-				</SI_DATA>
-				<SI_DATA>
-					<SID_NAME>stigid</SID_NAME>
-					<SID_DATA>MS_Dot_Net_Framework</SID_DATA>
-				</SI_DATA>
-				<SI_DATA>
-					<SID_NAME>description</SID_NAME>
-					<SID_DATA>Applicable to systems and applications utilizing the Microsoft .Net version 4.0 framework.
+    <ASSET>
+        <ROLE>None</ROLE>
+        <ASSET_TYPE>Computing</ASSET_TYPE>
+        <HOST_NAME></HOST_NAME>
+        <HOST_IP></HOST_IP>
+        <HOST_MAC></HOST_MAC>
+        <HOST_FQDN></HOST_FQDN>
+        <TECH_AREA></TECH_AREA>
+        <TARGET_KEY>2030</TARGET_KEY>
+        <WEB_OR_DATABASE>false</WEB_OR_DATABASE>
+        <WEB_DB_SITE></WEB_DB_SITE>
+        <WEB_DB_INSTANCE></WEB_DB_INSTANCE>
+    </ASSET>
+    <STIGS>
+        <iSTIG>
+            <STIG_INFO>
+                <SI_DATA>
+                    <SID_NAME>version</SID_NAME>
+                    <SID_DATA>1</SID_DATA>
+                </SI_DATA>
+                <SI_DATA>
+                    <SID_NAME>classification</SID_NAME>
+                    <SID_DATA>UNCLASSIFIED</SID_DATA>
+                </SI_DATA>
+                <SI_DATA>
+                    <SID_NAME>customname</SID_NAME>
+                </SI_DATA>
+                <SI_DATA>
+                    <SID_NAME>stigid</SID_NAME>
+                    <SID_DATA>MS_Dot_Net_Framework</SID_DATA>
+                </SI_DATA>
+                <SI_DATA>
+                    <SID_NAME>description</SID_NAME>
+                    <SID_DATA>Applicable to systems and applications utilizing the Microsoft .Net version 4.0 framework.
 
 </SID_DATA>
-				</SI_DATA>
-				<SI_DATA>
-					<SID_NAME>filename</SID_NAME>
-					<SID_DATA>U_Microsoft_DotNet_Framework_4-0_STIG_V1R4_Manual-xccdf.xml</SID_DATA>
-				</SI_DATA>
-				<SI_DATA>
-					<SID_NAME>releaseinfo</SID_NAME>
-					<SID_DATA>Release: 4 Benchmark Date: 28 Jul 2017</SID_DATA>
-				</SI_DATA>
-				<SI_DATA>
-					<SID_NAME>title</SID_NAME>
-					<SID_DATA>Microsoft Dot Net Framework 4.0 STIG</SID_DATA>
-				</SI_DATA>
-				<SI_DATA>
-					<SID_NAME>uuid</SID_NAME>
-					<SID_DATA>5aac8d09-2686-4752-95f9-2e2a971a94e6</SID_DATA>
-				</SI_DATA>
-				<SI_DATA>
-					<SID_NAME>notice</SID_NAME>
-					<SID_DATA>terms-of-use</SID_DATA>
-				</SI_DATA>
-				<SI_DATA>
-					<SID_NAME>source</SID_NAME>
-				</SI_DATA>
-			</STIG_INFO>
-			<VULN>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>V-7055</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0031 No Strong Name Verification</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>SV-7438r2_rule</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0031</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Digital signatures assigned to strongly named assemblies must be verified.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>A strong name consists of the assembly's identity, simple text name, version number, and culture information (if provided)—plus a public key and a digital signature.  Strong names serve to identify the author of the code.  If digital signatures used to sign strong name assemblies are not verified, any self signed code can be impersonated.  This can lead to a loss of system integrity. </ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>DCSL-1</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Use regedit to review the Windows registry key 
+                </SI_DATA>
+                <SI_DATA>
+                    <SID_NAME>filename</SID_NAME>
+                    <SID_DATA>U_Microsoft_DotNet_Framework_4-0_STIG_V1R4_Manual-xccdf.xml</SID_DATA>
+                </SI_DATA>
+                <SI_DATA>
+                    <SID_NAME>releaseinfo</SID_NAME>
+                    <SID_DATA>Release: 4 Benchmark Date: 28 Jul 2017</SID_DATA>
+                </SI_DATA>
+                <SI_DATA>
+                    <SID_NAME>title</SID_NAME>
+                    <SID_DATA>Microsoft Dot Net Framework 4.0 STIG</SID_DATA>
+                </SI_DATA>
+                <SI_DATA>
+                    <SID_NAME>uuid</SID_NAME>
+                    <SID_DATA>5aac8d09-2686-4752-95f9-2e2a971a94e6</SID_DATA>
+                </SI_DATA>
+                <SI_DATA>
+                    <SID_NAME>notice</SID_NAME>
+                    <SID_DATA>terms-of-use</SID_DATA>
+                </SI_DATA>
+                <SI_DATA>
+                    <SID_NAME>source</SID_NAME>
+                </SI_DATA>
+            </STIG_INFO>
+            <VULN>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>V-7055</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0031 No Strong Name Verification</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>SV-7438r2_rule</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0031</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Digital signatures assigned to strongly named assemblies must be verified.</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>A strong name consists of the assembly's identity, simple text name, version number, and culture information (if provided)—plus a public key and a digital signature.  Strong names serve to identify the author of the code.  If digital signatures used to sign strong name assemblies are not verified, any self signed code can be impersonated.  This can lead to a loss of system integrity. </ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>DCSL-1</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Use regedit to review the Windows registry key 
 HKLM\Software\Microsoft\StrongName\Verification. 
 There should be no assemblies or hash values listed under this registry key.  
 
@@ -106,109 +106,109 @@ If there are assemblies or hash values listed in this key, each value represents
 If any assemblies are listed as omitting strong name verification in a production environment, this is a finding.
 
 If any assemblies are listed as omitting strong name verification in a development or test environment and the IAO has not provided documented approvals, this is a finding.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Use regedit to remove the values stored in Windows registry key HKLM\Software\Microsoft\StrongName\Verification. There should be no assemblies or hash values listed under this registry key.
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Use regedit to remove the values stored in Windows registry key HKLM\Software\Microsoft\StrongName\Verification. There should be no assemblies or hash values listed under this registry key.
 
 All assemblies must require strong name verification in a production environment.
 
 Strong name assemblies that do not require verification in a development or test environment must have documented approvals from the IAO.
 </ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>System Administrator</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
-				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
-				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
-				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
-				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
-			</VULN>
-			<VULN>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>V-7061</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0046 Test Root certificates</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>SV-7444r3_rule</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0046</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>The Trust Providers Software Publishing State must be set to 0x23C00.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Microsoft Windows operating systems provide a feature called Authenticode.  Authenticode technology and its underlying code signing mechanisms serve to provide a structure to identify software publishers and ensure that software applications have not been tampered with.  Authenticode technology relies on digital certificates and is based on Public Key Cryptography Standards (PKCS) #7 (encrypted key specification), PKCS #10 (certificate request formats), X.509 (certificate specification), and Secure Hash Algorithm (SHA) and MD5 hash algorithms.
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>System Administrator</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
+                </STIG_DATA>
+                <STATUS>Not_Reviewed</STATUS>
+                <FINDING_DETAILS></FINDING_DETAILS>
+                <COMMENTS></COMMENTS>
+                <SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
+                <SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
+            </VULN>
+            <VULN>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>V-7061</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0046 Test Root certificates</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>SV-7444r3_rule</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0046</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>The Trust Providers Software Publishing State must be set to 0x23C00.</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Microsoft Windows operating systems provide a feature called Authenticode.  Authenticode technology and its underlying code signing mechanisms serve to provide a structure to identify software publishers and ensure that software applications have not been tampered with.  Authenticode technology relies on digital certificates and is based on Public Key Cryptography Standards (PKCS) #7 (encrypted key specification), PKCS #10 (certificate request formats), X.509 (certificate specification), and Secure Hash Algorithm (SHA) and MD5 hash algorithms.
 
 The manner in which the Authenticode technology validates a certificate and determines what is considered a valid certificate can be modified to meet the mission of the Microsoft Windows system.  Each facade of certificate validation is controlled through the bits that makeup the hexadecimal value for the Authenticode setting.  An improper setting will allow non-valid certificates to be accepted and can put the integrity of the system into jeopardy.
 
@@ -224,14 +224,14 @@ The hexadecimal value of 0x23C00 will implement the following certificate enforc
 - Check the revocation list on Time Stamp Signer = FALSE
 - Only trust items found in the Trust DB = FALSE
 </ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>If the system or application being reviewed is SIPR based, this finding is NA.
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>If the system or application being reviewed is SIPR based, this finding is NA.
 
 This check must be performed for each user on the system. 
 
@@ -239,117 +239,117 @@ Use regedit to locate "HKEY_USER\[UNIQUE USER SID VALUE]\Software\Microsoft\Wind
 
 If the State value for any user is not set to the hexadecimal value of 0x23C00, this is a finding.
 </ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>This fix must be performed for each user on the system.
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>This fix must be performed for each user on the system.
 
 Using regedit, change the hexadecimal value of the "HKEY_USER\[UNIQUE USER SID VALUE]\Software\Microsoft\Windows\CurrentVersion\WinTrust\Trust Providers\Software Publishing\State" registry key to 0x23C00.
 </ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>System Administrator</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
-				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
-				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
-				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
-				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
-			</VULN>
-			<VULN>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>V-7063</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0048 Publisher Membership Condition</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>SV-7446r3_rule</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0048</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Developer certificates used with the .NET Publisher Membership Condition must be approved by the IAO.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>A .Net assembly will satisfy the Publisher Membership Condition if it is signed with a software publisher’s Authenticode X.509v3 digital certificate that can be verified by the Windows operating system as having a chain of trust that leads to a trusted root certificate stored in the user’s certificate store. The  Publisher Membership Condition can be used to identify an organization, developer, vendor, or other entity as the ultimate source of the assembly, even if the code itself was obtained from a third party, such as a mirror site.  Access to system resources, such as file systems or printers, may then be granted to the assembly based on the trust relationship with the identified entity.
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>System Administrator</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
+                </STIG_DATA>
+                <STATUS>Not_Reviewed</STATUS>
+                <FINDING_DETAILS></FINDING_DETAILS>
+                <COMMENTS></COMMENTS>
+                <SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
+                <SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
+            </VULN>
+            <VULN>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>V-7063</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0048 Publisher Membership Condition</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>SV-7446r3_rule</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0048</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Developer certificates used with the .NET Publisher Membership Condition must be approved by the IAO.</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>A .Net assembly will satisfy the Publisher Membership Condition if it is signed with a software publisher’s Authenticode X.509v3 digital certificate that can be verified by the Windows operating system as having a chain of trust that leads to a trusted root certificate stored in the user’s certificate store. The  Publisher Membership Condition can be used to identify an organization, developer, vendor, or other entity as the ultimate source of the assembly, even if the code itself was obtained from a third party, such as a mirror site.  Access to system resources, such as file systems or printers, may then be granted to the assembly based on the trust relationship with the identified entity.
 
 Certificates used to sign assemblies so the Publisher Member Condition may be applied must originate from a trusted source.  Using a certificate that is not from a trusted source could potentially violate  system integrity and confidentiality.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Caspol.exe is a Microsoft tool used for working with .Net policy.  Use caspol.exe to list the code groups and any publisher membership conditions.
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Caspol.exe is a Microsoft tool used for working with .Net policy.  Use caspol.exe to list the code groups and any publisher membership conditions.
 
 The location of the caspol utility is dependent upon the system architecture of the system running .Net. 
 
@@ -394,112 +394,112 @@ Section 1.6 above indicates the presence of a publishers key that meets the Publ
 
 If the Publisher Membership Condition is used on a non-default Code Group and the use of that publisher's certificate is not documented and approved by the IAO, this is a finding.
 </ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Trust must be established when utilizing Publishers Membership Condition.  All publishers' certificates must have documented approvals from the IAO.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>System Administrator</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
-				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
-				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
-				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
-				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
-			</VULN>
-			<VULN>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>V-7067</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0052 Strong Name Membership Condition</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>SV-7450r3_rule</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0052</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Encryption keys used for the .NET Strong Name Membership Condition must be protected.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>The Strong Name Membership condition requires that member assemblies be defined with Strong Names.  A strong name consists of the assembly's identity, simple text name, version number, and culture information (if provided) — plus a public key and a digital signature.  If assemblies do not have a strong name assigned, the assembly cannot be unique and the author of the code cannot be uniquely identified.  In order to create the strong name, the developer must use a cryptographic key pair to sign the assembly.  If the developer does not protect the key, the key can be stolen and used to sign any application, including malware applications.  This could adversely affect application integrity and confidentiality.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>If the application is a COTS product, the requirement is Not Applicable (NA).
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Trust must be established when utilizing Publishers Membership Condition.  All publishers' certificates must have documented approvals from the IAO.</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>System Administrator</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
+                </STIG_DATA>
+                <STATUS>Not_Reviewed</STATUS>
+                <FINDING_DETAILS></FINDING_DETAILS>
+                <COMMENTS></COMMENTS>
+                <SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
+                <SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
+            </VULN>
+            <VULN>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>V-7067</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0052 Strong Name Membership Condition</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>SV-7450r3_rule</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0052</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Encryption keys used for the .NET Strong Name Membership Condition must be protected.</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>The Strong Name Membership condition requires that member assemblies be defined with Strong Names.  A strong name consists of the assembly's identity, simple text name, version number, and culture information (if provided) — plus a public key and a digital signature.  If assemblies do not have a strong name assigned, the assembly cannot be unique and the author of the code cannot be uniquely identified.  In order to create the strong name, the developer must use a cryptographic key pair to sign the assembly.  If the developer does not protect the key, the key can be stolen and used to sign any application, including malware applications.  This could adversely affect application integrity and confidentiality.</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>If the application is a COTS product, the requirement is Not Applicable (NA).
 
 Caspol.exe is a Microsoft tool used for working with .Net policy.  Use caspol.exe to list the code groups and any publisher membership conditions.
 
@@ -560,10 +560,10 @@ Adequate protection methods include, but are not limited to:
  - tying strong pass phrases to the key.
 
 If the private key used to sign the assembly is not adequately protected, this is a finding.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Ask the Systems Programmer how the private keys used to sign the assembly are protected. 
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Ask the Systems Programmer how the private keys used to sign the assembly are protected. 
 
 Private keys are simply values stored as strings of data.  Keys can be stored in files on the file system or in a centralized data repository. 
 
@@ -574,214 +574,214 @@ Adequate protection methods include, but are not limited to:
  - tying strong pass phrases to the key.
 
 The private key(s) used to sign the assembly must be protected.  Utilize centralized key management or strict file permissions along with strong pass phrases and/or other well established industry practices for managing and controlling access to private keys.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Systems Programmer</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
-				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
-				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
-				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
-				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
-			</VULN>
-			<VULN>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>V-7069</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0055 CAS and Policy Config File Backups</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>SV-7452r2_rule</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0055</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>CAS and policy configuration files must be backed up.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>A successful disaster recovery plan requires that CAS policy and CAS policy configuration files are identified and included in systems disaster backup and recovery events.  Documentation regarding the location of system and application specific CAS policy configuration files and the frequency in which backups occur is required.  If these files are not identified and the information is not documented, there is the potential that critical application configuration files may not be included in disaster recovery events which could lead to an availability risk.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>CODB-1, CODB-2</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Ask the System Administrator if all CAS policy and policy configuration files are included in the system backup. If they are not, this is a finding.
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Systems Programmer</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
+                </STIG_DATA>
+                <STATUS>Not_Reviewed</STATUS>
+                <FINDING_DETAILS></FINDING_DETAILS>
+                <COMMENTS></COMMENTS>
+                <SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
+                <SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
+            </VULN>
+            <VULN>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>V-7069</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0055 CAS and Policy Config File Backups</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>SV-7452r2_rule</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0055</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>CAS and policy configuration files must be backed up.</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>A successful disaster recovery plan requires that CAS policy and CAS policy configuration files are identified and included in systems disaster backup and recovery events.  Documentation regarding the location of system and application specific CAS policy configuration files and the frequency in which backups occur is required.  If these files are not identified and the information is not documented, there is the potential that critical application configuration files may not be included in disaster recovery events which could lead to an availability risk.</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>CODB-1, CODB-2</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Ask the System Administrator if all CAS policy and policy configuration files are included in the system backup. If they are not, this is a finding.
 
 Ask the System Administrator if the policy and configuration files are backed up prior to migration, deployment, and reconfiguration. If they are not, this is a finding.
 
 Ask the System Administrator for documentation that shows CAS Policy configuration files are backed up as part of a disaster recovery plan. If they have no documentation proving the files are backed up, this is a finding.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>All CAS policy and policy configuration files must be included in the system backup. 
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>All CAS policy and policy configuration files must be included in the system backup. 
 
 All CAS policy and policy configuration files must be backed up prior to migration, deployment, and reconfiguration.
 
 CAS policy configuration files must be included in disaster recovery plan documentation.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>System Administrator</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
-				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
-				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
-				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
-				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
-			</VULN>
-			<VULN>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>V-7070</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0060 Remoting Services Auth and Encryption HTTP Channel.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>SV-7453r2_rule</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0060</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Remoting Services HTTP channels must utilize authentication and encryption.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>.NET remoting provides the capability to build widely distributed applications. The application components may reside all on one computer or they may be spread out across the enclave. .NET client applications can make remoting calls to use objects in other processes on the same computer or on any other computer that is reachable over the network. .NET remoting can also be used to communicate with other application domains within the same process.  Remoting is achieved via the exposure of endpoints that can be used to establish remote connectivity.
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>System Administrator</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
+                </STIG_DATA>
+                <STATUS>Not_Reviewed</STATUS>
+                <FINDING_DETAILS></FINDING_DETAILS>
+                <COMMENTS></COMMENTS>
+                <SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
+                <SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
+            </VULN>
+            <VULN>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>V-7070</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0060 Remoting Services Auth and Encryption HTTP Channel.</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>SV-7453r2_rule</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0060</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Remoting Services HTTP channels must utilize authentication and encryption.</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>.NET remoting provides the capability to build widely distributed applications. The application components may reside all on one computer or they may be spread out across the enclave. .NET client applications can make remoting calls to use objects in other processes on the same computer or on any other computer that is reachable over the network. .NET remoting can also be used to communicate with other application domains within the same process.  Remoting is achieved via the exposure of endpoints that can be used to establish remote connectivity.
 
 Normally when application code attempts to access a protected resource, a stack walk is performed to ensure that all stack frames have permission to access the resource. However, with .Net 4.0, when a call is made on a remote object, this stack walk is not performed across the remoting boundary. The .Net remoting infrastructure requires FullTrust permission to execute on either the client or the server. 
 
@@ -791,14 +791,14 @@ Microsoft provides 3 different "channels" that are used for remoting.  They are 
 
 Any unauthorized use of a remoting application provides unauthorized access with FullTrust permissions to the system. This can potentially result in a loss of system integrity or confidentiality.
 </ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>DCSL-1</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Check the machine.config and the [application executable name].exe.config configuration files for the typefilterlevel="Full" configuration parameter. 
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>DCSL-1</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Check the machine.config and the [application executable name].exe.config configuration files for the typefilterlevel="Full" configuration parameter. 
 
 The machine.config file is contained in the folder 
 %SYSTEMROOT%\Microsoft.NET\Framework\v4.0.30319 or
@@ -835,10 +835,10 @@ The above example shows the well known SSL port of 443 is not being used.
 If encryption and message integrity are not used for the HTTP remoting channel when the ServerProvider element typefilterlevel=”Full”,  this is a finding.
 
 </ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Ensure encryption and message integrity are used for HTTP remoting channels when the "typefilterlevel" element is set to "Full".
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Ensure encryption and message integrity are used for HTTP remoting channels when the "typefilterlevel" element is set to "Full".
 
 The HTTP Channel only supports encryption and message integrity when the remote object is hosted in Internet Information Services (IIS) using SSL.
 
@@ -848,108 +848,108 @@ HTTP channels are protected via SSL (HTTPS).
 &lt;/channels&gt; 
 
 Change the channel ref parameter to utilize an SSL port and leverage SSL on the remote IIS server.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>System Administrator</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
-				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
-				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
-				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
-				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
-			</VULN>
-			<VULN>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>V-18395</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0061 Unsupported .Net Framework Versions</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>SV-19930r2_rule</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0061</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>.Net Framework versions installed on the system must be supported.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Unsupported software introduces risks and violates DoD policy.  Applications utilizing unsupported versions of .NET introduce substantial risk to the host, network, and the enclave by virtue of the fact they leverage an architecture that is no longer updated by the vendor.  This introduces potential application integrity, availability, or confidentiality issues.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>COMS-1</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Determine which versions of the .NET Framework are installed by opening the directory %systemroot%\Microsoft.NET.
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>System Administrator</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
+                </STIG_DATA>
+                <STATUS>Not_Reviewed</STATUS>
+                <FINDING_DETAILS></FINDING_DETAILS>
+                <COMMENTS></COMMENTS>
+                <SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
+                <SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
+            </VULN>
+            <VULN>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>V-18395</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0061 Unsupported .Net Framework Versions</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>SV-19930r2_rule</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0061</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>.Net Framework versions installed on the system must be supported.</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Unsupported software introduces risks and violates DoD policy.  Applications utilizing unsupported versions of .NET introduce substantial risk to the host, network, and the enclave by virtue of the fact they leverage an architecture that is no longer updated by the vendor.  This introduces potential application integrity, availability, or confidentiality issues.</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>COMS-1</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Determine which versions of the .NET Framework are installed by opening the directory %systemroot%\Microsoft.NET.
 
 The folder named "%systemroot%\Microsoft.NET\Framework" contains .NET files for 32 bit systems.  The folder named "%systemroot%\Microsoft.NET\Framework64" contains .NET files for 64 bit systems. 64 bit systems will have both the 32 bit and the 64 bit folders while 32 bit systems do not have a Framework64 folder.
 
@@ -975,104 +975,104 @@ Beginning with .NET 3.5 SP1, the .NET Framework is considered a Component of the
  
 If any versions of the .Net Framework are installed and support is no longer available, this is a finding.
 </ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Remove unsupported versions of the .NET Framework and upgrade legacy applications that utilize unsupported versions of the .NET framework.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
-				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
-				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
-				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
-				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
-			</VULN>
-			<VULN>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>V-30926</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0062 Administering FIPS Policy</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>SV-40966r1_rule</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0062</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>The .NET CLR must be configured to use FIPS approved encryption modules.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>FIPS encryption is configured via .NET configuration files.  There are numerous configuration files that affect different aspects of .Net behavior.  The .NET config files are described below.
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Remove unsupported versions of the .NET Framework and upgrade legacy applications that utilize unsupported versions of the .NET framework.</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
+                </STIG_DATA>
+                <STATUS>Not_Reviewed</STATUS>
+                <FINDING_DETAILS></FINDING_DETAILS>
+                <COMMENTS></COMMENTS>
+                <SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
+                <SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
+            </VULN>
+            <VULN>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>V-30926</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0062 Administering FIPS Policy</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>SV-40966r1_rule</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0062</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>The .NET CLR must be configured to use FIPS approved encryption modules.</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>FIPS encryption is configured via .NET configuration files.  There are numerous configuration files that affect different aspects of .Net behavior.  The .NET config files are described below.
  
 Machine Configuration Files:
 The machine configuration file, Machine.config, contains settings that apply to an entire computer. This file is located in the %SYSTEMROOT%\Microsoft.NET\Framework\v4.0.30319\Config directory for 32 bit .NET 4 installations and %SYSTEMROOT%\Microsoft.NET\Framework64\v4.0.30319\Config for 64 bit systems.   Machine.config contains configuration settings for machine-wide assembly binding, built-in remoting channels, and ASP.NET.
@@ -1096,14 +1096,14 @@ In this tag, "location" represents a URL that point to the configuration file. T
 
 .NET 4.0 allows the CLR runtime to be configured to ignore FIPS encryption requirements.  If the CLR is not configured to use FIPS encryption modules, insecure encryption modules might be employed which could introduce an application confidentiality or integrity issue.
 </ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>DCNR-1</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>DCNR-1</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>
 Examine the .NET CLR configuration files from the vulnerability discussion to find the runtime element and then the "enforceFIPSPolicy" element.
 
 Example:
@@ -1120,10 +1120,10 @@ If the "enforceFIPSPolicy" element does not exist within the "runtime" element o
 If the "enforceFIPSPolicy" element exists and is set to "false", and the IAO has not accepted the risk and documented the risk acceptance, this is a finding. 
 
 </ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Examine the .NET CLR configuration files to find the runtime element and then the "enforceFIPSPolicy" element.
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Examine the .NET CLR configuration files to find the runtime element and then the "enforceFIPSPolicy" element.
 
 Example:
 &lt;configuration&gt; 
@@ -1133,100 +1133,100 @@ Example:
 &lt;/configuration&gt;
 
 Delete the "enforceFIPSPolicy" runtime element, change the setting to "true" or there must be documented IAO approvals for the FIPS setting.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Web Administrator</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
-				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
-				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
-				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
-				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
-			</VULN>
-			<VULN>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>V-30935</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0063 Validation of Strong Names</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>SV-40977r1_rule</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0063</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>.NET must be configured to validate strong names on full-trust assemblies.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>The "bypassTrustedAppStrongNames" setting specifies whether the bypass feature that avoids validating strong names for full-trust assemblies is enabled. By default the bypass feature is enabled in .Net 4, therefore strong names are not validated for correctness when the assembly/program is loaded. Not validating strong names provides a faster application load time but at the expense of performing certificate validation. 
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Web Administrator</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
+                </STIG_DATA>
+                <STATUS>Not_Reviewed</STATUS>
+                <FINDING_DETAILS></FINDING_DETAILS>
+                <COMMENTS></COMMENTS>
+                <SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
+                <SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
+            </VULN>
+            <VULN>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>V-30935</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0063 Validation of Strong Names</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>SV-40977r1_rule</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0063</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>.NET must be configured to validate strong names on full-trust assemblies.</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>The "bypassTrustedAppStrongNames" setting specifies whether the bypass feature that avoids validating strong names for full-trust assemblies is enabled. By default the bypass feature is enabled in .Net 4, therefore strong names are not validated for correctness when the assembly/program is loaded. Not validating strong names provides a faster application load time but at the expense of performing certificate validation. 
 
 Full trust assemblies are .Net applications launched from the local host. Strong names are digital signatures tied to .Net applications/assemblies.  .Net 4 considers applications installed locally to be fully trusted by default and grants these applications full permissions to access host resources. 
 
@@ -1241,14 +1241,14 @@ The bypass feature applies to any assembly signed with a strong name and having 
     Not delay-signed.
 
 Not validating the certificates used to sign strong name assemblies will provide a faster application load time, but falsely assumes that signatures used to sign the application are to be implicitly trusted.  Not validating strong name certificates introduces an integrity risk to the system.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>DCSL-1</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Use regedit to examine the HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework key.  
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>DCSL-1</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Use regedit to examine the HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework key.  
 
 If the "AllowStrongNameBypass" registry key does not exist on production systems, this is a finding.
 
@@ -1259,226 +1259,226 @@ If there is documented IAO approval for either setting on development systems, t
 Approval documentation must include a complete list of all installed .Net applications, application versions, and acknowledgement that IAO trusts each installed application.
 
 If application versions installed on the system do not match approval documentation, this is a finding.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Change the registry key 
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Change the registry key 
 "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\AllowStrongNameBypass" to a DWORD value of 0.  
 
 Or, obtain documented IAO approval for each .Net application installed on the system. 
 
 Approval documentation will include complete list of all installed .Net applications, application versions, and acknowledgement of IAO trust of each installed application.
 </ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>System Administrator</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
-				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
-				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
-				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
-				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
-			</VULN>
-			<VULN>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>V-30937</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>low</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0064 Legacy Security Policy</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>SV-40979r1_rule</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0064</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>.Net applications that invoke NetFx40_LegacySecurityPolicy must apply previous versions of .NET STIG guidance.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>CAS policy is .NET runtime version-specific.  In .NET Framework version 4, CAS policy is disabled by default however; it can be re-enabled by using the NetFx40_LegacySecurityPolicy setting on a per application basis.
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>System Administrator</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
+                </STIG_DATA>
+                <STATUS>Not_Reviewed</STATUS>
+                <FINDING_DETAILS></FINDING_DETAILS>
+                <COMMENTS></COMMENTS>
+                <SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
+                <SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
+            </VULN>
+            <VULN>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>V-30937</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>low</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0064 Legacy Security Policy</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>SV-40979r1_rule</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0064</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>.Net applications that invoke NetFx40_LegacySecurityPolicy must apply previous versions of .NET STIG guidance.</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>CAS policy is .NET runtime version-specific.  In .NET Framework version 4, CAS policy is disabled by default however; it can be re-enabled by using the NetFx40_LegacySecurityPolicy setting on a per application basis.
 
 When invoking the NetFx40_LegacySecurityPolicy setting in .NET 4, earlier versions of the .NET Framework CAS policy will become active therefore previous .NET STIG guidance that applies to the reactivated versions must also be applied. 
 
 Failure to apply applicable versions of STIG guidance can result in the loss of system confidentiality, integrity or availability.  
 </ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>DCSL-1</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Open Windows explorer and search for all *.exe.config files.
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>DCSL-1</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Open Windows explorer and search for all *.exe.config files.
 
 Search each file for NetFx40_LegacySecurityPolicy enabled="true".
 
 If the .NET application configuration file utilizes the legacy policy element and .NET STIG guidance that covers these legacy versions has not been applied, this is a finding.
 </ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Apply the .NET Framework Security Checklist for .Net versions 1 through 3.5 when utilizing the NetFx40_LegacySecurityPolicy setting.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>System Administrator</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
-				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
-				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
-				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
-				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
-			</VULN>
-			<VULN>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>V-30968</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0065 Load From Remote Sources</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>SV-41010r1_rule</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0065</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Trust must be established prior to enabling the loading of remote code in .Net 4.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>In the .NET Framework version 3.5 and earlier versions, if an application assembly loaded code/objects from a remote location, that assembly would run partially trusted with a permissions grant set that depended on the zone in which it was loaded. For example, if an assembly was loaded from a web site, it was loaded into the Internet zone and granted the Internet permission set. In other words, it was executed in an Internet sandbox.
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Apply the .NET Framework Security Checklist for .Net versions 1 through 3.5 when utilizing the NetFx40_LegacySecurityPolicy setting.</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>System Administrator</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
+                </STIG_DATA>
+                <STATUS>Not_Reviewed</STATUS>
+                <FINDING_DETAILS></FINDING_DETAILS>
+                <COMMENTS></COMMENTS>
+                <SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
+                <SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
+            </VULN>
+            <VULN>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>V-30968</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0065 Load From Remote Sources</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>SV-41010r1_rule</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0065</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Trust must be established prior to enabling the loading of remote code in .Net 4.</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>In the .NET Framework version 3.5 and earlier versions, if an application assembly loaded code/objects from a remote location, that assembly would run partially trusted with a permissions grant set that depended on the zone in which it was loaded. For example, if an assembly was loaded from a web site, it was loaded into the Internet zone and granted the Internet permission set. In other words, it was executed in an Internet sandbox.
 
 If the same program is run in the .NET Framework version 4, an exception is thrown which effectively states; either explicitly create a sandbox for the assembly or run it in full trust.
 
@@ -1496,130 +1496,130 @@ The appropriate level of trust must be established prior to enabling the loading
 &lt;/runtime&gt;
 &lt;/configuration&gt;
 </ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>DCFA-1, DCSL-1</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Open Windows explorer and search for *.exe.config.
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>DCFA-1, DCSL-1</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Open Windows explorer and search for *.exe.config.
 
 Search each config file found for the "loadFromRemoteSources" element.
 
 If the loadFromRemoteSources element is enabled  
 ("loadFromRemoteSources enabled = true"), and the remotely loaded application is not run in a sandboxed environment, or if OS based software controls, such as AppLocker or Software Security Policies, are not utilized, this is a finding.
 </ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>.Net application code loaded from a remote source must be run in a controlled environment.  
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>.Net application code loaded from a remote source must be run in a controlled environment.  
 
 A controlled environment consists of a sandbox, such as running in an Internet Explorer host environment or employing OS based software access controls, such as AppLocker or Software Security Policies, when application design permits.  
 
 Obtain documented IAO approvals for all remotely loaded code.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Systems Programmer</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
-				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
-				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
-				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
-				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
-			</VULN>
-			<VULN>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>V-30972</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>low</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0066 .Net Default Proxy Settings</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>SV-41014r1_rule</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0066</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>.NET default proxy settings must be reviewed and approved.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>The .Net framework can be configured to utilize a different proxy or altogether bypass the default proxy settings in the client's browser.  This may lead to the framework using a proxy that is not approved for use.  If the proxy is malicious, this could lead to a loss of application integrity and confidentiality.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>DCFA-1, DCSL-1</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Open Windows explorer and search for all "*.exe.config" and "machine.config" files.
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Systems Programmer</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
+                </STIG_DATA>
+                <STATUS>Not_Reviewed</STATUS>
+                <FINDING_DETAILS></FINDING_DETAILS>
+                <COMMENTS></COMMENTS>
+                <SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
+                <SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
+            </VULN>
+            <VULN>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>V-30972</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>low</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0066 .Net Default Proxy Settings</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>SV-41014r1_rule</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0066</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>.NET default proxy settings must be reviewed and approved.</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>The .Net framework can be configured to utilize a different proxy or altogether bypass the default proxy settings in the client's browser.  This may lead to the framework using a proxy that is not approved for use.  If the proxy is malicious, this could lead to a loss of application integrity and confidentiality.</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>DCFA-1, DCSL-1</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Open Windows explorer and search for all "*.exe.config" and "machine.config" files.
 
 Search each file for the "defaultProxy" element.
 
@@ -1636,110 +1636,110 @@ If the "defaultProxy" setting "enabled=false" or if the "bypasslist", "module", 
 If the "defaultProxy" element is empty then the framework is using default browser settings, this is not a finding.
 
 </ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Open Windows explorer and search for all "*.exe.config" and "machine.config" files.
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Open Windows explorer and search for all "*.exe.config" and "machine.config" files.
 
 Search each file for the "defaultProxy" element.
 
 Clear the values contained in the "defaultProxy" element, and the "bypasslist", "module", and "proxy" child elements.
 
 The IAO must provide documented approvals of any non-default proxy servers.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>System Administrator</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
-				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
-				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
-				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
-				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
-			</VULN>
-			<VULN>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>V-30986</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0070 Software protections and controls</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>SV-41030r1_rule</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0070</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Software utilizing .Net 4.0 must be identified and relevant access controls configured.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>With the advent of .Net 4.0, the .Net framework no longer directly configures or enforces security policy for .Net applications.  This task is now relegated to the operating system layer and the security protections built-in to .Net application "runtime hosts" that run on the O.S. 
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>System Administrator</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
+                </STIG_DATA>
+                <STATUS>Not_Reviewed</STATUS>
+                <FINDING_DETAILS></FINDING_DETAILS>
+                <COMMENTS></COMMENTS>
+                <SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
+                <SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
+            </VULN>
+            <VULN>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>V-30986</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0070 Software protections and controls</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>SV-41030r1_rule</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0070</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Software utilizing .Net 4.0 must be identified and relevant access controls configured.</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>With the advent of .Net 4.0, the .Net framework no longer directly configures or enforces security policy for .Net applications.  This task is now relegated to the operating system layer and the security protections built-in to .Net application "runtime hosts" that run on the O.S. 
 
 Examples of these .Net "runtime hosts" include; Internet Explorer, Windows Shell, ASP.NET, Database Engines or any other "runtime hosts" that utilize .Net and load the .Net CLR.
 
@@ -1750,14 +1750,14 @@ To compensate for these design changes, Windows provides native solutions such a
 In order to assign protections to .Net 4.0 applications, the applications must first be identified and the appropriate hosting security mechanisms configured to accomplish that task.  
 
 .Net STIG guidance cannot be applied if .Net applications are not identified and documented.  The lack of an application inventory introduces confidentiality, availability and integrity vulnerabilities to the system.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>DCSL-1, DCSP-1</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Ask the system administrator to provide documentation that identifies:
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>DCSL-1, DCSP-1</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Ask the system administrator to provide documentation that identifies:
 
 - Each .Net 4.0 application they run on the system.
 - The .Net runtime host that invokes the application. 
@@ -1772,118 +1772,118 @@ If the runtime hosts have not been identified, this is a finding.
 If the security protections have not been identified, this is a finding.
 
 </ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Document the existence of all .Net 4.0 applications.
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Document the existence of all .Net 4.0 applications.
 
 Document the corresponding runtime hosts that are used to invoke the applications.
 
 Document the applications security control requirements (restricting application access to resources or user access to the application).</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>System Administrator</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
-				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
-				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
-				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
-				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
-			</VULN>
-			<VULN>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>V-31026</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0067 .NET Event Tracing for Windows.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>SV-41075r1_rule</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0067</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Event tracing for Windows (ETW) for Common Language Runtime events must be enabled.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Event tracing captures information about applications utilizing the .NET CLR and the .NET CLR itself. This includes security oriented information, such as Strong Name and Authenticode verification.  
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>System Administrator</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
+                </STIG_DATA>
+                <STATUS>Not_Reviewed</STATUS>
+                <FINDING_DETAILS></FINDING_DETAILS>
+                <COMMENTS></COMMENTS>
+                <SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
+                <SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
+            </VULN>
+            <VULN>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>V-31026</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0067 .NET Event Tracing for Windows.</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>SV-41075r1_rule</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0067</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Event tracing for Windows (ETW) for Common Language Runtime events must be enabled.</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Event tracing captures information about applications utilizing the .NET CLR and the .NET CLR itself. This includes security oriented information, such as Strong Name and Authenticode verification.  
 
 Beginning with Windows Vista, ETW is enabled by default however, the .Net CLR and .Net applications can be configured to not utilize Event Tracing. If ETW event tracing is disabled, critical events that occurred within the runtime will not be captured in event logs.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>DCSL-1</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Open Windows explorer and search for all .NET config files including application config files (*.exe.config)
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>DCSL-1</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Open Windows explorer and search for all .NET config files including application config files (*.exe.config)
 
 NOTE:
 Beginning with Windows Vista and Windows Server 2008, ETW Tracing is enabled by default and the "etwEnable" setting is not required in order for Event Tracing to be enabled.  An etwEnable setting of "true" IS required in earlier versions of Windows as ETW is disabled by default. 
@@ -1895,109 +1895,109 @@ If the "etwEnable" element is set to "true", this is not a finding.
 
 If the "etwEnable" element is set to "false" and documented approvals by the IAO are not provided, this is a finding.
 </ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Open Windows explorer and search for all .NET config files including application config files (*.exe.config).
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Open Windows explorer and search for all .NET config files including application config files (*.exe.config).
 
 Examine the configuration settings for 
 &lt;etwEnable enabled="false" /&gt;.
 
 Enable ETW Tracing by setting the etwEnable flag to "true" or obtain documented IAO approvals.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
-				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
-				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
-				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
-				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
-			</VULN>
-			<VULN>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>V-32025</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0071 Remoting Services auth and encryption TCP channel</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>SV-42341r1_rule</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>APPNET0071</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Remoting Services TCP channels must utilize authentication and encryption.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>.NET remoting provides the capability to build widely distributed applications. The application components may reside all on one computer or they may be spread out across the enclave. .NET client applications can make remoting calls to use objects in other processes on the same computer or on any other computer that is reachable over the network. .NET remoting can also be used to communicate with other application domains within the same process.  Remoting is achieved via the exposure of endpoints that can be used to establish remote connectivity.
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
+                </STIG_DATA>
+                <STATUS>Not_Reviewed</STATUS>
+                <FINDING_DETAILS></FINDING_DETAILS>
+                <COMMENTS></COMMENTS>
+                <SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
+                <SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
+            </VULN>
+            <VULN>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Num</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>V-32025</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Severity</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>medium</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Group_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0071 Remoting Services auth and encryption TCP channel</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_ID</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>SV-42341r1_rule</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Ver</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>APPNET0071</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Rule_Title</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Remoting Services TCP channels must utilize authentication and encryption.</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Vuln_Discuss</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>.NET remoting provides the capability to build widely distributed applications. The application components may reside all on one computer or they may be spread out across the enclave. .NET client applications can make remoting calls to use objects in other processes on the same computer or on any other computer that is reachable over the network. .NET remoting can also be used to communicate with other application domains within the same process.  Remoting is achieved via the exposure of endpoints that can be used to establish remote connectivity.
 
 Normally when application code attempts to access a protected resource, a stack walk is performed to ensure that all stack frames have permission to access the resource. However, with .Net 4.0, when a call is made on a remote object, this stack walk is not performed across the remoting boundary. The .Net remoting infrastructure requires FullTrust permission to execute on either the client or the server. 
 
@@ -2006,14 +2006,14 @@ Due to the fact that FullTrust permission is required, Remoting endpoints should
 Microsoft provides 3 different "channels" that are used for remoting.  They are HTTP, TCP and IPC.
 
 Any unauthorized use of a remoting application provides unauthorized access with FullTrust permissions to the system. This can potentially result in a loss of system integrity or confidentiality.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>IA_Controls</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>
 Check the machine.config and the [application executable name].exe.config configuration files for the typefilterlevel="Full" configuration parameter. 
 
 The machine.config file is contained in the folder 
@@ -2049,10 +2049,10 @@ The TCP Channel supports encryption and message integrity when the 'secure' flag
 If encryption and message integrity are not used for the TCP remoting channel when the ServerProvider element typefilterlevel=”Full”,  this is a finding.
 
 </ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Ensure encryption and message integrity are used for TCP remoting channels when the "typefilterlevel" element is set to "Full".
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Fix_Text</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Ensure encryption and message integrity are used for TCP remoting channels when the "typefilterlevel" element is set to "Full".
 
 TCP remoting connections are protected via the secure=true configuration parameter.
 &lt;channels&gt;
@@ -2060,72 +2060,72 @@ TCP remoting connections are protected via the secure=true configuration paramet
 &lt;/channels&gt;
 
 Include the secure="true" flag in the channel ref parameter of the machine.config and [application name].exe.config file if the [application name].exe.config file exists on the system.</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>System Administrator</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA></ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
-					<ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
-				</STIG_DATA>
-				<STIG_DATA>
-					<VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
-				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
-				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
-				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
-				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
-			</VULN>
-		</iSTIG>
-	</STIGS>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Positives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>False_Negatives</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Documentable</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>false</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigations</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Potential_Impact</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Third_Party_Tools</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Mitigation_Control</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Responsibility</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>System Administrator</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Security_Override_Guidance</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA></ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Check_Content_Ref</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>M</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Weight</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>10.0</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>Class</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Unclass</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>STIGRef</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>Microsoft Dot Net Framework 4.0 STIG :: Release: 4 Benchmark Date: 28 Jul 2017</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
+                    <ATTRIBUTE_DATA>2030</ATTRIBUTE_DATA>
+                </STIG_DATA>
+                <STIG_DATA>
+                    <VULN_ATTRIBUTE>CCI_REF</VULN_ATTRIBUTE><ATTRIBUTE_DATA/>
+                </STIG_DATA>
+                <STATUS>Not_Reviewed</STATUS>
+                <FINDING_DETAILS></FINDING_DETAILS>
+                <COMMENTS></COMMENTS>
+                <SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
+                <SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
+            </VULN>
+        </iSTIG>
+    </STIGS>
 </CHECKLIST>

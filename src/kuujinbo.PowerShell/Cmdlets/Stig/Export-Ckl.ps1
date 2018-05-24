@@ -2,7 +2,7 @@
 .SYNOPSIS
     Export STIG scan results to a .ckl file
 .NOTES
-    Tested on STIG Viewer 2.7. To save template file:
+    Tested on DISA STIG Viewer 2.7. To save template file:
     [1] Checklist => Create Checklist - Check Marked STIG(s)
     [2] File => Save Checklist As...
 #>
@@ -18,13 +18,22 @@ function Export-Ckl {
     $errorText = "Scan results not saved => error processing [$cklInPath]";
     try {
         # [xml]$cklTemplate = Get-Content -Path $cklInPath -ErrorAction Stop;
-
         $cklTemplate = New-Object System.Xml.XmlDocument;
         $cklTemplate.PreserveWhitespace = $true;
         $cklTemplate.Load($cklInPath); 
 
         if ($cklTemplate) {
+            if ($data.ContainsKey('hostinfo')) {
+                $h = $data.'hostinfo';
+                $cklTemplate.CHECKLIST.ASSET.HOST_NAME  = $h.'hostname';
+                $cklTemplate.CHECKLIST.ASSET.HOST_IP  = $h.'ipaddress';
+                $cklTemplate.CHECKLIST.ASSET.HOST_MAC = $h.'macaddress';
+                $cklTemplate.CHECKLIST.ASSET.HOST_FQDN = $h.'fqdn';
+            }
+
+            # search XML by vulnerability number
             $keyNodeIndex = 0; 
+            # search XML by rule ID
             if ($dataRuleIdKey.IsPresent) { $keyNodeIndex = 3; }
 
             foreach ($iStig in $cklTemplate.CHECKLIST.STIGS.iSTIG) {

@@ -18,7 +18,6 @@ param(
     [Parameter(ParameterSetName='hosts')]
     [switch]$useTemplate=$true
 
-    ,[switch]$allDrives
     ,[switch]$testMode
 );
 
@@ -31,12 +30,23 @@ Import-Module $stigModPath -DisableNameChecking -Force;
 # in-memory modules for `Invoke-Command`
 $dynamicScript = Get-ScriptBlockFilesForRemote @(
     "$PSScriptRoot/../../Cmdlets/Stig/ReadOnlyVariables.ps1"
-    "$PSScriptRoot/../../Cmdlets/IO/Get-PhysicalDrives.ps1"
+    ,"$PSScriptRoot/../../Cmdlets/IO/Get-PhysicalDrives.ps1"
+    ,"$PSScriptRoot/../../Cmdlets/Net/Get-HostInfo.ps1"
     ,"$PSScriptRoot/../../Cmdlets/Stig/.NET/Get-ConfigFileResults.ps1"
 );
 # ----------------------------------------------------------------------------
 #endregion
 
+Set-Variable TEMPLATE -option ReadOnly -value ([string] "$($PSScriptRoot)/TEMPLATE-dotnet4.0-V1R4.ckl");
+
+# REQUIRED if script runs multiple times from same command prompt; otherwise
+# previous runtime errors will be written to subsequent error logs
+$error.clear();
+
+$separator = '=' * 40;
+$errorFile = (Join-Path $outputDirectory `
+    "_errors-$((Get-Date).ToString('yyyy-MM-dd-HH.mm.ss'))-$($env:username).txt"
+);
 
 try {
     if ($hosts -and $hosts.Length -gt 0) {
@@ -44,19 +54,18 @@ try {
             try {
                 $session = New-PSSession -ComputerName $hostname -ErrorAction Stop;
                 Invoke-Command -Session $session -ScriptBlock $dynamicScript -ErrorAction Stop;
-                Invoke-Command -Session $session -ErrorAction Stop -AsJob -ScriptBlock  {
+                Invoke-Command -Session $session -ErrorAction SilentlyContinue -AsJob -ScriptBlock  {
                     # Start-Sleep -Seconds (Get-Random -Maximum 20 -Minimum 10);
-                    # return Get-PhysicalDrives;
-                    return Get-ConfigFileResults c:/;
+                    # return Get-PhysicalDrives -ErrorAction Stop;
+                    return Get-ConfigFileResults -allDrives -getHostInfo -ErrorAction SilentlyContinue;
                 } -ArgumentList $hostname | Out-Null;
-                Write-Host "Starting [$hostname] scan....";
+                Write-Host "Connecting to [$hostname]....";
             } catch {
                 $e = '';
                 #$e = "[$hostname] => $($_.Exception.Message)";
                 #$e | Out-File -Append $errorFile;
                 $e | Write-Host -ForegroundColor Red -BackgroundColor Yellow;
             }
-
         }
     }
 
@@ -80,9 +89,24 @@ try {
         Get-Job -State Completed | foreach {
             $results = $_ | Receive-Job;
             $_ | Remove-Job;
+
+            if ($results.errors.Length -gt 0) {
+                $jobErrors = @"
+$($_.Location) Errors:
+========================================
+$($results.errors)
+"@;
+
+                Write-Host $jobErrors;
+                $jobErrors >> $errorFile;
+            }
+            
             Write-Host ('#' * 76);
             Write-Host "[$($_.Location)] scan completed in $seconds seconds. $($results.'files') files scanned";
-            Write-Host $results;
+
+            $cklOutPath = Join-Path $outputDirectory "$($_.Location).ckl"; 
+            Export-Ckl $TEMPLATE $cklOutPath $results;
+
             ++$completed;
         };
 
@@ -96,5 +120,7 @@ try {
     #$e | Out-File -Append $errorFile;
     $e | Write-Host -ForegroundColor Red -BackgroundColor Yellow;
 } finally {
+    # clean up
+    Get-Job | Remove-Job;
     Get-PSSession | Remove-PSSession;
 }

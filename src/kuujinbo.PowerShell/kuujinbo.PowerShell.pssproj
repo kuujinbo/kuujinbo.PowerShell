@@ -28,6 +28,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include=".scripts\Stig\" />
+    <Folder Include="Cmdlets\Net\" />
     <Folder Include="Cmdlets\WindowsForms\" />
     <Folder Include="Modules\" />
     <Folder Include="Cmdlets\Remote\" />
@@ -50,6 +51,7 @@
     <Compile Include=".scripts\Stig\dotnet4.0.ps1" />
     <Compile Include=".scripts\Stig\dotnet4.ps1" />
     <Compile Include="Cmdlets\ActiveDirectory\cmdlets\Get-RootOid.ps1" />
+    <Compile Include="Cmdlets\Net\Get-HostInfo.ps1" />
     <Compile Include="Cmdlets\Path\Get-DesktopPath.ps1" />
     <Compile Include="Cmdlets\IO\Get-PhysicalDrives.ps1" />
     <Compile Include="Cmdlets\Registry\Get-RegistryResultsMultiple.ps1" />
