@@ -51,73 +51,59 @@ $separator = '=' * 40;
 $errorFile = (Join-Path $outputDirectory `
     "_errors-$((Get-Date).ToString('yyyy-MM-dd-HH.mm.ss'))-$($env:username).txt"
 );
+$sw = [System.Diagnostics.Stopwatch]::StartNew();
 
 try {
     if ($hosts -and $hosts.Length -gt 0) {
-        $jobs = Invoke-Command -ComputerName $hosts -ErrorAction SilentlyContinue `
+        $mainJob = Invoke-Command -ComputerName $hosts -ErrorAction SilentlyContinue `
+            -ThrottleLimit 5 `
             -AsJob -ScriptBlock $dynamicScript;
     }
 
-    $completed = 0;
-    $sw = [System.Diagnostics.Stopwatch]::StartNew();
-
-    while ($jobs = Get-Job -State Running) {
-        $currentHosts = @();
-        foreach ($job in $hosts) {
-            $currentHosts += $job;
-        }
-
-        $seconds = $sw.Elapsed.Totalseconds.ToString('0.00');
-        Write-Progress -Activity "Scanning hosts" `
-                       -Status "$($runningJobs.Count) scan(s) running. Current runtime $seconds seconds." `
-                       -CurrentOperation ($currentHosts -join ',') `
-                       -PercentComplete ($completed / $hosts.Length * 100);
-
-        Start-Sleep -Milliseconds 500;
-    }
-
-    while ($completedJobs = Get-Job -State Completed) {
-        foreach ($job in $runningJobs) {
-            $currentHosts += $job.Location;
-        }
+    $jobs = $mainJob.ChildJobs;
+    $totalJobs = $jobs.Count;
 
 
-        
-        Get-Job -State Completed | foreach {
-            $results = $_ | Receive-Job;
-            $_ | Remove-Job;
+    while ($mainJob.PSEndTime -eq $null) {
 
+        while ($remaining = $jobs | where { $_.HasMoreData }) {
+            $seconds = $sw.Elapsed.Totalseconds.ToString('0.00');
+            $finished = $jobs | where { $_.PSEndTime; };
+            foreach ($f in $finished) {            
+                if ($f.HasMoreData) { 
+                    $result = $f | Receive-Job;
+                    #$result;
+                    $cklOutPath = Join-Path $outputDirectory "$((New-Guid).ToString()).ckl"; 
+                    # $cklOutPath = Join-Path $outputDirectory "$($_.Location).ckl"; 
+                    Export-Ckl -cklInPath $TEMPLATE -cklOutPath $cklOutPath -data $result;
+                    
+                    Write-Host "$(Get-CompletedJobText $f)" ; 
+                }
 
-
-            if ($results.errors.Length -gt 0) {
-                $jobErrors = @"
+                if ($results.errors.Length -gt 0) {
+                    $jobErrors = @"
 $($_.Location) Errors:
 ========================================
 $($results.errors)
 "@;
-
-                Write-Host $jobErrors;
-                $jobErrors >> $errorFile;
+                    Write-Host $jobErrors;
+                    $jobErrors >> $errorFile;
+                }
             }
-            
-            Write-Host ('#' * 76);
-            Write-Host "[$($_.Location)] scan completed in $seconds seconds. $($results.'files') files scanned";
 
+            $running = $jobs | where { $_.State -eq 'running' -and $_.PSEndTime -eq $null; };
+            $status = if ($running) { "$($($running | select -ExpandProperty Location) -join ', ')" }
+                        else { ''; }
 
-            $results;
-            $cklOutPath = Join-Path $outputDirectory "$((New-Guid).ToString()).ckl"; 
-            # $cklOutPath = Join-Path $outputDirectory "$($_.Location).ckl"; 
-            Write-Host $cklOutPath;
-            Write-Host $TEMPLATE;
-            Export-Ckl -cklInPath $TEMPLATE -cklOutPath $cklOutPath -data $results;
+            Write-Progress -Activity "$totalJobs total job(s) / $($remaining.Count) remaining. Runtime $seconds seconds." `
+                            -Status "Current job(s): [$status]" `
+                            -PercentComplete (($totalJobs - $remaining.Count) / $totalJobs * 100);
 
-            ++$completed;
-        };
-
+            Start-Sleep -Milliseconds 500;
+        }
     }
 
-    $sw.Stop();
-    Write-Host "All scans completed in $($sw.Elapsed.Totalseconds.ToString('0.00')) seconds."
+    Write-Host (Get-CompletedJobText $mainJob -mainJob);
 } catch {
     $e = '';
     #$e = "[$hostname] => $($_.Exception.Message)";

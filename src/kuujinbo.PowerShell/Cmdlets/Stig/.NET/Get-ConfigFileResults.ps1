@@ -42,6 +42,8 @@ function Get-ConfigFileResults {
         }
     }
     $files = getDotnetFiles $paths;
+    $fileCount = $files.files.Length;
+    $rules.fileCount = $fileCount;
 
     foreach ($file in $files.files) {
         try {
@@ -89,7 +91,7 @@ function Get-ConfigFileResults {
     }
 
     $result = [hashtable] (Get-CklResults $rules);
-    $result.files = $files.files.Length;
+    $result.fileCount = $fileCount;
     $result.errors = $files.errors;
     if ($getHostInfo.IsPresent) { $result.'hostinfo' = Get-HostInfo; }
 
@@ -111,13 +113,15 @@ function Get-CklResults {
     };
     foreach ($key in $results.Keys) {
         if ($key -match '^V-\d+') {
+            $total = $results.fileCount;
             $fails = [string[]] $results.$key; 
-            if ($fails.Length -eq 0) {
-                $cklResults.$key = @($CKL_STATUS_PASS, "All scanned files correctly configured.");
+            $failCount = $fails.Length;
+            if ($failCount -eq 0) {
+                $cklResults.$key = @($CKL_STATUS_PASS, "All ($total) scanned files correctly configured.");
             } else {
                 $cklResults.$key = @(
                     $CKL_STATUS_OPEN, 
-                    "Incorrectly configured files: $($($results.$key) -join "`n")"
+                    "($failCount) out of ($total) files incorrectly configured: $($($results.$key) -join "`n")"
                 );
             }
         }
