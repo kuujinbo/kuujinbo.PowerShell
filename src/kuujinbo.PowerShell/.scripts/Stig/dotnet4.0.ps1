@@ -34,11 +34,18 @@ $dynamicScript = Get-ScriptBlockFilesForRemote @(
     ,"$PSScriptRoot/../../Cmdlets/Net/Get-HostInfo.ps1"
     ,"$PSScriptRoot/../../Cmdlets/Stig/.NET/Get-ConfigFileResults.ps1"
 );
+$dynamicScript = [ScriptBlock]::Create(
+    $dynamicScript.ToString() `
+    + @'
+# Start-Sleep -Seconds (Get-Random -Maximum 10 -Minimum 2);
+
+return Get-ConfigFileResults -allDrives -getHostInfo -ErrorAction SilentlyContinue;
+'@
+)
 # ----------------------------------------------------------------------------
 #endregion
 
 Set-Variable TEMPLATE -option ReadOnly -value ([string] "$($PSScriptRoot)/TEMPLATE-dotnet4.0-V1R4.ckl");
-
 
 $separator = '=' * 40;
 $errorFile = (Join-Path $outputDirectory `
@@ -47,32 +54,17 @@ $errorFile = (Join-Path $outputDirectory `
 
 try {
     if ($hosts -and $hosts.Length -gt 0) {
-        foreach ($hostname in $hosts) {
-            try {
-                $session = New-PSSession -ComputerName $hostname -ErrorAction Stop;
-                Invoke-Command -Session $session -ScriptBlock $dynamicScript -ErrorAction Stop;
-                Invoke-Command -Session $session -ErrorAction SilentlyContinue -AsJob -ScriptBlock  {
-                    # Start-Sleep -Seconds (Get-Random -Maximum 20 -Minimum 10);
-                    # return Get-PhysicalDrives -ErrorAction Stop;
-                    return Get-ConfigFileResults -allDrives -getHostInfo -ErrorAction SilentlyContinue;
-                } -ArgumentList $hostname | Out-Null;
-                Write-Host "Connecting to [$hostname]....";
-            } catch {
-                $e = '';
-                #$e = "[$hostname] => $($_.Exception.Message)";
-                #$e | Out-File -Append $errorFile;
-                $e | Write-Host -ForegroundColor Red -BackgroundColor Yellow;
-            }
-        }
+        $jobs = Invoke-Command -ComputerName $hosts -ErrorAction SilentlyContinue `
+            -AsJob -ScriptBlock $dynamicScript;
     }
 
     $completed = 0;
     $sw = [System.Diagnostics.Stopwatch]::StartNew();
 
-    while ($runningJobs = Get-Job -State Running) {
+    while ($jobs = Get-Job -State Running) {
         $currentHosts = @();
-        foreach ($job in $runningJobs) {
-            $currentHosts += $job.Location;
+        foreach ($job in $hosts) {
+            $currentHosts += $job;
         }
 
         $seconds = $sw.Elapsed.Totalseconds.ToString('0.00');
@@ -82,10 +74,20 @@ try {
                        -PercentComplete ($completed / $hosts.Length * 100);
 
         Start-Sleep -Milliseconds 500;
+    }
 
+    while ($completedJobs = Get-Job -State Completed) {
+        foreach ($job in $runningJobs) {
+            $currentHosts += $job.Location;
+        }
+
+
+        
         Get-Job -State Completed | foreach {
             $results = $_ | Receive-Job;
             $_ | Remove-Job;
+
+
 
             if ($results.errors.Length -gt 0) {
                 $jobErrors = @"
@@ -101,8 +103,13 @@ $($results.errors)
             Write-Host ('#' * 76);
             Write-Host "[$($_.Location)] scan completed in $seconds seconds. $($results.'files') files scanned";
 
-            $cklOutPath = Join-Path $outputDirectory "$($_.Location).ckl"; 
-            Export-Ckl $TEMPLATE $cklOutPath $results;
+
+            $results;
+            $cklOutPath = Join-Path $outputDirectory "$((New-Guid).ToString()).ckl"; 
+            # $cklOutPath = Join-Path $outputDirectory "$($_.Location).ckl"; 
+            Write-Host $cklOutPath;
+            Write-Host $TEMPLATE;
+            Export-Ckl -cklInPath $TEMPLATE -cklOutPath $cklOutPath -data $results;
 
             ++$completed;
         };
@@ -118,7 +125,7 @@ $($results.errors)
     $e | Write-Host -ForegroundColor Red -BackgroundColor Yellow;
 } finally {
     # clean up
-    Get-Job | Remove-Job;
+    Get-Job | Remove-Job -Force;
     Get-PSSession | Remove-PSSession;
     $error.Clear();
 }
