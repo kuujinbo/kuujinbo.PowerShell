@@ -51,53 +51,42 @@ $separator = '=' * 40;
 $errorFile = (Join-Path $outputDirectory `
     "_errors-$((Get-Date).ToString('yyyy-MM-dd-HH.mm.ss'))-$($env:username).txt"
 );
-$sw = [System.Diagnostics.Stopwatch]::StartNew();
 
 try {
     if ($hosts -and $hosts.Length -gt 0) {
         $mainJob = Invoke-Command -ComputerName $hosts -ErrorAction SilentlyContinue `
-            -ThrottleLimit 5 `
+            -ThrottleLimit 3 `
             -AsJob -ScriptBlock $dynamicScript;
     }
 
     $jobs = $mainJob.ChildJobs;
-    $totalJobs = $jobs.Count;
-
 
     while ($mainJob.PSEndTime -eq $null) {
 
         while ($remaining = $jobs | where { $_.HasMoreData }) {
-            $seconds = $sw.Elapsed.Totalseconds.ToString('0.00');
             $finished = $jobs | where { $_.PSEndTime; };
             foreach ($f in $finished) {            
                 if ($f.HasMoreData) { 
                     $result = $f | Receive-Job;
-                    #$result;
                     $cklOutPath = Join-Path $outputDirectory "$((New-Guid).ToString()).ckl"; 
                     # $cklOutPath = Join-Path $outputDirectory "$($_.Location).ckl"; 
-                    Export-Ckl -cklInPath $TEMPLATE -cklOutPath $cklOutPath -data $result;
+                    # Export-Ckl -cklInPath $TEMPLATE -cklOutPath $cklOutPath -data $result;
                     
                     Write-Host "$(Get-CompletedJobText $f)" ; 
                 }
 
-                if ($results.errors.Length -gt 0) {
+                if ($result.errors.Length -gt 0) {
                     $jobErrors = @"
-$($_.Location) Errors:
+$($f.Location) Errors:
 ========================================
-$($results.errors)
+$($result.errors)
 "@;
                     Write-Host $jobErrors;
                     $jobErrors >> $errorFile;
                 }
             }
 
-            $running = $jobs | where { $_.State -eq 'running' -and $_.PSEndTime -eq $null; };
-            $status = if ($running) { "$($($running | select -ExpandProperty Location) -join ', ')" }
-                        else { ''; }
-
-            Write-Progress -Activity "$totalJobs total job(s) / $($remaining.Count) remaining. Runtime $seconds seconds." `
-                            -Status "Current job(s): [$status]" `
-                            -PercentComplete (($totalJobs - $remaining.Count) / $totalJobs * 100);
+            Write-JobProgress $mainJob $remaining.Count;
 
             Start-Sleep -Milliseconds 500;
         }
