@@ -39,9 +39,6 @@ $dynamicScript = Get-ScriptBlockFilesForRemote @(
 
 Set-Variable TEMPLATE -option ReadOnly -value ([string] "$($PSScriptRoot)/TEMPLATE-dotnet4.0-V1R4.ckl");
 
-# REQUIRED if script runs multiple times from same command prompt; otherwise
-# previous runtime errors will be written to subsequent error logs
-$error.clear();
 
 $separator = '=' * 40;
 $errorFile = (Join-Path $outputDirectory `
@@ -123,4 +120,5 @@ $($results.errors)
     # clean up
     Get-Job | Remove-Job;
     Get-PSSession | Remove-PSSession;
+    $error.Clear();
 }

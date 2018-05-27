@@ -1,17 +1,18 @@
 <#
 .SYNOPSIS
-    Get STIG host info.
+    Get host info.
 #>
 function Get-HostInfo {
     $hostname = $env:COMPUTERNAME;
+    $adapters = Get-WmiObject -Class Win32_NetworkAdapterConfiguration `
+        -Filter "IPEnabled='True'" `
+        -ComputerName $hostname `
+    | where { $_.DefaultIPGateway -ne $null; };
 
     return @{
         'hostname' = $hostname;
         'fqdn' = [System.Net.Dns]::GetHostEntry($hostname).HostName;
-        'ipaddress' = [System.Net.Dns]::GetHostEntry($hostname).AddressList[0].IpAddressToString;
-        'macaddress' = (Get-WmiObject -ClassName Win32_NetworkAdapterConfiguration `
-                        -Filter "IPEnabled='True'" -ComputerName $env:COMPUTERNAME `
-                        | select -Property MACAddress
-        ).MACAddress;
+        'ipaddress' = $adapters.IPAddress[0];
+        'macaddress' = $adapters.MACAddress;
     }
 }

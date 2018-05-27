@@ -25,10 +25,10 @@ function Export-Ckl {
         if ($cklTemplate) {
             if ($data.ContainsKey('hostinfo')) {
                 $h = $data.'hostinfo';
-                $cklTemplate.CHECKLIST.ASSET.HOST_NAME  = $h.'hostname';
-                $cklTemplate.CHECKLIST.ASSET.HOST_IP  = $h.'ipaddress';
-                $cklTemplate.CHECKLIST.ASSET.HOST_MAC = $h.'macaddress';
-                $cklTemplate.CHECKLIST.ASSET.HOST_FQDN = $h.'fqdn';
+                $cklTemplate.CHECKLIST.ASSET.HOST_NAME  = $h.hostname;
+                $cklTemplate.CHECKLIST.ASSET.HOST_IP  = $h.ipaddress;
+                $cklTemplate.CHECKLIST.ASSET.HOST_MAC = $h.macaddress;
+                $cklTemplate.CHECKLIST.ASSET.HOST_FQDN = $h.fqdn;
             }
 
             # search XML by vulnerability number
