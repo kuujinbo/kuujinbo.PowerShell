@@ -10,10 +10,10 @@ function Get-CompletedJobText {
         ,[switch]$mainJob
     );
     
-    $runtime = ($job.PSEndTime - $job.PSBeginTime).Totalseconds.ToString('0.00'); 
-    $result = if ($mainJob.IsPresent) { "All jobs completed in $runtime seconds."; }
+    $runtime = ($job.PSEndTime - $job.PSBeginTime).ToString('mm\:ss\.ff');
+    $result = if ($mainJob.IsPresent) { "All jobs completed in $runtime."; }
               # child job
-              else { "Job completed on $($job.Location) in $runtime seconds."; }
+              else { "Job completed on $($job.Location) in $runtime."; }
 
     return $result;
 }

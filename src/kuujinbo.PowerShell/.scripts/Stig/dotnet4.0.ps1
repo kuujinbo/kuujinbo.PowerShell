@@ -28,20 +28,18 @@ $stigModPath = Join-Path $PSScriptRoot '../../Modules/Stig/DotNet4.psm1';
 Import-Module $stigModPath -DisableNameChecking -Force;
 
 # in-memory modules for `Invoke-Command`
-$dynamicScript = Get-ScriptBlockFilesForRemote @(
+$dynamicScript = Get-ScriptBlockFromFiles -psFiles @(
     "$PSScriptRoot/../../Cmdlets/Stig/ReadOnlyVariables.ps1"
     ,"$PSScriptRoot/../../Cmdlets/IO/Get-PhysicalDrives.ps1"
     ,"$PSScriptRoot/../../Cmdlets/Net/Get-HostInfo.ps1"
     ,"$PSScriptRoot/../../Cmdlets/Stig/.NET/Get-ConfigFileResults.ps1"
-);
-$dynamicScript = [ScriptBlock]::Create(
-    $dynamicScript.ToString() `
-    + @'
+) -inlineBlock @'
 # Start-Sleep -Seconds (Get-Random -Maximum 10 -Minimum 2);
 
-return Get-ConfigFileResults -allDrives -getHostInfo -ErrorAction SilentlyContinue;
-'@
-)
+# return Get-ConfigFileResults -allDrives -getHostInfo -ErrorAction SilentlyContinue;
+return Get-ConfigFileResults -allDrives -ErrorAction SilentlyContinue;
+'@;
+
 # ----------------------------------------------------------------------------
 #endregion
 
@@ -54,17 +52,16 @@ $errorFile = (Join-Path $outputDirectory `
 
 try {
     if ($hosts -and $hosts.Length -gt 0) {
-        $mainJob = Invoke-Command -ComputerName $hosts -ErrorAction SilentlyContinue `
-            -ThrottleLimit 3 `
+        $mainJob = Invoke-Command -ComputerName $hosts -ErrorAction Stop `
+            -ThrottleLimit 5 `
             -AsJob -ScriptBlock $dynamicScript;
     }
 
     $jobs = $mainJob.ChildJobs;
 
     while ($mainJob.PSEndTime -eq $null) {
-
-        while ($remaining = $jobs | where { $_.HasMoreData }) {
-            $finished = $jobs | where { $_.PSEndTime; };
+        while ($remaining = $jobs | where { $_.HasMoreData; }) {
+            $finished = $jobs | where { $_.PSEndTime -ne $null; };
             foreach ($f in $finished) {            
                 if ($f.HasMoreData) { 
                     $result = $f | Receive-Job;
@@ -88,7 +85,7 @@ $($result.errors)
 
             Write-JobProgress $mainJob $remaining.Count;
 
-            Start-Sleep -Milliseconds 500;
+            Start-Sleep -Milliseconds 760;
         }
     }
 

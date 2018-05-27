@@ -63,7 +63,7 @@
     <Compile Include="Cmdlets\Stig\Office2010\Get-OneNote2010Registry.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Outlook2010Registry.ps1" />
     <Compile Include="Cmdlets\Stig\Utils\Get-ClientOsAntiVirusProduct.ps1" />
-    <Compile Include="Cmdlets\Remote\Get-ScriptBlockFilesForRemote.ps1" />
+    <Compile Include="Cmdlets\Remote\Get-ScriptBlockFromFiles.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Excel2010Registry.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Pp2010Registry.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Word2010Registry.ps1" />
