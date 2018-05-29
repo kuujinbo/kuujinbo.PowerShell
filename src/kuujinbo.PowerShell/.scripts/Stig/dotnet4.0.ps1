@@ -6,7 +6,9 @@ param(
     ,[Parameter(ParameterSetName='hostfile')][string]$hostfile
 
     # command line: CSV hostname(s). NO previous scan results.
-    ,[Parameter(ParameterSetName='hosts')][string[]]$hosts
+    ,[Parameter(ParameterSetName='hosts')]
+    [ValidateNotNullOrEmpty()]
+    [string[]]$hosts
 
     ,[Parameter(ParameterSetName='hostfile', Mandatory=$true)]
     [Parameter(ParameterSetName='hosts', Mandatory=$true)]
@@ -34,70 +36,61 @@ $dynamicScript = Get-ScriptBlockFromFiles -psFiles @(
     ,"$PSScriptRoot/../../Cmdlets/Net/Get-HostInfo.ps1"
     ,"$PSScriptRoot/../../Cmdlets/Stig/.NET/Get-ConfigFileResults.ps1"
 ) -inlineBlock @'
-# Start-Sleep -Seconds (Get-Random -Maximum 10 -Minimum 2);
-
-# return Get-ConfigFileResults -allDrives -getHostInfo -ErrorAction SilentlyContinue;
-return Get-ConfigFileResults -allDrives -ErrorAction SilentlyContinue;
+return Get-ConfigFileResults -allDrives -getHostInfo -ErrorAction SilentlyContinue;
 '@;
 
 # ----------------------------------------------------------------------------
 #endregion
 
 Set-Variable TEMPLATE -option ReadOnly -value ([string] "$($PSScriptRoot)/TEMPLATE-dotnet4.0-V1R4.ckl");
-
-$separator = '=' * 40;
+Set-Variable JOB_NAME -option ReadOnly -value ([string] '.NET 4.0-V1R4');
 $errorFile = (Join-Path $outputDirectory `
     "_errors-$((Get-Date).ToString('yyyy-MM-dd-HH.mm.ss'))-$($env:username).txt"
 );
+$hostnames = if ($hosts) { $hosts; }
+             else { Get-Content $hostfile | where { $_ -match '\S' }; }
 
 try {
-    if ($hosts -and $hosts.Length -gt 0) {
-        $mainJob = Invoke-Command -ComputerName $hosts -ErrorAction Stop `
-            -ThrottleLimit 5 `
-            -AsJob -ScriptBlock $dynamicScript;
-    }
+    $rootJob = Invoke-Command -ComputerName $hostnames -ErrorAction Stop `
+        -ThrottleLimit 5 -AsJob -ScriptBlock $dynamicScript;
+    $childJobs = $rootJob.ChildJobs;
 
-    $jobs = $mainJob.ChildJobs;
+    while ($job = $childJobs | where { $_.HasMoreData; }) {
+        foreach ($complete in $job | where { $_.State -eq 'Completed'; }) {
+            $result = Receive-Job -Job $complete;
+            $cklOutPath = Join-Path $outputDirectory "$((New-Guid).ToString()).ckl"; 
+            # $cklOutPath = Join-Path $outputDirectory "$($_.Location).ckl"; 
+            # Export-Ckl -cklInPath $TEMPLATE -cklOutPath $cklOutPath -data $result;
+            Write-Host "$(Get-JobCompletedText $complete $JOB_NAME)";
 
-    while ($mainJob.PSEndTime -eq $null) {
-        while ($remaining = $jobs | where { $_.HasMoreData; }) {
-            $finished = $jobs | where { $_.PSEndTime -ne $null; };
-            foreach ($f in $finished) {            
-                if ($f.HasMoreData) { 
-                    $result = $f | Receive-Job;
-                    $cklOutPath = Join-Path $outputDirectory "$((New-Guid).ToString()).ckl"; 
-                    # $cklOutPath = Join-Path $outputDirectory "$($_.Location).ckl"; 
-                    # Export-Ckl -cklInPath $TEMPLATE -cklOutPath $cklOutPath -data $result;
-                    
-                    Write-Host "$(Get-CompletedJobText $f)" ; 
-                }
-
-                if ($result.errors.Length -gt 0) {
-                    $jobErrors = @"
-$($f.Location) Errors:
+<#
+            if ($result.errors.Length -gt 0) {
+                $jobErrors = @"
+$($complete.Location) Errors:
 ========================================
 $($result.errors)
 "@;
-                    Write-Host $jobErrors;
-                    $jobErrors >> $errorFile;
-                }
+                Write-Host $jobErrors;
+                $jobErrors >> $errorFile;
             }
-
-            Write-JobProgress $mainJob $remaining.Count;
-
-            Start-Sleep -Milliseconds 760;
+#>
         }
-    }
+        Write-JobProgress $rootJob $JOB_NAME;
 
-    Write-Host (Get-CompletedJobText $mainJob -mainJob);
+        Start-Sleep -Milliseconds 760;
+    } 
+    Write-Host (Get-JobCompletedText $rootJob $JOB_NAME -mainJob);   
 } catch {
     $e = '';
     #$e = "[$hostname] => $($_.Exception.Message)";
     #$e | Out-File -Append $errorFile;
     $e | Write-Host -ForegroundColor Red -BackgroundColor Yellow;
 } finally {
-    # clean up
-    Get-Job | Remove-Job -Force;
+    foreach ($fail in $childJobs | where { $_.State -ne 'Completed'; } ) {
+        "$($fail.Location) => $($fail.State) => $($fail.JobStateInfo.Reason.Message)" `
+            | Write-Host -ForegroundColor Yellow -BackgroundColor black;
+    }
     Get-PSSession | Remove-PSSession;
+    Get-Job | Remove-Job -Force;
     $error.Clear();
 }
