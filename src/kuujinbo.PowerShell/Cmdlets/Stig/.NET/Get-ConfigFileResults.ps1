@@ -149,7 +149,6 @@ function getDotnetFiles {
         $files += Get-ChildItem -Path $path -Filter machine.config -Recurse -File `
                 -ErrorVariable WTF -ErrorAction SilentlyContinue `
                 | foreach { $_.fullname; }
-        $errors += $WTF | foreach { $_.Exception.Message; }
     }
 
     return @{

@@ -1,0 +1,36 @@
+============================================================================
+.NET 4 STIG
+============================================================================
+
+[1] Please don't mess with ANY of the scripts. It will GREATLY help the developer troubleshoot when anyone using this script needs help if the developer has the **ORIGINAL** code. If you want to experiment (there's a lot of code in 'Modules') make a copy of everything and work on that instead.
+
+If you keep a shortcut to this directory and run the script from the UNC path, any updates and additions made by the developer will be transparent to you. See [4] below to run the script from a UNC path or mapped drive.
+
+[2] The script is named 'dotnet4.0.ps1'. See the script file for all possible parameter sets. Short parameter summary:
+    [a] REQUIRED => -outputDirectory:
+        FULL path to directory where .ckl results are saved.
+    [b] REQUIRED => hostnames
+        [i] -hostnames: CSV list of hostnames.
+        OR
+        [ii] -txtHostsFile: .txt file with one hostname per line.
+    [c] OPTIONAL => -throttleLimit:
+        Maximum number of allowed concurrent scans. Default is 5.
+
+For example, from the powershell command line:
+----------------------------------------------------------------------------
+PS >> \\PATH-TO-SCRIPT\dotnet4.0.ps1 -hostnames hosts0,host1 -outputDirectory \\PATH-TO-OUTPUT
+
+OR
+
+PS >> \\PATH-TO-SCRIPT\dotnet4.0.ps1 -txtHostsFile \PATH-TO-FILE\hosts.txt -outputDirectory \\PATH-TO-OUTPUT
+----------------------------------------------------------------------------
+
+[3] Very simple error logging is being done - error file has the following format:
+
+"_errors-$((Get-Date).ToString('yyyy-MM-dd-HH.mm.ss'))-$($env:username).txt"
+
+[4] Depending on you powershell environment you may need to run the following cmdlet to get rid of the annoying security warning about running scripts from a UNC path or mapped drive:
+
+----------------------------------------------------------------------------
+Set-ExecutionPolicy Bypass -Scope CurrentUser
+----------------------------------------------------------------------------
