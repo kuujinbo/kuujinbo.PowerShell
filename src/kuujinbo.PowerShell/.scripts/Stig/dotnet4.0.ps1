@@ -35,15 +35,25 @@ $stigModPath = Join-Path $PSScriptRoot '../../Modules/Stig/DotNet4.psm1';
 Import-Module $stigModPath -DisableNameChecking -Force;
 
 # in-memory modules for `Invoke-Command`
-$dynamicScript = Get-ScriptBlockFromFiles -psFiles @(
+$scriptDirectories = @(
+    "$PSScriptRoot/../../Cmdlets/Registry"
+    ,"$PSScriptRoot/../../Cmdlets/Stig/.NET"
+);
+
+$psFiles = @(
     "$PSScriptRoot/../../Cmdlets/Stig/ReadOnlyVariables.ps1"
     ,"$PSScriptRoot/../../Cmdlets/IO/Get-PhysicalDrives.ps1"
     ,"$PSScriptRoot/../../Cmdlets/Net/Get-HostInfo.ps1"
-    ,"$PSScriptRoot/../../Cmdlets/Stig/.NET/Get-ConfigFileResults.ps1"
-) -inlineBlock @'
-return Get-ConfigFileResults -allDrives -getHostInfo -ErrorAction SilentlyContinue;
-'@;
+);
 
+$dynamicScript = Get-ScriptBlock -scriptDirectories $scriptDirectories -psFiles $psFiles `
+    -inlineBlock @'
+$result = @{};
+$result += Get-ConfigFileResults -allDrives -getHostInfo -ErrorAction SilentlyContinue;
+$result += Get-DotNetCombinedResults;
+
+return $result;
+'@;
 # ----------------------------------------------------------------------------
 #endregion
 
@@ -65,7 +75,7 @@ try {
             $result = Receive-Job -Job $complete;
             # $cklOutPath = Join-Path $outputDirectory "$((New-Guid).ToString()).ckl"; 
             $cklOutPath = Join-Path $outputDirectory "$($complete.Location).ckl"; 
-            Export-Ckl -cklInPath $TEMPLATE -cklOutPath $cklOutPath -data $result;
+            Export-Ckl -cklInPath $TEMPLATE -cklOutPath $cklOutPath -data $result -dataRuleIdKey;
             Write-Host "$(Get-JobCompletedText $complete $JOB_NAME)";
 
             if ($result.errors.Length -gt 0) {
@@ -77,7 +87,7 @@ $($result.errors)
 ========================================
 "@;
 
-                Write-Host "Error(s) on [$hostError]. See [$errorFile] when script is finished." `
+                Write-Host "[$hostError]: one or scan more error(s). See [$errorFile] when script is finished." `
                            -ForegroundColor Red -BackgroundColor Black;
                 $jobErrors >> $errorFile;
             }

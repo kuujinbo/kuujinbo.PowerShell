@@ -31,16 +31,14 @@ function Export-Ckl {
                 $cklTemplate.CHECKLIST.ASSET.HOST_FQDN = $h.fqdn;
             }
 
-            # search XML by vulnerability number
-            $keyNodeIndex = 0; 
-            # search XML by rule ID
-            if ($dataRuleIdKey.IsPresent) { $keyNodeIndex = 3; }
+            # search XML by:
+            # rule ID => SV-\d{4,5}r\d_rule
+            $keyNodeIndex = if ($dataRuleIdKey.IsPresent) { 3; }
+            # OR vulnerability number => V-\d{4,5}
+                            else { 0; } 
 
             foreach ($iStig in $cklTemplate.CHECKLIST.STIGS.iSTIG) {
                 foreach ($vuln in $iStig.VULN) {
-                    # vulnerability Id format => 'V-\d{4,5}'
-                    # OR
-                    # vulnerability rule Id format => '^SV-\d{4,5}r2_rule'
                     $id = $vuln.STIG_DATA.ATTRIBUTE_DATA[$keyNodeIndex];
                     if ($data.ContainsKey($id)) {
                         [string[]]$values = $data.$id;

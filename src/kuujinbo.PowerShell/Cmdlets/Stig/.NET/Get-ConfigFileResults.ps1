@@ -26,14 +26,17 @@ function Get-ConfigFileResults {
     $attrRef = 'ref';
     $attrEnabled = 'enabled';
     $rules = @{
-        'V-7070'  = @();
-        'V-32025' = @();
-        'V-30937' = @();
-        'V-30968' = @();
-        'V-30972' = @();
-        'errors'  = @();
+        # V-7070 / SV-7453r2_rule
+        'SV-7453r2_rule'  = @();
+        # V-30937 
+        'SV-40979r1_rule' = @();
+        # V-30968
+        'SV-41010r1_rule' = @();
+        # V-30972
+        'SV-41014r1_rule' = @();
+        # V-32025
+        'SV-42341r1_rule' = @();
     };
-    $errors = @();
 
     if ($allDrives.IsPresent) {
         $paths = @();
@@ -63,12 +66,12 @@ function Get-ConfigFileResults {
                         # V-7070  <channel ref='http' port='443' /> 
                         if ($channel.GetAttribute($attrRef) -eq 'http' `
                             -and $channel.GetAttribute('port') -ne '443') 
-                        { $rules.'V-7070' += $file; }
+                        { $rules.'SV-7453r2_rule' += $file; }
 
                         # V-32025 <channel ref='tcp' secure='true' />
                         if ($channel.GetAttribute($attrRef) -eq 'tcp' `
                             -and $channel.GetAttribute('secure') -ne 'true')
-                        { $rules.'V-32025' += $file; }
+                        { $rules.'SV-42341r1_rule' += $file; }
                     }
                 }
             }
@@ -76,23 +79,27 @@ function Get-ConfigFileResults {
             $legacy = $xml.SelectSingleNode('//NetFx40_LegacySecurityPolicy');
             if ($legacy -ne $null `
                 -and $legacy.GetAttribute($attrEnabled) -eq 'true') 
-            { $rules.'V-30937' += $file; }
+            # V-30937
+            { $rules.'SV-40979r1_rule' += $file; }
 
             $loadFrom = $xml.SelectSingleNode('//loadFromRemoteSources');
             if ($loadFrom -ne $null `
                 -and $loadFrom.GetAttribute($attrEnabled) -eq 'true') 
-            { $rules.'V-30968' += $file; }
+            # V-30968
+            { $rules.'SV-41010r1_rule' += $file; }
 
             $proxy = $xml.SelectNodes('//defaultProxy');
-            if ($proxy.Count -gt 0) { $rules.'V-30972' += $file; }
+            # V-30972
+            if ($proxy.Count -gt 0) { $rules.'SV-41014r1_rule' += $file; }
         } catch  {
             $rules.'errors' += "[$file] => $($_.exception.message)";
         }
     }
 
-    $result = [hashtable] (Get-CklResults $rules);
+    $result = [hashtable] (Get-CklResults $rules $fileCount);
+
     $result.fileCount = $fileCount;
-    $result.errors = $files.errors;
+    $result.errors = ($rules.'errors' -join "`r`n");
     if ($getHostInfo.IsPresent) { $result.'hostinfo' = Get-HostInfo; }
 
     return $result
@@ -106,27 +113,23 @@ function Get-CklResults {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory)][hashtable]$results
+        ,[Parameter(Mandatory)][int]$total
     );
 
-    $cklResults = @{
-        'errors' = ($results.'errors' -join "`r`n");
-    };
+    $parsedResults = @{};
     foreach ($key in $results.Keys) {
-        if ($key -match '^V-\d+') {
-            $total = $results.fileCount;
-            $fails = [string[]] $results.$key; 
-            $failCount = $fails.Length;
-            if ($failCount -eq 0) {
-                $cklResults.$key = @($CKL_STATUS_PASS, "All ($total) scanned files correctly configured.");
-            } else {
-                $cklResults.$key = @(
-                    $CKL_STATUS_OPEN, 
-                    "($failCount) out of ($total) files incorrectly configured: $($($results.$key) -join "`n")"
-                );
-            }
+        $fails = [string[]] $results.$key; 
+        $failCount = $fails.Length;
+        if ($failCount -eq 0) {
+            $parsedResults.$key = @($CKL_STATUS_PASS, "All ($total) scanned files correctly configured.");
+        } else {
+            $parsedResults.$key = @(
+                $CKL_STATUS_OPEN, 
+                "($failCount) out of ($total) files incorrectly configured: $($($results.$key) -join "`n")"
+            );
         }
     }
-    return [hashtable] $cklResults;
+    return [hashtable] $parsedResults;
 }
 
 #region helpers
