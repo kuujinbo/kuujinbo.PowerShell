@@ -1,16 +1,8 @@
 <#
-#---------------------------------------------------------------------------
-    Microsoft .Net Framework 4 STIG - Ver 1, Rel 4
-#---------------------------------------------------------------------------
-#>
-
-<#
 .SYNOPSIS
     Get .NET STIG configuration file rule results.
-.NOTES
-    DISA STIG viewer 2.7
 #>
-function Get-ConfigFileResults {
+function Get-DotNetConfigFileResults {
     [CmdletBinding()]
     param(
         [Parameter(ParameterSetName='paths', Mandatory=$true)]

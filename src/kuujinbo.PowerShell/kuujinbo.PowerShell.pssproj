@@ -59,6 +59,8 @@
     <Compile Include="Cmdlets\Registry\Get-RegistryResultsMultiple.ps1" />
     <Compile Include="Cmdlets\Remote\Get-JobCompletedText.ps1" />
     <Compile Include="Cmdlets\Stig\.NET\Get-DotNetCombinedResults.ps1" />
+    <Compile Include="Cmdlets\Stig\.NET\Get-DotNetManualResults.ps1" />
+    <Compile Include="Cmdlets\Stig\.NET\Get-MSCorLibVersions.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Access2010Registry.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Office2010OneOffRegistry.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-OneNote2010Registry.ps1" />
@@ -69,7 +71,7 @@
     <Compile Include="Cmdlets\Stig\Office2010\Get-Word2010Registry.ps1" />
     <Compile Include="Cmdlets\WindowsForms\Get-OpenFileDialogFiles.ps1" />
     <Compile Include="Modules\Stig\DotNet4.psm1" />
-    <Compile Include="Cmdlets\Stig\.NET\Get-ConfigFileResults.ps1" />
+    <Compile Include="Cmdlets\Stig\.NET\Get-DotNetConfigFileResults.ps1" />
     <Compile Include="Cmdlets\Stig\Export-Ckl.ps1" />
     <Compile Include="Cmdlets\Stig\Utils\Get-UserRightAccounts.ps1" />
     <Compile Include="Cmdlets\Stig\Utils\Get-AuditPol.ps1" />
@@ -91,6 +93,7 @@
   <ItemGroup>
     <Content Include=".archive\dotnet4-README.txt" />
     <Content Include=".scripts\Stig\office-2010-README.txt" />
+    <Content Include="Cmdlets\Stig\.NET\.version" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />

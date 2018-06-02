@@ -49,7 +49,7 @@ $psFiles = @(
 $dynamicScript = Get-ScriptBlock -scriptDirectories $scriptDirectories -psFiles $psFiles `
     -inlineBlock @'
 $result = @{};
-$result += Get-ConfigFileResults -allDrives -getHostInfo -ErrorAction SilentlyContinue;
+$result += Get-DotNetConfigFileResults -allDrives -getHostInfo -ErrorAction SilentlyContinue;
 $result += Get-DotNetCombinedResults;
 
 return $result;

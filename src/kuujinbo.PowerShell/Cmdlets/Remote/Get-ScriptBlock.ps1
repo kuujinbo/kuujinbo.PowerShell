@@ -49,10 +49,9 @@ function Get-ScriptBlock {
     if ($recurse.IsPresent) { $params.'Recurse' = $true; }
     foreach ($dir in $scriptDirectories) {
         $params.'Path' = $dir;
-        Get-ChildItem @params | `
-            foreach { 
-                $scripts.AppendLine([System.IO.File]::ReadAllText($_.FullName)) | Out-Null; 
-            };
+        Get-ChildItem @params | foreach { 
+            $scripts.AppendLine([System.IO.File]::ReadAllText($_.FullName)) | Out-Null; 
+        };
     }
 
     foreach ($psFile in $psFiles) {
