@@ -8,6 +8,7 @@ function Get-Rules {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory)] [string]$xmlRulesPath
+        ,[string]$registryCheckTag = 'check.check-content'
         ,[string]$regWorkingOutPath
         ,[scriptblock]$functionToCall
     )
@@ -30,7 +31,7 @@ function Get-Rules {
             }
 
             if ($regWorkingOutPath) { 
-                $a = Get-RegistryInfoFromCheckContent $rule.check.'check-content';
+                $a = Get-RegistryInfoFromCheckContent $rule.$registryCheckTag.InnerText;
                 if ($a.length -gt 0) { 
                     $hive = $REGISTRY_HIVE[$a[0]] + ':' + $a[1];
                     $working.AppendLine(

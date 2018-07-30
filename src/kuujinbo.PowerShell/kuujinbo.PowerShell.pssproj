@@ -29,6 +29,7 @@
   <ItemGroup>
     <Folder Include=".scripts\Stig\" />
     <Folder Include="Cmdlets\Net\" />
+    <Folder Include="Cmdlets\Stig\Adobe\" />
     <Folder Include="Cmdlets\WindowsForms\" />
     <Folder Include="Modules\" />
     <Folder Include="Cmdlets\Remote\" />
@@ -51,7 +52,8 @@
   <ItemGroup>
     <Compile Include=".scripts\Stig\dotnet4.0.ps1" />
     <Compile Include=".archive\dotnet4.ps1" />
-    <Compile Include="Cmdlets\ActiveDirectory\cmdlets\Get-RootOid.ps1" />
+    <Compile Include=".scripts\Stig\reader-dc-classic.ps1" />
+    <Compile Include="Cmdlets\ActiveDirectory\Get-RootOid.ps1" />
     <Compile Include="Cmdlets\Remote\Write-JobProgress.ps1" />
     <Compile Include="Cmdlets\Net\Get-HostInfo.ps1" />
     <Compile Include="Cmdlets\Path\Get-DesktopPath.ps1" />
@@ -61,6 +63,7 @@
     <Compile Include="Cmdlets\Stig\.NET\Get-DotNetCombinedResults.ps1" />
     <Compile Include="Cmdlets\Stig\.NET\Get-DotNetManualResults.ps1" />
     <Compile Include="Cmdlets\Stig\.NET\Get-MSCorLibVersions.ps1" />
+    <Compile Include="Cmdlets\Stig\Adobe\Get-ReaderDcClassicRegistry.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Access2010Registry.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Office2010OneOffRegistry.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-OneNote2010Registry.ps1" />
@@ -87,6 +90,7 @@
     <Compile Include="Cmdlets\Stig\XmlRulesParse\Get-WantedRules.ps1" />
     <Compile Include="Cmdlets\Stig\ReadOnlyVariables.ps1" />
     <Compile Include="Cmdlets\Stig\Utils\Set-RegistryValue.ps1" />
+    <Compile Include="Modules\Stig\ReaderDcClassic.psm1" />
     <Compile Include="Modules\Stig\Stig.psm1" />
     <Compile Include="Modules\WindowsForms.psm1" />
   </ItemGroup>
