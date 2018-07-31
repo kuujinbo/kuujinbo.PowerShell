@@ -21,6 +21,9 @@ function Get-ReaderDcClassicRegistry {
         'V-65779' = @("HKLM:\Software\Policies\Adobe\Acrobat Reader\$version\FeatureLockDown\cCloud", 'bAdobeSendPluginToggle', '1');
         'V-65781' = @("HKLM:\Software\Policies\Adobe\Acrobat Reader\$version\FeatureLockDown\cServices", 'bToggleAdobeDocumentServices', '1');
         'V-65783' = @("HKLM:\Software\Policies\Adobe\Acrobat Reader\$version\FeatureLockDown\cServices", 'bTogglePrefsSync', '1');
+        # 32 bit
+        # 'V-65785' = @("HKLM:\Software\Adobe\Acrobat Reader\$version\Installer", 'DisableMaintenance', '1');
+        'V-65785' = @("HKLM:\SOFTWARE\Wow6432Node\Adobe\Acrobat Reader\$version\Installer", 'DisableMaintenance', '1');
         'V-65787' = @("HKLM:\Software\Policies\Adobe\Acrobat Reader\$version\FeatureLockDown\cServices", 'bToggleWebConnectors', '1');
         'V-65789' = @("HKLM:\Software\Policies\Adobe\Acrobat Reader\$version\FeatureLockDown\cServices", 'bToggleAdobeSign', '1');
         'V-65791' = @("HKLM:\Software\Policies\Adobe\Acrobat Reader\$version\FeatureLockDown\cWebmailProfiles", 'bDisableWebmail', '1');
