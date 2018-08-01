@@ -1,0 +1,62 @@
+############################################################################
+HKU / HKCU
+############################################################################
+
+<#
+.SYNOPSIS
+    Get registry value from supplied path and value name.
+.NOTES
+    [1] Caller **MUST** check return value if testing for the existence of the
+        value name; missing path or name returns $null.
+    [2] HKCU requires user login, so instead query:
+        Registry::HKEY_USERS\.DEFAULT => alias for HKEY_USERS\S-1-5-18:
+
+        https://blogs.msdn.microsoft.com/oldnewthing/20070302-00/?p=27783:
+        
+        Account used by programs / services that run as Local System. 
+        E.g. winlogon and logonui, which display the interface for logging
+        onto the system.
+
+#>
+function Get-RegistryValue {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory)] [string]$path
+        ,[Parameter(Mandatory)] [string]$valueName
+    );
+
+    $HKCU = 'HKCU:';
+    if ($path.StartsWith($HKCU)) {
+        $path = $path -replace $HKCU, 'Registry::HKEY_USERS\.DEFAULT';
+    }
+
+    if (Test-Path -LiteralPath $path) {
+        $returnValue = (Get-Item -LiteralPath $path).GetValue($valueName, $null);
+        if (($returnValue -ne $null) -and ($returnValue -is [string])) {
+            # REG_SZ / REG_EXPAND_SZ / REG_MULTI_SZ `null` terminated => **NOT** valid XML
+            $returnValue = ($returnValue -replace "`0", '').Trim(); 
+        }
+
+        # return needed, or wrong type returned
+        return $returnValue;
+    }
+    return $null; # explicitly return default value
+}
+
+$version = 2015;
+$test =     @{
+    'V-65805' = @("HKLM:\Software\Policies\Adobe\Acrobat Reader\$version\FeatureLockDown", 'bEnableCertificateBasedTrust', '0');
+    'V-65807' = @("HKCU:\Software\Adobe\Acrobat Reader\$version\Security\cDigSig\cAdobeDownload", 'bLoadSettingsFromURL', '0');
+};
+
+foreach ($k in $test.Keys) {
+    $path = $test.$k[0];
+    $key = $test.$k[1]
+    $result = (Get-RegistryValue $path $key);
+    write-host "$k => $result";
+}
+
+############################################################################
+active / currently logged-in users
+############################################################################
+https://stackoverflow.com/a/30917569/604196

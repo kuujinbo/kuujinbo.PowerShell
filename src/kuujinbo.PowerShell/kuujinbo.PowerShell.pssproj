@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".archive\dotnet4-README.txt" />
+    <Content Include=".archive\scratch.txt" />
     <Content Include=".scripts\Stig\office-2010-README.txt" />
     <Content Include="Cmdlets\Stig\.NET\.version" />
   </ItemGroup>
