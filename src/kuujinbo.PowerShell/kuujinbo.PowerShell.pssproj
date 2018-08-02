@@ -72,7 +72,8 @@
     <Compile Include="Cmdlets\Stig\Office2010\Get-Excel2010Registry.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Pp2010Registry.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Word2010Registry.ps1" />
-    <Compile Include="Cmdlets\WindowsForms\Get-OpenFileDialogFiles.ps1" />
+    <Compile Include="Cmdlets\WindowsForms\Select-Files.ps1" />
+    <Compile Include="Cmdlets\WindowsForms\Select-Directory.ps1" />
     <Compile Include="Modules\Stig\DotNet4.psm1" />
     <Compile Include="Cmdlets\Stig\.NET\Get-DotNetConfigFileResults.ps1" />
     <Compile Include="Cmdlets\Stig\Export-Ckl.ps1" />

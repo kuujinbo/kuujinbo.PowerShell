@@ -62,7 +62,6 @@ $hostError errors:
 $($result.errors)
 ========================================
 "@;
-
                 Write-Host "[$hostError]: one or scan more error(s). See [$errorFile] when script is finished." `
                            -ForegroundColor Red -BackgroundColor Black;
                 # $jobErrors >> $errorFile;
@@ -88,10 +87,3 @@ $($result.errors)
     Get-Job | Remove-Job -Force;
     $error.Clear();
 }
-
-
-<#
-
-$results = Get-RegistryResults (Get-ReaderDcClassicRegistry -version 2017);
-$results;
-#>

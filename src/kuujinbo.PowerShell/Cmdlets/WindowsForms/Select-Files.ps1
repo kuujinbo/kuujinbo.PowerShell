@@ -1,12 +1,8 @@
 <#
 .SYNOPSIS
-    Get selected files from GUI
-.NOTES
-    Tested on STIG Viewer 2.7. To save template file:
-    [1] Checklist => Create Checklist - Check Marked STIG(s)
-    [2] File => Save Checklist As...
+    Select files from GUI.
 #>
-function Get-OpenFileDialogFiles {
+function Select-Files {
     [CmdletBinding()]
     param(
         [string]$title = 'Select one or more File(s)'
