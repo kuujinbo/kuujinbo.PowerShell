@@ -3,14 +3,16 @@
     Get an array of line entries from a string:
         -- Ignore all whitespace lines.
         -- Trim() each line entry.
+.OUTPUTS
+   [string[]] - If $text is null or whitespace, returns empty array
 #>
 function Get-TrimmedLines {
     [CmdletBinding()]
     param(
-        [Parameter(Mandatory)] [string]$text
+        [string]$text = ''
     )
 
-    return $text.Split(
+    $lines = $text.Split(
         [string[]] (, "`r`n", "`n", "`r"), 
         [StringSplitOptions]::RemoveEmptyEntries
     ) `
@@ -18,4 +20,7 @@ function Get-TrimmedLines {
         | . {
             process { $_.Trim(); }
         };
+
+    if ($lines -ne $null) { return $lines; }
+    else { return New-Object string[] 0; }
 }

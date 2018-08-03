@@ -26,6 +26,7 @@ namespace Scripting.PoweShell {
             _ofd.AddExtension = false;
             _ofd.CheckFileExists = false;
             _ofd.DereferenceLinks = true;
+            _ofd.RestoreDirectory = true;
             _ofd.Multiselect = false;
         }
         public string InitialDirectory
@@ -33,7 +34,7 @@ namespace Scripting.PoweShell {
             get { return _ofd.InitialDirectory; }
             set {
                 _ofd.InitialDirectory = string.IsNullOrWhiteSpace(value)
-                    ? Environment.CurrentDirectory : value;
+                    ? Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) : value;
             }
         }
         public string Title {

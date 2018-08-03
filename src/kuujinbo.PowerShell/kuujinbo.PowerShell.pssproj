@@ -51,7 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include=".scripts\Stig\dotnet4.0.ps1" />
-    <Compile Include=".archive\dotnet4.ps1" />
     <Compile Include=".scripts\Stig\reader-dc-classic.ps1" />
     <Compile Include="Cmdlets\ActiveDirectory\Get-RootOid.ps1" />
     <Compile Include="Cmdlets\Remote\Write-JobProgress.ps1" />
@@ -99,7 +98,6 @@
     <Compile Include="Modules\WindowsForms.psm1" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include=".archive\dotnet4-README.txt" />
     <Content Include=".archive\scratch.txt" />
     <Content Include=".scripts\Stig\office-2010-README.txt" />
     <Content Include="Cmdlets\Stig\.NET\.version" />

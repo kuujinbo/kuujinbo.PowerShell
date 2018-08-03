@@ -1,7 +1,9 @@
+<#
 param(
     [string]$outputDirectory = ''
     ,[int]$throttleLimit = 5
 );
+#>
 
 
 #region load modules
@@ -33,6 +35,93 @@ return $result;
 #endregion
 
 
+[xml]$xaml = @"
+<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="" WindowStartupLocation="CenterScreen"
+    Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
+    HorizontalContentAlignment="Center" SizeToContent="WidthAndHeight"
+    ResizeMode="NoResize"
+>
+    <DockPanel>
+        <Grid DockPanel.Dock="Top" Margin='8,0' >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" MinHeight="276"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Output Directory"
+                Grid.Row="1" Grid.ColumnSpan="2" Margin="0,8,0,2" 
+            />
+            <TextBox Name="outputDirectory" 
+                Grid.Row="2" Grid.Column="0" MinWidth="476" 
+            />
+            <Button Name="buttonBrowseDirectory" 
+                Grid.Row="2" Grid.Column="1" Content="Browse...." Height="23" Width="76"
+                VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8,0,0,0"
+            />
+            <TextBlock Text="Host Name(s)"
+                Grid.Row="3" Grid.ColumnSpan="2" Margin="0,8,0,2"
+            />
+            <TextBox Name="hostnames" 
+                Grid.Row="4" Grid.ColumnSpan="2"
+                TextWrapping="Wrap" AcceptsReturn="True"
+                HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"
+            />
+        </Grid>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Margin="8" VerticalAlignment="Top">
+            <Button Name="buttonRun" 
+                Content="Run" Height="25" MinWidth="76"
+            />
+        </StackPanel>
+    </DockPanel>
+</Window>
+"@;
+
+$reader = (New-Object System.Xml.XmlNodeReader $xaml);
+$form = [Windows.Markup.XamlReader]::Load($reader);
+Set-XamlPsVars -xaml $xaml -uiElement $form;
+
+$buttonBrowseDirectory.add_Click({
+    $dir = Select-Directory;
+    if ($dir -and (Test-Path $dir -PathType Container)) {
+        $outputDirectory.Text = $dir;
+    }
+});
+
+$buttonRun.add_Click({
+# only run script if passes sanity check
+    $dir = $outputDirectory.Text.Trim();
+    $hosts = Get-TrimmedLines $hostnames.Text;
+
+    $validDir = $dir -and (Test-Path $dir -PathType Container);
+    $validHosts = $hosts.Length -gt 0;
+    if ($validDir -and $validHosts) { 
+        $form.Close();
+    }
+# let user know missing required parameters      
+    else {
+        $err = "Cannot run script - missing required field(s):`n`n";
+        if (!$validDir) { $err += "-- Output directory`n"; }
+        if (!$validHosts) { $err += "-- Host name(s)`n"; }
+        Show-WpfMessageBox -caption 'Missing Fields' `
+            -text $err `
+            -icon ([System.Windows.MessageBoxImage]::Hand);        
+    }
+});
+
+$form.Title = 'STIG Scanner';
+$form.ShowDialog() | Out-Null;
+
+
+<#
 Set-Variable TEMPLATE -option ReadOnly -value ([string] "$($PSScriptRoot)/TEMPLATE-reader-dc-classic-V1R4.ckl");
 Set-Variable JOB_NAME -option ReadOnly -value ([string] 'reader_dc_classic');
 $hostnames = @();
@@ -87,3 +176,6 @@ $($result.errors)
     Get-Job | Remove-Job -Force;
     $error.Clear();
 }
+
+
+#>

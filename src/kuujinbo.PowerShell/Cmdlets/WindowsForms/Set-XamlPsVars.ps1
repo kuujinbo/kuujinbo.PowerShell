@@ -1,7 +1,7 @@
 <#
 .SYNOPSIS
-    Set poweshell variables received from WPF XAML from WPF XAML to allow
-    setting properties and event handlers in a calling script.
+    Set/map WPF XAML nodes to powershell variables for each individual GUI control
+    to allow setting properties and event handlers in calling script.
 #>
 function Set-XamlPsVars {
     [CmdletBinding()]
