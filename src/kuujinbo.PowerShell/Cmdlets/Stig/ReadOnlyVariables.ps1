@@ -22,3 +22,7 @@ Set-Variable CKL_STATUS_OPEN -option ReadOnly -value ([string] 'Open');
 Set-Variable CKL_STATUS_PASS -option ReadOnly -value ([string] 'NotAFinding');
 Set-Variable CKL_STATUS_NA -option ReadOnly -value ([string] 'Not_Applicable');
 Set-Variable CKL_STATUS_NOT_REVIEWED -option ReadOnly -value ([string] 'Not_Reviewed');
+
+# incomplete SCAP scan results
+Set-Variable SCAP_DETAILS -option ReadOnly -value ([string] 'SCAP scanned.');
+Set-Variable SCAP_COMMENTS -option ReadOnly -value ([string] 'Not a finding.');

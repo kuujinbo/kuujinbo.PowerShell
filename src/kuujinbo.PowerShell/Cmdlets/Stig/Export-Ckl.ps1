@@ -2,7 +2,7 @@
 .SYNOPSIS
     Export STIG scan results to a .ckl file
 .NOTES
-    Tested on DISA STIG Viewer 2.7. To save template file:
+    Tested on DISA STIG Viewer 2.7.1. To save template file:
     [1] Checklist => Create Checklist - Check Marked STIG(s)
     [2] File => Save Checklist As...
 #>
