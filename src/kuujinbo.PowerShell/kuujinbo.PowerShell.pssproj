@@ -54,6 +54,7 @@
     <Compile Include=".scripts\Stig\reader-dc-classic.ps1" />
     <Compile Include=".scripts\Stig\update-scap-scan.ps1" />
     <Compile Include="Cmdlets\ActiveDirectory\Get-RootOid.ps1" />
+    <Compile Include="Cmdlets\Net\Get-LoggedOnUser.ps1" />
     <Compile Include="Cmdlets\Remote\Write-JobProgress.ps1" />
     <Compile Include="Cmdlets\Net\Get-HostInfo.ps1" />
     <Compile Include="Cmdlets\Path\Get-DesktopPath.ps1" />

@@ -59,4 +59,7 @@ foreach ($k in $test.Keys) {
 ############################################################################
 active / currently logged-in users
 ############################################################################
+query user /server:$SERVER
+
+
 https://stackoverflow.com/a/30917569/604196
