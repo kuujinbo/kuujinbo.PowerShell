@@ -55,7 +55,7 @@
     <Compile Include=".scripts\Stig\update-scap-scan.ps1" />
     <Compile Include="Cmdlets\ActiveDirectory\Get-RootOid.ps1" />
     <Compile Include="Cmdlets\Net\Get-LoggedOnUser.ps1" />
-    <Compile Include="Cmdlets\Registry\Get-RemoteHkuRegistry .ps1" />
+    <Compile Include="Cmdlets\Registry\Convert-LoggedInSidToUsername .ps1" />
     <Compile Include="Cmdlets\Remote\Write-JobProgress.ps1" />
     <Compile Include="Cmdlets\Net\Get-HostInfo.ps1" />
     <Compile Include="Cmdlets\Path\Get-DesktopPath.ps1" />
@@ -65,7 +65,8 @@
     <Compile Include="Cmdlets\Stig\.NET\Get-DotNetCombinedResults.ps1" />
     <Compile Include="Cmdlets\Stig\.NET\Get-DotNetManualResults.ps1" />
     <Compile Include="Cmdlets\Stig\.NET\Get-MSCorLibVersions.ps1" />
-    <Compile Include="Cmdlets\Stig\Adobe\Get-ReaderDcClassicRegistry.ps1" />
+    <Compile Include="Cmdlets\Stig\Adobe\Get-ReaderDcClassicHKU.ps1" />
+    <Compile Include="Cmdlets\Stig\Adobe\Get-ReaderDcClassicHKLM.ps1" />
     <Compile Include="Cmdlets\Stig\Update-ScapScan.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Access2010Registry.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Office2010OneOffRegistry.ps1" />

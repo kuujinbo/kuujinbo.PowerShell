@@ -2,7 +2,7 @@
 .SYNOPSIS
     Get registry rules => Version: 1, Release: 4, 27 Jul 2018
 #>
-function Get-ReaderDcClassicRegistry {
+function Get-ReaderDcClassicHKLM {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory)] [int]$version
@@ -34,11 +34,6 @@ function Get-ReaderDcClassicRegistry {
         'V-65801' = @("HKLM:\Software\Policies\Adobe\Acrobat Reader\$version\FeatureLockDown", 'bDisableTrustedFolders', '1');
         'V-65803' = @("HKLM:\Software\Policies\Adobe\Acrobat Reader\$version\FeatureLockDown", 'bDisableTrustedSites', '1');
         'V-65805' = @("HKLM:\Software\Policies\Adobe\Acrobat Reader\$version\FeatureLockDown", 'bEnableCertificateBasedTrust', '0');
-# HKCU 
-        'V-65807' = @("HKCU:\Software\Adobe\Acrobat Reader\$version\Security\cDigSig\cEUTLDownload", 'bLoadSettingsFromURL', '0');
-        'V-65809' = @("HKCU:\Software\Adobe\Acrobat Reader\$version\Security\cDigSig\cAdobeDownload", 'bLoadSettingsFromURL', '0');
-        'V-65813' = @("HKCU:\Software\Adobe\Acrobat Reader\$version\AVGeneral", 'bFIPSMode', '1');
-# /HKCU
         'V-65815' = @("HKLM:\Software\Policies\Adobe\Acrobat Reader\$version\FeatureLockDown", 'bAcroSuppressUpsell', '1');
     };
 }

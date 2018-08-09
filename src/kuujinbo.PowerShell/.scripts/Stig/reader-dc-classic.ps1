@@ -22,7 +22,8 @@ $psFiles = @(
 $dynamicScript = Get-ScriptBlock -scriptDirectories $scriptDirectories -psFiles $psFiles `
     -inlineBlock @'
 $result = @{};
-$result += Get-RegistryResults (Get-ReaderDcClassicRegistry -version 2017);
+$result += Get-RegistryResults (Get-ReaderDcClassicHKLM -version 2017);
+$result += Get-RegistryResults -getHku -rules (Get-ReaderDcClassicHKU -version 2017);
 $result.'hostinfo' = Get-HostInfo;
 
 return $result;
@@ -106,20 +107,13 @@ function Start-Script {
     );
 
     try {
-        # ignore script user when attempting to load user hive(s); no
-        # guarantee GPO(s) applied during remote session
-        $name, $sid = (whoami /user)[-1] -split '\s+';
-
         $rootJob = Invoke-Command -ComputerName $remoteHosts -ErrorAction Stop `
-            -ThrottleLimit $throttleLimit -AsJob -ScriptBlock $dynamicScript;
+            -ThrottleLimit 5 -AsJob -ScriptBlock $dynamicScript;
         $childJobs = $rootJob.ChildJobs;
 
         while ($job = $childJobs | where { $_.HasMoreData; }) {
             foreach ($complete in $job | where { $_.State -eq 'Completed'; }) {
                 $result = Receive-Job -Job $complete;
-
-                $result;
-
                 $cklOutPath = Join-Path $outputDirectory "$($complete.Location).ckl"; 
                 Export-Ckl -cklInPath $TEMPLATE -cklOutPath $cklOutPath -data $result;
 
@@ -137,7 +131,6 @@ $($result.errors)
                                -ForegroundColor Red -BackgroundColor Black;
                     # $jobErrors >> $errorFile;
                 }
-
             }
             Write-JobProgress $rootJob $JOB_NAME;
 

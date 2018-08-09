@@ -80,8 +80,8 @@ $buttonRun.add_Click({
     $details = $detailsText.Text.Trim();
     $comments = $commentText.Text.Trim();
     $validDir = $dir -and (Test-Path $dir -PathType Container);
-    $validDetails = ![string]::IsNullOrEmpty($details); 
-    $validComments = ![string]::IsNullOrEmpty($comments); 
+    $validDetails = ![string]::IsNullOrWhiteSpace($details); 
+    $validComments = ![string]::IsNullOrWhiteSpace($comments); 
     if ($validDir -and $validDetails -and $validDetails) { 
         $form.Close();
         Update-ScapScan -cklDirectory $dir -findingDetails $details -findingComments $comments;
