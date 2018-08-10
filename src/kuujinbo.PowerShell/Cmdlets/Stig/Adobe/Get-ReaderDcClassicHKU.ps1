@@ -2,10 +2,10 @@
 .SYNOPSIS
     Get registry rules => Version: 1, Release: 4, 27 Jul 2018
 .NOTES
-    For each registry key path, 'HKEY_USERS\' will be corrected and replaced
-    with a user SID or SamAccountName in /Cmdlets/Registry/Get-RegistryResults.ps1
+    For each registry key path, a user SID or SamAccountName will be appended
+    to 'HKEY_USERS\' in /Cmdlets/Registry/Get-RegistryResults.ps1
 .EXAMPLE
-    $result += Get-RegistryResults (Get-ReaderDcClassicHKU -version 2017);
+    Get-RegistryResults -getHku -rules (Get-ReaderDcClassicHKU -version 2017);
 #>
 function Get-ReaderDcClassicHKU {
     [CmdletBinding()]

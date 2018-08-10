@@ -33,14 +33,14 @@ function Get-RegistryResults {
             select $_ -ExpandProperty Name -First 1;
         if ($loggedIn -ne $null) { # HKEY_USERS logged-in user found
             $HKUPathPart = $loggedIn -replace '.*\\', '';
-            $HKUUsername =  ' ({0})' -f (Convert-LoggedInSidToUsername $HKUPathPart);
+            $HKUUsername =  ' [{0}[' -f (Convert-LoggedInSidToUsername $HKUPathPart);
         } else { # get most recently modified user hive from all user profiles on machine
             $hive = gci c:/users -File -Filter 'ntuser.dat' -Recurse -Depth 1 -Hidden -ErrorAction SilentlyContinue | 
                         where { $_.Directory.Name -ne $scriptUsername; } |
                         sort LastWriteTime -Descending |
                         select -First 1;
             $HKUPathPart = $hive.Directory.Name;
-            $HKUUsername = ' ({0})' -f $HKUPathPart; 
+            $HKUUsername = ' [{0}[' -f $HKUPathPart; 
             $HKUKeyName = "HKU\$HKUPathPart";
 
             $null = REG LOAD $HKUKeyName $hive.FullName;
