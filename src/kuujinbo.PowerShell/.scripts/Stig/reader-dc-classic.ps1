@@ -106,6 +106,8 @@ function Start-Script {
         ,[Parameter(Mandatory)] [string[]]$remoteHosts
     );
 
+    $openLog = New-Object System.Text.StringBuilder;
+
     try {
         $rootJob = Invoke-Command -ComputerName $remoteHosts -ErrorAction Stop `
             -ThrottleLimit 5 -AsJob -ScriptBlock $dynamicScript;
@@ -114,6 +116,7 @@ function Start-Script {
         while ($job = $childJobs | where { $_.HasMoreData; }) {
             foreach ($complete in $job | where { $_.State -eq 'Completed'; }) {
                 $result = Receive-Job -Job $complete;
+                $null = $openLog.Append((Get-OpenRules $complete.Location  $result));
                 $cklOutPath = Join-Path $outputDirectory "$($complete.Location).ckl"; 
                 Export-Ckl -cklInPath $TEMPLATE -cklOutPath $cklOutPath -data $result;
 
@@ -137,6 +140,10 @@ $($result.errors)
             Start-Sleep -Milliseconds 760;
         } 
         Write-Host (Get-JobCompletedText $rootJob $JOB_NAME -rootJob);   
+
+        # Exhell is too stupid to read Unicode
+        $openLog.ToString() | Set-Content -Path (Join-Path $outputDirectory 'open-log.csv')
+
     } catch {
         $e = '';
         $e = "[$hostname] => $($_.Exception.Message)";

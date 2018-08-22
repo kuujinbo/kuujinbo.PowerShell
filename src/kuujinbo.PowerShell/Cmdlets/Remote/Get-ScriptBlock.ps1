@@ -50,18 +50,18 @@ function Get-ScriptBlock {
     foreach ($dir in $scriptDirectories) {
         $params.'Path' = $dir;
         Get-ChildItem @params | foreach { 
-            $scripts.AppendLine([System.IO.File]::ReadAllText($_.FullName)) | Out-Null; 
+            $null = $scripts.AppendLine([System.IO.File]::ReadAllText($_.FullName)); 
         };
     }
 
     foreach ($psFile in $psFiles) {
         $ext = [System.IO.Path]::GetExtension($psFile);
         if ($ext -eq '.ps1') {
-            $scripts.AppendLine([System.IO.File]::ReadAllText($psFile)) | Out-Null; 
+            $null = $scripts.AppendLine([System.IO.File]::ReadAllText($psFile)); 
         }
     }
 
-    if ($inlineBlock) { $scripts.AppendLine($inlineBlock) | Out-Null; }
+    if ($inlineBlock) { $null = $scripts.AppendLine($inlineBlock); }
 
     return [ScriptBlock]::Create($scripts.ToString());
 }

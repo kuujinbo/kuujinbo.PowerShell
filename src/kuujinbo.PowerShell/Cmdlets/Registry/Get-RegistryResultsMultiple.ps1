@@ -32,19 +32,19 @@ function Get-RegistryResultsMultiple {
             $regName = $path[1];
             $actual = Get-RegistryValue $regPath $regName; 
             $expected = $path[2];
-            $comments.AppendLine("$regPath => $regName") | Out-Null; 
+            $null = $comments.AppendLine("$regPath => $regName"); 
 
             if ($actual -ne $null) {
                 $thisPass = if (-not $invoke.IsPresent) { $actual -eq $expected; } 
                         else { [bool](Invoke-Expression "$actual $expected"); };
                 $pass = $pass -and $thisPass;
 
-                $comments.AppendLine("ACTUAL: $actual :: REQUIRED: $expected") | Out-Null; 
+                $null = $comments.AppendLine("ACTUAL: $actual :: REQUIRED: $expected"); 
             } else {
                 $pass = $false;
-                $comments.AppendLine('Registry value not set.') | Out-Null; 
+                $null = $comments.AppendLine('Registry value not set.'); 
             }
-            $comments.AppendLine() | Out-Null;
+            $null = $comments.AppendLine();
         }
 
         $results.$key = if ($pass) {
@@ -53,7 +53,7 @@ function Get-RegistryResultsMultiple {
             @($CKL_STATUS_OPEN, $comments.ToString());
         }
 
-        $comments.Clear() | Out-Null;
+        $null = $comments.Clear();
     }
 
     return $results;    

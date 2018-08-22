@@ -34,9 +34,9 @@ function Get-Rules {
                 $a = Get-RegistryInfoFromCheckContent $rule.$registryCheckTag.InnerText;
                 if ($a.length -gt 0) { 
                     $hive = $REGISTRY_HIVE[$a[0]] + ':' + $a[1];
-                    $working.AppendLine(
+                    $null = $working.AppendLine(
                         "'$($group.id)' = @('$hive', '$($a[2])', '$($a[4])');"
-                    ) | Out-Null;
+                    );
                 }
             }
         }

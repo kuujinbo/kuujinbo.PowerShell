@@ -67,6 +67,7 @@
     <Compile Include="Cmdlets\Stig\.NET\Get-MSCorLibVersions.ps1" />
     <Compile Include="Cmdlets\Stig\Adobe\Get-ReaderDcClassicHKU.ps1" />
     <Compile Include="Cmdlets\Stig\Adobe\Get-ReaderDcClassicHKLM.ps1" />
+    <Compile Include="Cmdlets\Stig\Get-OpenRules.ps1" />
     <Compile Include="Cmdlets\Stig\Update-ScapScan.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Access2010Registry.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Office2010OneOffRegistry.ps1" />
