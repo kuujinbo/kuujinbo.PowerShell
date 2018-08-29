@@ -15,13 +15,11 @@ function Write-JobProgress {
     $totalJobs = $childJobs.Count;
     $queued = ($childJobs | where { $_.State -eq 'notstarted'; }).Count;
     $remaining = $totalJobs - ($childJobs | where { $_.State -eq 'Completed'; }).Count;
-
-    $running = $childJobs | where { $_.State -eq 'running' -and $_.PSEndTime -eq $null; };
-    $status = if ($running) { "$($($running | select -ExpandProperty Location) -join ', ')" }
-              else { ''; }
     $elapsed = ((Get-Date) - $rootJob.PSBeginTime).ToString('mm\:ss\.ff');
+    $percentComplete = ($totalJobs - $remaining) / $totalJobs * 100; 
+    if (!$percentComplete) { $percentComplete = 0; }    # script start
 
     Write-Progress -Activity "$($jobName)$totalJobs total job(s). $remaining remaining / $queued queued. Runtime $elapsed." `
-                   -Status "$($running.Count) running: [$status]" `
-                   -PercentComplete (($totalJobs - $remaining) / $totalJobs * 100);
+                   -Status ('{0:0.##}% complete' -f $percentComplete ) `
+                   -PercentComplete $percentComplete;
 }

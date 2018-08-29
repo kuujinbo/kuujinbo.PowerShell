@@ -15,7 +15,9 @@
         A user SID or SamAccountName will dynamically be appended to each 
         'HKEY_USERS\' path part to query the correct registry setting.
 .PARAMETER $getHku
-   Get HKU / HKCU registry results.
+   Get HKU / HKCU registry results. The registry hive of the user **running**
+   the script is ALWAYS ignored, since GPO settings are only applied for
+   interactive login; function assumes it's being called from a remote session.
 #>
 function Get-RegistryResults {
     [CmdletBinding()]
@@ -25,13 +27,11 @@ function Get-RegistryResults {
         ,[switch] $invoke
     );
 
-    $HKUKeyName = $null;
-    $HKUUsername = $null;
+    $HKUKeyName = $HKUUsername = $null;
     $HKUPathPart = $null; # SID **OR** SamAccountName
     $regLoad = $null;     # text [string] output from `REG LOAD` DOS command
     if ($getHku.IsPresent) {
-        # ignore **script** user registry hive => HKEY_USERS GPO settings may
-        # **NOT** be applied for remote sessions
+        # current user **CALLING** this function
         $scriptUsername, $scriptUserSid = (whoami.exe /user)[-1] -split '\s+';
         $loggedIn = gci Registry::HKEY_USERS | 
             where { $_.Name -ne "HKEY_USERS\$scriptUserSid" -and $_.Name -match '^HKEY_USERS\\S-1-5-21-[-\d]+$'; } |
@@ -57,21 +57,18 @@ function Get-RegistryResults {
     foreach ($key in $rules.Keys) {
         $params = $rules.$key;
         $keyPath = $params[0];
-        <#
-        $regPath = if ([string]::IsNullOrWhiteSpace($HKUPathPart)) { $params[0]; } 
-                   else { $params[0] -replace 'HKEY_USERS\\', "HKEY_USERS\$HKUPathPart\"; }
-                   #>
-        $regPath, $findingPath = if ($keyPath.StartsWith('HKLM:')) { 
-            @(
-                $keyPath
-                $keyPath.Replace('HKLM:', '')
-            ); 
-        } else { 
-            @(
-                $keyPath.Replace('HKEY_USERS\', "HKEY_USERS\$HKUPathPart\")
-                $keyPath.Replace('Registry::HKEY_USERS', '')
-            );
+        # **ONLY** HKLM and HKU are supported 
+        $regPath, $findingPath = switch -Regex ($keyPath) {
+            '^HKLM:' { @($keyPath, $keyPath.Replace('HKLM:', '')); }
+            '^Registry::HKEY_USERS' {
+                @(
+                    $keyPath.Replace('HKEY_USERS\', "HKEY_USERS\$HKUPathPart\")
+                    $keyPath.Replace('Registry::HKEY_USERS', '')
+                );
+            }
+            default { throw "Invalid registry search path $keyPath"; }
         }
+
         $regName = $params[1];
         $expected = $params[2];
         $actual = Get-RegistryValue $regPath $regName; 
@@ -80,31 +77,31 @@ $findingPath ($regName).$($HKUUsername)
 
 {0}
 "@;
-
-        if ($actual -ne $null) { # registry setting set => check against expected value
+        # registry value set => check against expected value
+        if ($actual -ne $null) {
             if ($expected -is [regex]) { $pass = $expected.IsMatch($actual); } 
             else {
                 $pass = if (-not $invoke.IsPresent) { $actual -eq $expected; } 
                         else { [bool](Invoke-Expression "$actual $expected"); };
             }
-            $results.$key = if ($pass) { # individual .ckl rule field data
+            $results.$key = if ($pass) {
                 @($CKL_STATUS_PASS, 
-                    $null, 
                     ($findingText -f "Not a finding: registry value setting: [$actual]")
                 );
             } else {
                 @($CKL_STATUS_OPEN, 
-                    ($findingText -f "Incorrect registry setting. ACTUAL: [$actual] :: REQUIRED: [$expected]")
+                    ($findingText -f "Open: incorrect registry setting. ACTUAL: [$actual] :: REQUIRED: [$expected]")
                 );
             }
-        } else {  # registry setting *NOT** set => OPEN rule
+        # bad path OR registry value *NOT** set
+        } else {
             $results.$key = @($CKL_STATUS_OPEN, 
-                ($findingText -f "Registry value not set")
+                ($findingText -f "Open: Registry value not set")
             );
         }
     }
 
-    # clean-up if manually loaded HKEY_USERS hive from the filesystem
+    # clean-up if HKEY_USERS hive manually loaded from filesystem
     if (![string]::IsNullOrWhiteSpace($regLoad) -and `
         ![string]::IsNullOrWhiteSpace($HKUKeyName)) 
     {

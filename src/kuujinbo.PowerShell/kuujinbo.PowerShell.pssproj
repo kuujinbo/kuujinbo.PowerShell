@@ -30,6 +30,7 @@
     <Folder Include=".scripts\Stig\" />
     <Folder Include="Cmdlets\Net\" />
     <Folder Include="Cmdlets\Stig\Adobe\" />
+    <Folder Include="Cmdlets\Stig\Ie11\" />
     <Folder Include="Cmdlets\WindowsForms\" />
     <Folder Include="Modules\" />
     <Folder Include="Cmdlets\Remote\" />
@@ -50,6 +51,7 @@
     <Folder Include=".archive\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include=".scripts\Stig\all-combined.ps1" />
     <Compile Include=".scripts\Stig\dotnet4.0.ps1" />
     <Compile Include=".scripts\Stig\reader-dc-classic.ps1" />
     <Compile Include=".scripts\Stig\update-scap-scan.ps1" />
@@ -68,6 +70,7 @@
     <Compile Include="Cmdlets\Stig\Adobe\Get-ReaderDcClassicHKU.ps1" />
     <Compile Include="Cmdlets\Stig\Adobe\Get-ReaderDcClassicHKLM.ps1" />
     <Compile Include="Cmdlets\Stig\Get-OpenRules.ps1" />
+    <Compile Include="Cmdlets\Stig\Ie11\Get-Ie11HKU.ps1" />
     <Compile Include="Cmdlets\Stig\Update-ScapScan.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Access2010Registry.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Office2010OneOffRegistry.ps1" />
@@ -78,6 +81,7 @@
     <Compile Include="Cmdlets\Stig\Office2010\Get-Pp2010Registry.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Word2010Registry.ps1" />
     <Compile Include="Cmdlets\WindowsForms\Get-ProgressWindow.ps1" />
+    <Compile Include="Cmdlets\WindowsForms\Get-WpfForm.ps1" />
     <Compile Include="Cmdlets\WindowsForms\Select-Files.ps1" />
     <Compile Include="Cmdlets\WindowsForms\Select-Directory.ps1" />
     <Compile Include="Cmdlets\WindowsForms\Set-XamlPsVars.ps1" />
