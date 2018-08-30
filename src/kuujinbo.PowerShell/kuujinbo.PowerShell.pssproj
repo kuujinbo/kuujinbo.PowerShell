@@ -80,6 +80,8 @@
     <Compile Include="Cmdlets\Stig\Office2010\Get-Excel2010Registry.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Pp2010Registry.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Word2010Registry.ps1" />
+    <Compile Include="Cmdlets\WindowsForms\Add-DirectorySelectorHandler.ps1" />
+    <Compile Include="Cmdlets\WindowsForms\Add-CheckBoxes.ps1" />
     <Compile Include="Cmdlets\WindowsForms\Get-ProgressWindow.ps1" />
     <Compile Include="Cmdlets\WindowsForms\Get-WpfForm.ps1" />
     <Compile Include="Cmdlets\WindowsForms\Select-Files.ps1" />

@@ -15,9 +15,9 @@
         A user SID or SamAccountName will dynamically be appended to each 
         'HKEY_USERS\' path part to query the correct registry setting.
 .PARAMETER $getHku
-   Get HKU / HKCU registry results. The registry hive of the user **running**
-   the script is ALWAYS ignored, since GPO settings are only applied for
-   interactive login; function assumes it's being called from a remote session.
+    Get HKU / HKCU registry results. The registry hive of the user **running**
+    the script is ALWAYS ignored, since GPO settings are only applied for
+    interactive login; function assumes it's being called from a remote session.
 #>
 function Get-RegistryResults {
     [CmdletBinding()]

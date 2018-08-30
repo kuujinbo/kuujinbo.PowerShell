@@ -10,6 +10,6 @@ function Set-XamlPsVars {
         ,[Parameter(Mandatory=$true)][Windows.UIElement]$uiElement
     )
     $xaml.SelectNodes("//*[@Name]") | foreach {
-        Set-Variable -Name ($_.Name) -Value $uiElement.FindName($_.Name) -Scope Global
+        Set-Variable -Name ($_.Name) -Value $uiElement.FindName($_.Name) -Scope Global;
     };
 }
