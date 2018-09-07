@@ -1,3 +1,11 @@
+<#
+.SYNOPSIS
+    Add a group of CheckBox controls to a ListBox control.
+.PARAMETER $textContent
+    Collection of text used to set each CheckBox `Content` property.
+.PARAMETER $selectAll
+    Check all checkboxes     
+#>
 function Get-WpfForm {
     [CmdletBinding()]
     param (

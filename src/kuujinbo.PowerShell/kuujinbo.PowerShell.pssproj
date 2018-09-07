@@ -80,6 +80,7 @@
     <Compile Include="Cmdlets\Stig\Office2010\Get-Excel2010Registry.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Pp2010Registry.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Word2010Registry.ps1" />
+    <Compile Include="Cmdlets\Text\Get-XmlConfig.ps1" />
     <Compile Include="Cmdlets\WindowsForms\Add-DirectorySelectorHandler.ps1" />
     <Compile Include="Cmdlets\WindowsForms\Add-CheckBoxes.ps1" />
     <Compile Include="Cmdlets\WindowsForms\Get-ProgressWindow.ps1" />
@@ -103,7 +104,7 @@
     <Compile Include="Cmdlets\Registry\Get-RegistryValue.ps1" />
     <Compile Include="Cmdlets\Stig\XmlRulesParse\Get-Rules.ps1" />
     <Compile Include="Cmdlets\Remote\Get-ScriptBlock.ps1" />
-    <Compile Include="Cmdlets\Stig\XmlRulesParse\Get-WantedRules.ps1" />
+    <Compile Include="Cmdlets\Stig\XmlRulesParse\Save-WantedRules.ps1" />
     <Compile Include="Cmdlets\Stig\ReadOnlyVariables.ps1" />
     <Compile Include="Cmdlets\Stig\Utils\Set-RegistryValue.ps1" />
     <Compile Include="Modules\Stig\ReaderDcClassic.psm1" />
