@@ -14,17 +14,21 @@ function Save-WantedRules {
         ,[switch]$getRuleIds
     )
 
+    $ruleCount = $wantedCount = 0;
     $fsi = gci $xmlRulesInPath;
     $xmlRulesOutPath = Join-Path $fsi.Directory.FullName '__wanted.xml';
     [xml]$cklTemplate = Get-Content -Path $xmlRulesInPath -ErrorAction Stop;
     foreach ($group in $cklTemplate.Benchmark.Group) {
+        ++$ruleCount;
         if ($getRuleIds.IsPresent) {
             if (!$wantedRules.ContainsKey($group.Rule.id)) {
                 $null = $group.ParentNode.RemoveChild($group);
+                ++$wantedCount;
             }
         } else {
             if (!$wantedRules.ContainsKey($group.id)) {
                 $null = $group.ParentNode.RemoveChild($group);
+                ++$wantedCount;
             }
         }
     }
@@ -34,4 +38,5 @@ function Save-WantedRules {
     $writer = New-Object System.Xml.XmlTextWriter($xmlRulesOutPath, $utf);
     $cklTemplate.Save($writer);
     $writer.Dispose();
+    Write-Host "Total rules: $ruleCount :: Wanted rules: $wantedCount";
 }

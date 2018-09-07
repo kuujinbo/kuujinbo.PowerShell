@@ -23,6 +23,12 @@ Set-Variable CKL_STATUS_PASS -option ReadOnly -value ([string] 'NotAFinding');
 Set-Variable CKL_STATUS_NA -option ReadOnly -value ([string] 'Not_Applicable');
 Set-Variable CKL_STATUS_NOT_REVIEWED -option ReadOnly -value ([string] 'Not_Reviewed');
 
+Set-Variable NOT_A_FINDING_POLICY -option ReadOnly -value (
+[string[]] @(
+    $CKL_STATUS_PASS, 
+    'Not a finding: local procedure implements the 21 day IAVM process along with automated ACAS vulnerability and compliance scanning.'
+));
+
 # incomplete SCAP scan results
 Set-Variable SCAP_DETAILS -option ReadOnly -value ([string] 'SCAP scanned.');
 Set-Variable SCAP_COMMENTS -option ReadOnly -value ([string] 'Not a finding.');

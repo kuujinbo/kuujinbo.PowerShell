@@ -31,6 +31,7 @@
     <Folder Include="Cmdlets\Net\" />
     <Folder Include="Cmdlets\Stig\Adobe\" />
     <Folder Include="Cmdlets\Stig\Ie11\" />
+    <Folder Include="Cmdlets\Stig\Java\" />
     <Folder Include="Cmdlets\WindowsForms\" />
     <Folder Include="Modules\" />
     <Folder Include="Cmdlets\Remote\" />
@@ -71,6 +72,7 @@
     <Compile Include="Cmdlets\Stig\Adobe\Get-ReaderDcClassicHKLM.ps1" />
     <Compile Include="Cmdlets\Stig\Get-OpenRules.ps1" />
     <Compile Include="Cmdlets\Stig\Ie11\Get-Ie11HKU.ps1" />
+    <Compile Include="Cmdlets\Stig\Java\Get-JREResults.ps1" />
     <Compile Include="Cmdlets\Stig\Update-ScapScan.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Access2010Registry.ps1" />
     <Compile Include="Cmdlets\Stig\Office2010\Get-Office2010OneOffRegistry.ps1" />
