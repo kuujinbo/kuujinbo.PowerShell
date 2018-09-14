@@ -14,7 +14,7 @@ function Save-WantedRules {
         ,[switch]$getRuleIds
     )
 
-    $ruleCount = $wantedCount = 0;
+    $ruleCount = $removedCount = 0;
     $fsi = gci $xmlRulesInPath;
     $xmlRulesOutPath = Join-Path $fsi.Directory.FullName '__wanted.xml';
     [xml]$cklTemplate = Get-Content -Path $xmlRulesInPath -ErrorAction Stop;
@@ -23,12 +23,12 @@ function Save-WantedRules {
         if ($getRuleIds.IsPresent) {
             if (!$wantedRules.ContainsKey($group.Rule.id)) {
                 $null = $group.ParentNode.RemoveChild($group);
-                ++$wantedCount;
+                ++$removedCount;
             }
         } else {
             if (!$wantedRules.ContainsKey($group.id)) {
                 $null = $group.ParentNode.RemoveChild($group);
-                ++$wantedCount;
+                ++$removedCount;
             }
         }
     }
@@ -38,5 +38,5 @@ function Save-WantedRules {
     $writer = New-Object System.Xml.XmlTextWriter($xmlRulesOutPath, $utf);
     $cklTemplate.Save($writer);
     $writer.Dispose();
-    Write-Host "Total rules: $ruleCount :: Wanted rules: $wantedCount";
+    Write-Host "Total rules: $ruleCount :: Wanted rules: $($ruleCount - $removedCount)";
 }
