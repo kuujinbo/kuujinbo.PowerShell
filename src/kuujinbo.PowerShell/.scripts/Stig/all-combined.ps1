@@ -42,9 +42,11 @@ $stigMap = @{
 
 #region WPF
 # ----------------------------------------------------------------------------
-$form = Get-WpfForm (Get-XmlConfig $PSCommandPath);
+$xmlConfigPath = (Join-Path "$PSScriptRoot" 'config/all-combined.xml')
+$form = Get-WpfForm (Get-XmlConfig $xmlConfigPath);
+
 Add-CheckBoxes $stigListBox ($stigMap.Keys | sort) -checkAll;
-Add-DirectorySelectorHandler $buttoninputDirectory; 
+Add-DirectorySelectorHandler $buttonInputDirectory; 
 Add-DirectorySelectorHandler $buttonOutputDirectory; 
 
 $buttonRun.add_Click({

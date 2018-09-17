@@ -28,9 +28,9 @@
                 Grid.Row="2" Grid.Column="0" MinWidth="476" 
             />
             <Button Name="buttonInputDirectory" 
+                Tag="inputDirectory"
                 Grid.Row="2" Grid.Column="1" Content="Browse...." Height="25" Width="76"
                 VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8,0,0,0"
-                Tag="inputDirectory"
             />
             <TextBlock Text="Output Directory"
                 Grid.Row="3" Grid.ColumnSpan="2" Margin="0,8,0,2" 
@@ -39,9 +39,9 @@
                 Grid.Row="4" Grid.Column="0" MinWidth="476" 
             />
             <Button Name="buttonOutputDirectory" 
+                Tag="outputDirectory"
                 Grid.Row="4" Grid.Column="1" Content="Browse...." Height="25" Width="76"
                 VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8,0,0,0"
-                Tag="outputDirectory"
             />
             <TextBlock Text="STIGs"
                 Grid.Row="5" Grid.ColumnSpan="2" Margin="0,8,0,2"

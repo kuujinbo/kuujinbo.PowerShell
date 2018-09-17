@@ -1,4 +1,6 @@
 function Get-Ie11Results {
+    [CmdletBinding()]
+    param( )
 }
 
 
@@ -18,9 +20,7 @@ function Get-Ie11HKLM {
 
 function Get-Ie11HKU {
     [CmdletBinding()]
-    param(
-        [Parameter(Mandatory)] [int]$version
-    )
+    param( )
 
     @{
         'SV-59341r4_rule' = @("Registry::HKEY_USERS\Software\Microsoft\Windows\CurrentVersion\WinTrust\Trust Providers\Software Publishing Criteria", 'State', '0x23C00');

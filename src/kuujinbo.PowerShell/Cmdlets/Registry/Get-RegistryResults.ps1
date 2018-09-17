@@ -15,9 +15,7 @@
         A user SID or SamAccountName will dynamically be appended to each 
         'HKEY_USERS\' path part to query the correct registry setting.
 .PARAMETER $getHku
-    Get HKU / HKCU registry results. The registry hive of the user **running**
-    the script is ALWAYS ignored, since GPO settings are only applied for
-    interactive login; function assumes it's being called from a remote session.
+    Get HKU / HKCU registry results.
 #>
 function Get-RegistryResults {
     [CmdletBinding()]
@@ -27,31 +25,7 @@ function Get-RegistryResults {
         ,[switch] $invoke
     );
 
-    $HKUKeyName = $HKUUsername = $null;
-    $HKUPathPart = $null; # SID **OR** SamAccountName
-    $regLoad = $null;     # text [string] output from `REG LOAD` DOS command
-    if ($getHku.IsPresent) {
-        # current user **CALLING** this function
-        $scriptUsername, $scriptUserSid = (whoami.exe /user)[-1] -split '\s+';
-        $loggedIn = gci Registry::HKEY_USERS | 
-            where { $_.Name -ne "HKEY_USERS\$scriptUserSid" -and $_.Name -match '^HKEY_USERS\\S-1-5-21-[-\d]+$'; } |
-            select $_ -ExpandProperty Name -First 1;
-        if ($loggedIn -ne $null) { # HKEY_USERS logged-in user found
-            $HKUPathPart = $loggedIn -replace '.*\\', '';
-            $HKUUsername =  ' ({0})' -f (Convert-LoggedInSidToUsername $HKUPathPart);
-        } else { # get most recently modified user hive from all user profiles on machine
-            $baseUsername = $scriptUsername -replace '.*\\', '';
-            $hive = gci c:/users -File -Filter 'ntuser.dat' -Recurse -Depth 1 -Hidden -ErrorAction SilentlyContinue | 
-                        where { $_.Directory.Name -ne $baseUsername; } |
-                        sort LastWriteTime -Descending |
-                        select -First 1;
-            $HKUPathPart = $hive.Directory.Name;
-            $HKUUsername = ' ({0})' -f $HKUPathPart; 
-            $HKUKeyName = "HKU\$HKUPathPart";
-
-            $regLoad = REG LOAD $HKUKeyName $hive.FullName 2> $null;
-        }
-    }
+    if ($getHku.IsPresent) { Mount-HKU; }
 
     $results = @{};
     foreach ($key in $rules.Keys) {
@@ -62,7 +36,8 @@ function Get-RegistryResults {
             '^HKLM:' { @($keyPath, $keyPath.Replace('HKLM:', '')); }
             '^Registry::HKEY_USERS' {
                 @(
-                    $keyPath.Replace('HKEY_USERS\', "HKEY_USERS\$HKUPathPart\")
+                    # $keyPath.Replace('HKEY_USERS\', "HKEY_USERS\$HKUPathPart\")
+                    $keyPath.Replace('HKEY_USERS\', "HKEY_USERS\$($script:_HKU_USER_ID)\")
                     $keyPath.Replace('Registry::HKEY_USERS', '')
                 );
             }
@@ -71,9 +46,11 @@ function Get-RegistryResults {
 
         $regName = $params[1];
         $expected = $params[2];
-        $actual = Get-RegistryValue $regPath $regName; 
+        $userComment = if ($script:_HKU_USER_ID) { " ($($script:_HKU_USER_ID))";  } 
+                       else { ''; }
+        $actual = Get-RegistryValue $regPath $regName;
         $findingText = @"
-$findingPath ($regName).$($HKUUsername)
+$findingPath ($regName).$($userComment)
 
 {0}
 "@;
@@ -99,14 +76,6 @@ $findingPath ($regName).$($HKUUsername)
                 ($findingText -f "Open: Registry value not set")
             );
         }
-    }
-
-    # clean-up if HKEY_USERS hive manually loaded from filesystem
-    if (![string]::IsNullOrWhiteSpace($regLoad) -and `
-        ![string]::IsNullOrWhiteSpace($HKUKeyName)) 
-    {
-        [GC]::Collect();
-        $null = REG UNLOAD $HKUKeyName 2> $null;
     }
 
     return $results;

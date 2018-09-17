@@ -25,75 +25,18 @@ $result = @{};
 $result += Get-RegistryResults (Get-ReaderDcClassicHKLM -version 2017);
 $result += Get-RegistryResults -getHku -rules (Get-ReaderDcClassicHKU -version 2017);
 $result.'hostinfo' = Get-HostInfo;
+Dismount-HKU;
 
 return $result;
 '@;
 # ----------------------------------------------------------------------------
 #endregion
 
-
 #region WPF setup
 # ----------------------------------------------------------------------------
-[xml]$xaml = @"
-<Window
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="" WindowStartupLocation="CenterScreen"
-    Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
-    HorizontalContentAlignment="Center" SizeToContent="WidthAndHeight"
-    ResizeMode="NoResize"
->
-    <DockPanel>
-        <Grid DockPanel.Dock="Top" Margin='8,0' >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" MinHeight="276"/>
-            </Grid.RowDefinitions>
-            <TextBlock Text="Output Directory"
-                Grid.Row="1" Grid.ColumnSpan="2" Margin="0,8,0,2" 
-            />
-            <TextBox Name="outputDirectory" 
-                Grid.Row="2" Grid.Column="0" MinWidth="476" 
-            />
-            <Button Name="buttonBrowseDirectory" 
-                Grid.Row="2" Grid.Column="1" Content="Browse...." Height="23" Width="76"
-                VerticalAlignment="Top" HorizontalAlignment="Left" Margin="8,0,0,0"
-            />
-            <TextBlock Text="Host Name(s)"
-                Grid.Row="3" Grid.ColumnSpan="2" Margin="0,8,0,2"
-            />
-            <TextBox Name="hostnames" 
-                Grid.Row="4" Grid.ColumnSpan="2"
-                TextWrapping="Wrap" AcceptsReturn="True"
-                HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"
-            />
-        </Grid>
-        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Margin="8" VerticalAlignment="Top">
-            <Button Name="buttonRun" 
-                Content="Run" Height="25" MinWidth="76"
-            />
-        </StackPanel>
-    </DockPanel>
-</Window>
-"@;
-
-$reader = (New-Object System.Xml.XmlNodeReader $xaml);
-$form = [Windows.Markup.XamlReader]::Load($reader);
-Set-XamlPsVars -xaml $xaml -uiElement $form;
-
-$buttonBrowseDirectory.add_Click({
-    $dir = Select-Directory;
-    if ($dir -and (Test-Path $dir -PathType Container)) {
-        $outputDirectory.Text = $dir;
-    }
-});
+$xmlConfigPath = (Join-Path "$PSScriptRoot" 'config/reader-dc-classic.xml')
+$form = Get-WpfForm (Get-XmlConfig $xmlConfigPath);
+Add-DirectorySelectorHandler $buttonBrowseDirectory;  
 # ----------------------------------------------------------------------------
 #endregion
 

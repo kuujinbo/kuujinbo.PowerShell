@@ -4,11 +4,11 @@
 #>
 function Dismount-HKU {
     [CmdletBinding()]
-    param(
-        [Parameter(Mandatory)] [string]$HKUKeyName
-    );
+    param( );
 
-    [GC]::Collect();
-    # return value !$null => success
-    REG UNLOAD $HKUKeyName 2> $null;
+    if ($script:_HKU_MOUNTED -and $script:_HKU_USER_ID) {
+        $keyName = "$($REGISTRY_HIVE.HKEY_USERS)\$($script:_HKU_USER_ID)"
+        [GC]::Collect();
+        REG UNLOAD $HKUKeyName 2> $null;
+    }
 }

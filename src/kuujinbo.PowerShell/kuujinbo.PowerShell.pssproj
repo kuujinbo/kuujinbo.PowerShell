@@ -28,6 +28,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include=".scripts\Stig\" />
+    <Folder Include=".scripts\Stig\config\" />
     <Folder Include="Cmdlets\Net\" />
     <Folder Include="Cmdlets\Stig\Adobe\" />
     <Folder Include="Cmdlets\Stig\Ie11\" />

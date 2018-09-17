@@ -1,20 +1,16 @@
 <#
 .SYNOPSIS
     Get a System.Xml.XmlDocument from a file.
-.PARAMETER $callingScriptPath
-    Full path to calling script; XML file base name without extension **MUST**
-    be exactly the same.
+.PARAMETER $xmlPath
+    Full path to XML config file.
 .EXAMPLE
-    [xml]$xaml = Get-XmlConfig $PSCommandPath;
+    [xml]$xaml = Get-XmlConfig 'c:/test.xml';
 #>
 function Get-XmlConfig {
     [CmdletBinding()]
     param(
-        [Parameter(Mandatory)] [string]$callingScriptPath
+        [Parameter(Mandatory)] [string]$xmlPath
     )
-
-    $basename = [System.IO.Path]::GetFileNameWithoutExtension($callingScriptPath) + '.xml';
-    $xmlPath = Join-Path ([System.IO.Path]::GetDirectoryName($callingScriptPath)) $basename;
 
     return [xml]([System.IO.File]::ReadAllText($xmlPath));
 }
